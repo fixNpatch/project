@@ -15,3 +15,7 @@ func (c UserController) GetUser(id int) revel.Result {
 	a := 1 + id
 	return c.RenderJSON(a)
 }
+
+//func (c UserController) GetPictute() revel.Result  {
+//	return c.
+//}

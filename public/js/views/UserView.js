@@ -144,8 +144,14 @@ function UserView(app) {
             ]
         });
 
-        // let picture =
-        // $("#profile_picture").setAttribute("src", picture)
+        let picture = {url:""};
+        $.get('/give_me_pic', function (picture_url) {
+            picture = JSON.parse(picture_url)
+        });
+
+        console.log(picture);
+        console.log(picture.url)
+        //$("#profile_picture").setAttribute("src", picture.url);
 
     }
 
