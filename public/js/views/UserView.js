@@ -29,6 +29,7 @@ function UserView(app) {
         let data = getUserlistOnly();
 
 
+
         let date = Date.now();
         webix.Date.startOnMonday = true;
         webix.i18n.setLocale("ru-RU");
@@ -44,7 +45,7 @@ function UserView(app) {
                             css:"black",
                             id:"profile_picture",
                             view:"template",
-                            template:"<img src=\'/public/img/avatar.jpg\' class=\'main_avatar\'>",
+                            template:"<img src='' id =\'profile_picture\' class=\'main_avatar\'>",
                             align:"center",
                             type:"clean",
                             gravity:6
@@ -142,6 +143,10 @@ function UserView(app) {
                 }
             ]
         });
+
+        // let picture =
+        // $("#profile_picture").setAttribute("src", picture)
+
     }
 
 }
