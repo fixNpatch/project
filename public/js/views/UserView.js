@@ -144,14 +144,16 @@ function UserView(app) {
             ]
         });
 
-        let picture = {url:""};
-        $.get('/give_me_pic', function (picture_url) {
-            picture = JSON.parse(picture_url)
-        });
 
-        console.log(picture);
-        console.log(picture.url)
-        //$("#profile_picture").setAttribute("src", picture.url);
+       // $.ajax({url:"/give_me_pic", success:function (data) {console.log(data)}});
+
+        $.ajax({url:"/give_me_pic", type:'GET', success: function (data) {
+            //Метод ассинхронный. нужно сразу делать колььэк к запросу
+            $("#profile_picture").attr("src",data);
+            console.log(document.getElementById("profile_picture"));
+            console.log(data);
+        }});
+
 
     }
 

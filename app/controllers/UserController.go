@@ -16,6 +16,7 @@ func (c UserController) GetUser(id int) revel.Result {
 	return c.RenderJSON(a)
 }
 
-//func (c UserController) GetPictute() revel.Result  {
-//	return c.
-//}
+func (c UserController) GetPicture() revel.Result {
+	data := "/public/img/avatar.jpeg"
+	return c.RenderJSON(data)
+}
