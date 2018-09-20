@@ -580,7 +580,7 @@ function ModalView(app) {
                         id:"close_modal",
                         view:"button",
                         type: "image",
-                        image:"../img/close.png",
+                        image:"public/img/close.png",
                         click:close_modal
                     }
                 ]

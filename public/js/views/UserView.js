@@ -58,7 +58,7 @@ function UserView(app) {
                                     id:"accbtn",
                                     view:"button",
                                     type: "image",
-                                    image:"../img/account.png",
+                                    image:"public/img/account.png",
                                     label: "Image Button",
                                     click:account
                                 },
@@ -66,7 +66,7 @@ function UserView(app) {
                                     id:"tskbtn",
                                     view:"button",
                                     type: "image",
-                                    image:"../img/task.png",
+                                    image:"public/img/task.png",
                                     label: "Image Button",
                                     click:task
                                 },
@@ -75,7 +75,7 @@ function UserView(app) {
                                     id:"prjbtn",
                                     view:"button",
                                     type: "image",
-                                    image:"../img/project.png",
+                                    image:"public/img/project.png",
                                     label: "Image Button",
                                     click:project
                                 },
@@ -83,7 +83,7 @@ function UserView(app) {
                                     id:"mngbtn",
                                     view:"button",
                                     type: "image",
-                                    image:"../img/management.png",
+                                    image:"public/img/management.png",
                                     label: "Image Button",
                                     click:management
                                 },
@@ -91,7 +91,7 @@ function UserView(app) {
                                     id:"lgtbtn",
                                     view:"button",
                                     type: "image",
-                                    image:"../img/logout.png",
+                                    image:"public/img/logout.png",
                                     label: "Image Button",
                                     click:logout
                                 }

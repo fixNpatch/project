@@ -37,7 +37,7 @@ function AccountView(app) {
                                             id:"backbtn",
                                             view:"button",
                                             type: "image",
-                                            image:"../img/home.png",
+                                            image:"public/img/home.png",
                                             click:returnHome
                                         }
                                     ]

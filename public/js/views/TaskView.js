@@ -58,34 +58,34 @@ function TaskView(app) {
                                     id:"addbtn",
                                     view:"button",
                                     type: "image",
-                                    image:"../img/add.png",
+                                    image:"public/img/add.png",
                                     click: call_modal_add
                                 },
                                 {
                                     id:"editbtn",
                                     view:"button",
                                     type: "image",
-                                    image:"../img/edit.png",
+                                    image:"public/img/edit.png",
                                     click: call_modal_edit
                                 },
                                 {
                                     id:"delbtn",
                                     view:"button",
                                     type: "image",
-                                    image:"../img/delete.png",
+                                    image:"public/img/delete.png",
                                     click: call_modal_del
                                 },
                                 {
                                     id:"markbtn",
                                     view:"button",
                                     type: "image",
-                                    image:"../img/mark.png",
+                                    image:"public/img/mark.png",
                                 },
                                 {
                                     id:"backbtn",
                                     view:"button",
                                     type: "image",
-                                    image:"../img/home.png",
+                                    image:"public/img/home.png",
                                     click:returnHome
                                 }
                             ]
