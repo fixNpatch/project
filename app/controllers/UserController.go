@@ -3,6 +3,7 @@ package controllers
 import (
 	"github.com/revel/revel"
 	"io/ioutil"
+	"testapp/app/providers"
 )
 
 type UserController struct {
@@ -11,19 +12,22 @@ type UserController struct {
 	//*providers.UserModel
 }
 
+// Что это такое???
+func (c *UserController) Apply(req *revel.Request, resp *revel.Response) {
+	panic("implement me")
+}
+
 func (c UserController) Init() revel.Result {
+	providers.NewUserModel()
+	//return &UserController{}
 	return nil
 }
 
-func (c UserController) Index() revel.Result {
+func (c *UserController) Index() revel.Result {
 	return c.Render()
 }
-func (c UserController) GetUser(id int) revel.Result {
-	a := 1 + id
-	return c.RenderJSON(a)
-}
 
-func (c UserController) GetPicture() revel.Result {
+func (c *UserController) GetPicture() revel.Result {
 	file, err := ioutil.ReadFile("C:/Users/dev/go/src/testapp/app/providers/picture.json")
 	if err != nil {
 		panic(err)
