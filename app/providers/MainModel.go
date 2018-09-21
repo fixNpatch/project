@@ -1,8 +1,8 @@
 package providers
 
 type Task struct {
-	task_number    int
-	project_title  string
+	Task_number    int
+	Project_title  string
 	task_title     string
 	task_hours     int
 	task_timestamp string

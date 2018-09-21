@@ -13,6 +13,8 @@ function UserModel() {
         $.ajax({url:"/give_me_pic", type:'GET', success: function (data) {
             //Метод ассинхронный. нужно сразу делать коллбэк к запросу
             let dat = JSON.parse(data);
+            console.log(dat);
+            console.log(data);
             $("#profile_picture").attr("src",dat.url);
         }});
     }

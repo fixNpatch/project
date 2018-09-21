@@ -17,7 +17,7 @@ import (
 // и уже к ним применять их методы
 
 type UserController struct {
-	App
+	*revel.Controller
 }
 
 // Что это такое???

@@ -31,10 +31,14 @@ func NewTaskModel() *TaskModel {
 //}
 //
 ////метод модели
-//func (t *TaskModel) GetTask() revel.Result {
-//
-//}
-func (t *TaskModel) getFile() string {
+func (t *TaskModel) GetTask() (task *Task, err error) {
+	task = &Task{
+		Task_number:   1,
+		Project_title: "asd",
+	}
+	return
+}
+func (t *TaskModel) GetFile() string {
 	path := revel.AppPath
 	file, err := ioutil.ReadFile(path + "/providers/data.json")
 
