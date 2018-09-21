@@ -8,6 +8,11 @@ import (
 type UserController struct {
 	//здесь должна быть инциализирована модель
 	*revel.Controller
+	//*providers.UserModel
+}
+
+func (c UserController) Init() revel.Result {
+	return nil
 }
 
 func (c UserController) Index() revel.Result {
