@@ -6,10 +6,17 @@ import (
 	"testapp/app/providers"
 )
 
+// Как я понял из примера revel/booking от разработчиков ревела, необязательно инициализировать модель в структуре контроллера
+// Более того, не у всех моделей есть методы. Модели вызываются как экземляр или массив экземпляров в
+// Controller.Init ===>>> var bookings []*models.Booking.
+// controller наследуется от app, то есть в своей структуре содержит апп
+//			type Application struct {
+//				gorpController.Controller
+//			}
+// Наставники сказали. что модель не содержит в себе полей сущности. На примере наоборот.
+
 type UserController struct {
-	//здесь должна быть инциализирована модель
 	*revel.Controller
-	//*providers.UserModel
 }
 
 // Что это такое???
