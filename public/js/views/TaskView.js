@@ -21,7 +21,6 @@ function TaskView(app) {
     }
 
     this.render = function (arg) {
-        let data = getTasklistWithUsers();
         console.log("TaskView Rendered.");
         if(arg === "full"){
             webix.ui({
@@ -107,8 +106,7 @@ function TaskView(app) {
                         { id:"task_hours",          header:"Рабочие часы"},
                         { id:"task_timestamp",      header:"Поставлена"}
 
-                    ],
-                    data:data
+                    ]
                 },
                 {
                     id:"open_task",
@@ -137,14 +135,16 @@ function TaskView(app) {
                 }
             ]
         });
+
+        app.getTaskList();
+
+
         if(arg === "full") $$("task_block_control").show();
 
         $$("task_block_nest").attachEvent("onItemClick", function (id) {
             let item = this.getItem(id);
             $$("open_task").show();
             this.hide();
-
-
         });
     }
 }
