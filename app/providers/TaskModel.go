@@ -1,15 +1,31 @@
 package providers
 
 type TaskModel struct {
-	task_number    int
-	project_title  string
-	task_title     string
-	task_hours     int
-	task_timestamp string
-	task_status    string
-	task_doer      User
+	//db *sql.DB
+	//поля не отображают сущность.
+	//поля нужны для работы с сущностями и не содержат их структуру
 }
 
-func (t TaskModel) GetTask() {
+//чтобы использовать модель в контроллере необходимо проинициализировать её
+//есть два варианта
+//первый
+
+//func NewTaskModel(db *sql.DB) *TaskModel{
+func NewTaskModel() *TaskModel {
+	return &TaskModel{
+		//скобки {} означают пустой новый экземпляр, &ссылка на него
+		//возвращаем новый экземпляр модели (опционально: с инициализированными полями)
+		//db:db,
+	}
+
+}
+
+//второй вариант (менее понятный)
+func (t *TaskModel) Init() {
+
+}
+
+//метод модели
+func (t *TaskModel) GetTask() {
 
 }
