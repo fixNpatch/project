@@ -14,4 +14,8 @@ function UserController(app) {
     this.getUser = function(number){
         return provider.pullUser(number);
     };
+
+    this.getProfilePicture = function () {
+        provider.getProfilePicture();
+    }
 }

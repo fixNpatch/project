@@ -4,6 +4,8 @@ function UserView(app) {
     console.log("@ => User View");
     let content_gen = this.content_gen.bind(this);
 
+    // let getProfilePicture = this.app.getProfilePicture.bind(this);
+
     /*LOL KOSTYL! But how to improve?*/
     function task() {
         content_gen("task");
@@ -144,17 +146,8 @@ function UserView(app) {
             ]
         });
 
-
-       // $.ajax({url:"/give_me_pic", success:function (data) {console.log(data)}});
-
-        $.ajax({url:"/give_me_pic", type:'GET', success: function (data) {
-            //Метод ассинхронный. нужно сразу делать колььэк к запросу
-            $("#profile_picture").attr("src",data);
-            console.log(document.getElementById("profile_picture"));
-            console.log(data);
-        }});
-
-
+        app.getProfilePicture();
+        //getProfilePicture();
     }
 
 }

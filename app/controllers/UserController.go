@@ -2,9 +2,11 @@ package controllers
 
 import (
 	"github.com/revel/revel"
+	"io/ioutil"
 )
 
 type UserController struct {
+	//здесь должна быть инциализирована модель
 	*revel.Controller
 }
 
@@ -17,6 +19,9 @@ func (c UserController) GetUser(id int) revel.Result {
 }
 
 func (c UserController) GetPicture() revel.Result {
-	data := "/public/img/avatar.jpeg"
-	return c.RenderJSON(data)
+	file, err := ioutil.ReadFile("C:/Users/dev/go/src/testapp/app/providers/picture.json")
+	if err != nil {
+		panic(err)
+	}
+	return c.RenderText(string(file))
 }
