@@ -21,12 +21,8 @@ func (c *TaskController) Init() revel.Result {
 	return c.Result
 }
 
-func (c TaskController) Index() revel.Result {
+func (c *TaskController) Index() revel.Result {
 	return c.Render()
-}
-func (c TaskController) GetUser(id int) revel.Result {
-	a := 1 + id
-	return c.RenderJSON(a)
 }
 
 // уже не помню что это
@@ -36,16 +32,18 @@ func (c TaskController) GetUser(id int) revel.Result {
 //	},
 //}
 
-func (c TaskController) GetTaskList() revel.Result {
+func (c *TaskController) GetTaskList() revel.Result {
 
 	//Желательно создать Response структуру
 	//Response {status: 1(err) / 0(ok), body: content, errmsg: message if error }
-	file, err := ioutil.ReadFile("C:/Users/dev/go/src/testapp/app/providers/data.json")
+
+	path := revel.AppPath
+	file, err := ioutil.ReadFile(path + "providers/data.json")
 	//err render json
 
 	if err != nil {
 		return c.RenderText(err.Error())
 	}
 
-	return c.RenderJSON(file)
+	return c.RenderText(string(file))
 }

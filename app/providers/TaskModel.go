@@ -1,5 +1,10 @@
 package providers
 
+import (
+	"github.com/revel/revel"
+	"io/ioutil"
+)
+
 type TaskModel struct {
 	//db *sql.DB
 	//поля не отображают сущность.
@@ -20,12 +25,21 @@ func NewTaskModel() *TaskModel {
 
 }
 
-//второй вариант (менее понятный)
-func (t *TaskModel) Init() {
+//
+////второй вариант (менее понятный)
+//func (t *TaskModel) Init() revel.Result  {
+//}
+//
+////метод модели
+//func (t *TaskModel) GetTask() revel.Result {
+//
+//}
+func (t *TaskModel) getFile() string {
+	path := revel.AppPath
+	file, err := ioutil.ReadFile(path + "/providers/data.json")
 
-}
-
-//метод модели
-func (t *TaskModel) GetTask() {
-
+	if err != nil {
+		panic(err)
+	}
+	return string(file)
 }
