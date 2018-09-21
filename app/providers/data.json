@@ -1,148 +1,146 @@
-{
-  "data":[
-    {
-      "id":1,
-      "project_number":1,
-      "project_title":"Hello, world",
-      "project_description":"Just do it",
-      "project_status":"В процессе",
-      "project_timestamp":"29.12.1995",
-      "project_doers":[
-        {
-          "employee_first": "Artyom",
-          "employee_second": "Artemev",
-          "employee_middle": "Artemovich",
-          "employee_rank": "TL",
-          "employee_pic": "assets/img/avatar.jpg",
-          "employee_id": "123",
-          "employee_timestamp":"12.12.2012"
-        },
-        {
-          "employee_first": "Anton",
-          "employee_second": "Antonov",
-          "employee_middle": "Antonovich",
-          "employee_rank": "Jnr",
-          "employee_pic": "../img/avatar.jpg",
-          "employee_id": "222",
-          "employee_timestamp":"12.12.2012"
-        }
-      ],
-      "project_tasks":[
-        {
-          "task_number": "13",
-          "task_title": "Taskmanager",
-          "task_doer": "Titov A.S.",
-          "task_title": "Front-end / website layout",
-          "task_status":"В процессе",
-          "task_hours": "34",
-          "task_timestamp": "26.12.1990"
-        },
-        {
-          "task_number": "13",
-          "task_title": "Taskmanager",
-          "task_doer": "Titov A.S.",
-          "task_title": "Front-end / website layout",
-          "task_status":"В процессе",
-          "task_hours": "34",
-          "task_timestamp": "26.12.1990"
-        }
-      ]
-    },
-    {
-      "id":1,
-      "project_number":2,
-      "project_title":"Hello, world",
-      "project_description":"Just do it",
-      "project_status":"В процессе",
-      "project_timestamp":"29.12.1995",
-      "project_doers":[
-        {
-          "employee_first": "Artyom",
-          "employee_second": "Artemev",
-          "employee_middle": "Artemovich",
-          "employee_rank": "TL",
-          "employee_pic": "assets/img/avatar.jpg",
-          "employee_id": "123",
-          "employee_timestamp":"12.12.2012"
-        },
-        {
-          "employee_first": "Anton",
-          "employee_second": "Antonov",
-          "employee_middle": "Antonovich",
-          "employee_rank": "Jnr",
-          "employee_pic": "../img/avatar.jpg",
-          "employee_id": "222",
-          "employee_timestamp":"12.12.2012"
-        }
-      ],
-      "project_tasks":[
-        {
-          "task_number": "13",
-          "task_title": "Taskmanager",
-          "task_doer": "Titov A.S.",
-          "task_title": "Front-end / website layout",
-          "task_status":"В процессе",
-          "task_hours": "34",
-          "task_timestamp": "26.12.1990"
-        },
-        {
-          "task_number": "13",
-          "task_title": "Taskmanager",
-          "task_doer": "Titov A.S.",
-          "task_title": "Front-end / website layout",
-          "task_status":"В процессе",
-          "task_hours": "34",
-          "task_timestamp": "26.12.1990"
-        }
-      ]
-    },
-    {
-      "id":1,
-      "project_number":3,
-      "project_title":"Hello, world",
-      "project_description":"Just do it",
-      "project_status":"В процессе",
-      "project_timestamp":"29.12.1995",
-      "project_doers":[
-        {
-          "employee_first": "Artyom",
-          "employee_second": "Artemev",
-          "employee_middle": "Artemovich",
-          "employee_rank": "TL",
-          "employee_pic": "assets/img/avatar.jpg",
-          "employee_id": "123",
-          "employee_timestamp":"12.12.2012"
-        },
-        {
-          "employee_first": "Anton",
-          "employee_second": "Antonov",
-          "employee_middle": "Antonovich",
-          "employee_rank": "Jnr",
-          "employee_pic": "../img/avatar.jpg",
-          "employee_id": "222",
-          "employee_timestamp":"12.12.2012"
-        }
-      ],
-      "project_tasks":[
-        {
-          "task_number": "13",
-          "task_title": "Taskmanager",
-          "task_doer": "Titov A.S.",
-          "task_title": "Front-end / website layout",
-          "task_status":"В процессе",
-          "task_hours": "34",
-          "task_timestamp": "26.12.1990"
-        },
-        {
-          "task_number": "13",
-          "task_title": "Taskmanager",
-          "task_doer": "Titov A.S.",
-          "task_title": "Front-end / website layout",
-          "task_status":"В процессе",
-          "task_hours": "34",
-          "task_timestamp": "26.12.1990"
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "id":1,
+    "project_number":1,
+    "project_title":"Hello, world",
+    "project_description":"Just do it",
+    "project_status":"В процессе",
+    "project_timestamp":"29.12.1995",
+    "project_doers":[
+      {
+        "employee_first": "Artyom",
+        "employee_second": "Artemev",
+        "employee_middle": "Artemovich",
+        "employee_rank": "TL",
+        "employee_pic": "assets/img/avatar.jpg",
+        "employee_id": "123",
+        "employee_timestamp":"12.12.2012"
+      },
+      {
+        "employee_first": "Anton",
+        "employee_second": "Antonov",
+        "employee_middle": "Antonovich",
+        "employee_rank": "Jnr",
+        "employee_pic": "../img/avatar.jpg",
+        "employee_id": "222",
+        "employee_timestamp":"12.12.2012"
+      }
+    ],
+    "project_tasks":[
+      {
+        "task_number": "13",
+        "task_title": "Taskmanager",
+        "task_doer": "Titov A.S.",
+        "task_title": "Front-end / website layout",
+        "task_status":"В процессе",
+        "task_hours": "34",
+        "task_timestamp": "26.12.1990"
+      },
+      {
+        "task_number": "13",
+        "task_title": "Taskmanager",
+        "task_doer": "Titov A.S.",
+        "task_title": "Front-end / website layout",
+        "task_status":"В процессе",
+        "task_hours": "34",
+        "task_timestamp": "26.12.1990"
+      }
+    ]
+  },
+  {
+    "id":1,
+    "project_number":2,
+    "project_title":"Hello, world",
+    "project_description":"Just do it",
+    "project_status":"В процессе",
+    "project_timestamp":"29.12.1995",
+    "project_doers":[
+      {
+        "employee_first": "Artyom",
+        "employee_second": "Artemev",
+        "employee_middle": "Artemovich",
+        "employee_rank": "TL",
+        "employee_pic": "assets/img/avatar.jpg",
+        "employee_id": "123",
+        "employee_timestamp":"12.12.2012"
+      },
+      {
+        "employee_first": "Anton",
+        "employee_second": "Antonov",
+        "employee_middle": "Antonovich",
+        "employee_rank": "Jnr",
+        "employee_pic": "../img/avatar.jpg",
+        "employee_id": "222",
+        "employee_timestamp":"12.12.2012"
+      }
+    ],
+    "project_tasks":[
+      {
+        "task_number": "13",
+        "task_title": "Taskmanager",
+        "task_doer": "Titov A.S.",
+        "task_title": "Front-end / website layout",
+        "task_status":"В процессе",
+        "task_hours": "34",
+        "task_timestamp": "26.12.1990"
+      },
+      {
+        "task_number": "13",
+        "task_title": "Taskmanager",
+        "task_doer": "Titov A.S.",
+        "task_title": "Front-end / website layout",
+        "task_status":"В процессе",
+        "task_hours": "34",
+        "task_timestamp": "26.12.1990"
+      }
+    ]
+  },
+  {
+    "id":1,
+    "project_number":3,
+    "project_title":"Hello, world",
+    "project_description":"Just do it",
+    "project_status":"В процессе",
+    "project_timestamp":"29.12.1995",
+    "project_doers":[
+      {
+        "employee_first": "Artyom",
+        "employee_second": "Artemev",
+        "employee_middle": "Artemovich",
+        "employee_rank": "TL",
+        "employee_pic": "assets/img/avatar.jpg",
+        "employee_id": "123",
+        "employee_timestamp":"12.12.2012"
+      },
+      {
+        "employee_first": "Anton",
+        "employee_second": "Antonov",
+        "employee_middle": "Antonovich",
+        "employee_rank": "Jnr",
+        "employee_pic": "../img/avatar.jpg",
+        "employee_id": "222",
+        "employee_timestamp":"12.12.2012"
+      }
+    ],
+    "project_tasks":[
+      {
+        "task_number": "13",
+        "task_title": "Taskmanager",
+        "task_doer": "Titov A.S.",
+        "task_title": "Front-end / website layout",
+        "task_status":"В процессе",
+        "task_hours": "34",
+        "task_timestamp": "26.12.1990"
+      },
+      {
+        "task_number": "13",
+        "task_title": "Taskmanager",
+        "task_doer": "Titov A.S.",
+        "task_title": "Front-end / website layout",
+        "task_status":"В процессе",
+        "task_hours": "34",
+        "task_timestamp": "26.12.1990"
+      }
+    ]
+  }
+]
