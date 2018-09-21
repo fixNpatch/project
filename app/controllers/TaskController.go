@@ -8,6 +8,7 @@ import (
 
 type TaskController struct {
 	*revel.Controller
+	//*providers.TaskModel
 }
 
 type Task struct {
