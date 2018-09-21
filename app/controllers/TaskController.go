@@ -7,7 +7,7 @@ import (
 )
 
 type TaskController struct {
-	*revel.Controller
+	App
 
 	//uncomment == crush
 	//*providers.TaskModel

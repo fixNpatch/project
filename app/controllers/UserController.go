@@ -3,20 +3,21 @@ package controllers
 import (
 	"github.com/revel/revel"
 	"io/ioutil"
-	"testapp/app/providers"
 )
 
 // Как я понял из примера revel/booking от разработчиков ревела, необязательно инициализировать модель в структуре контроллера
 // Более того, не у всех моделей есть методы. Модели вызываются как экземляр или массив экземпляров в
 // Controller.Init ===>>> var bookings []*models.Booking.
 // controller наследуется от app, то есть в своей структуре содержит апп
-//			type Application struct {
-//				gorpController.Controller
+//			type Controller struct {
+//				App
 //			}
 // Наставники сказали. что модель не содержит в себе полей сущности. На примере наоборот.
+// Как итог, скорее всего в методах контроллера надо инициализировать модели (по ссылке)
+// и уже к ним применять их методы
 
 type UserController struct {
-	*revel.Controller
+	App
 }
 
 // Что это такое???
@@ -24,10 +25,10 @@ func (c *UserController) Apply(req *revel.Request, resp *revel.Response) {
 	panic("implement me")
 }
 
-func (c UserController) Init() revel.Result {
-	providers.NewUserModel()
-	//return &UserController{}
-	return nil
+func (c UserController) Init() *UserController {
+	//var m *providers.UserModel
+	//providers.NewUserModel()
+	return &c
 }
 
 func (c *UserController) Index() revel.Result {
@@ -35,7 +36,8 @@ func (c *UserController) Index() revel.Result {
 }
 
 func (c *UserController) GetPicture() revel.Result {
-	file, err := ioutil.ReadFile("C:/Users/dev/go/src/testapp/app/providers/picture.json")
+	path := revel.AppPath
+	file, err := ioutil.ReadFile(path + "/providers/picture.json")
 	if err != nil {
 		panic(err)
 	}

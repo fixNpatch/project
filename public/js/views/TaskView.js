@@ -136,8 +136,6 @@ function TaskView(app) {
             ]
         });
 
-        app.getTaskList();
-
 
         if(arg === "full") $$("task_block_control").show();
 
