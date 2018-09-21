@@ -11,26 +11,20 @@ type TaskController struct {
 
 	//uncomment == crush
 	//*providers.TaskModel
+	providers.TaskModel
 }
 
 //Инициализация (создание) контроллера и его модели.
 //Данная функция вызывается в интерцепторе
 //Интерцептор - внутренний метод Ревела. Простыми словами сборник правил
-func (c *TaskController) Init() revel.Result {
+func (c TaskController) Init() revel.Result {
 	providers.NewTaskModel()
-	return c.Result
+	return nil
 }
 
 func (c *TaskController) Index() revel.Result {
 	return c.Render()
 }
-
-// уже не помню что это
-//var projects []Project = []Project{
-//	Project{
-//		project_id:1,
-//	},
-//}
 
 func (c *TaskController) GetTaskList() revel.Result {
 
