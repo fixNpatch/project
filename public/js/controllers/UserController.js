@@ -17,5 +17,9 @@ function UserController(app) {
 
     this.getProfilePicture = function () {
         provider.getProfilePicture();
+    };
+
+    this.getEmployeeBlock = function () {
+        provider.getEmployeeBlock();
     }
 }

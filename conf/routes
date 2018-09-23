@@ -26,4 +26,5 @@ GET     /public/*filepath                       Static.Serve("public")
 # *       /:controller/:action                    :controller.:action
 GET           /user/:id                                       App.GetUser
 GET       /give_me_pic                             UserController.GetPicture
+GET       /give_me_employees                       UserController.GetEmployees
 GET         /tasklist                              TaskController.GetTaskList

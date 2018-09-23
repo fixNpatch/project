@@ -28,9 +28,6 @@ function UserView(app) {
 
     this.render = function(currentUser){
         /*SAME QUESTION AS IN PROJECTS*/
-        let data = getUserlistOnly();
-        console.log(data);
-
 
         let date = Date.now();
         webix.Date.startOnMonday = true;
@@ -139,7 +136,6 @@ function UserView(app) {
                                 {id: "employee_rank", header: "Должность", type:"clean"},
                                 {id: "employee_second", header: "Фамилия", fillspace:true}
                             ],
-                            data:data,
                         }
                     ]
                 }
@@ -147,6 +143,7 @@ function UserView(app) {
         });
 
         app.getProfilePicture();
+        app.getEmployeeBlock();
         //getProfilePicture();
     }
 

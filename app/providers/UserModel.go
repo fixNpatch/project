@@ -42,3 +42,11 @@ func (t *UserModel) GetPicture() string {
 	url := string(file)
 	return url
 }
+
+func (t *UserModel) GetEmployees() string {
+
+	path := revel.AppPath
+	file, _ := ioutil.ReadFile(path + "/providers/ela_list.json")
+	url := string(file)
+	return url
+}

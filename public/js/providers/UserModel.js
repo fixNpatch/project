@@ -10,18 +10,21 @@ function UserModel() {
     };
 
     this.getProfilePicture = function () {
-        $.ajax({url:"/give_me_pic", type:'GET', success: function (data) {
-            //Метод ассинхронный. нужно сразу делать коллбэк к запросу
-            let dat = JSON.parse(data);
+
+        webix.ajax("/give_me_pic", function (data) {
+            /* KOSTYL WTF */
+            /* JSON IN JSON IN JSON ????????*/
+            let dat = JSON.parse(JSON.parse(data));
             $("#profile_picture").attr("src",dat.url);
-        }});
+        });
+
     };
 
     this.getEmployeeBlock = function () {
-        $.ajax({url:"/give_me_employees", type:'GET', success: function (data) {
-            //Метод ассинхронный. нужно сразу делать коллбэк к запросу
-            let dat = JSON.parse(data);
-            $("#profile_picture").attr("src",dat.url);
-        }});
+        $$("ela_nest").load(function(){
+            return webix.ajax("/give_me_employees").then(function(data){
+                return data.json();
+            });
+        });
     }
 }

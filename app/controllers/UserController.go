@@ -41,3 +41,8 @@ func (c *UserController) GetPicture() revel.Result {
 	fmt.Println(data)
 	return c.RenderJSON(data)
 }
+
+func (c *UserController) GetEmployees() revel.Result {
+	data := c.model.GetEmployees()
+	return c.RenderJSON(data)
+}
