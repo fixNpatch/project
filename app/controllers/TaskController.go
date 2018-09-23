@@ -9,21 +9,16 @@ import (
 type TaskController struct {
 	*revel.Controller
 
-	//uncomment == crush
-	//*providers.TaskModel
+	/* declare model as field */
 	model *providers.TaskModel
 }
 
-//Инициализация (создание) контроллера и его модели.
-//Данная функция вызывается в интерцепторе
-//Интерцептор - внутренний метод Ревела. Простыми словами сборник правил
+/* This function is included in interceptor BEFORE */
+/* BEFORE each call to other functions Interceptor makes this function be called before */
+/* Init - create "c" as model declared in structure ^^^   */
 func (c TaskController) Init() revel.Result {
 	c.model = providers.NewTaskModel()
 	return nil
-}
-
-func (c *TaskController) Index() revel.Result {
-	return c.Render()
 }
 
 func (c *TaskController) GetTaskList() revel.Result {

@@ -25,12 +25,6 @@ func NewTaskModel() *TaskModel {
 
 }
 
-//
-////второй вариант (менее понятный)
-//func (t *TaskModel) Init() revel.Result  {
-//}
-//
-////метод модели
 func (t *TaskModel) GetTask() (task *Task, err error) {
 	task = &Task{
 		Task_number:   1,
