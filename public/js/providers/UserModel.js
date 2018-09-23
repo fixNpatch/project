@@ -15,5 +15,13 @@ function UserModel() {
             let dat = JSON.parse(data);
             $("#profile_picture").attr("src",dat.url);
         }});
+    };
+
+    this.getEmployeeBlock = function () {
+        $.ajax({url:"/give_me_employees", type:'GET', success: function (data) {
+            //Метод ассинхронный. нужно сразу делать коллбэк к запросу
+            let dat = JSON.parse(data);
+            $("#profile_picture").attr("src",dat.url);
+        }});
     }
 }

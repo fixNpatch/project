@@ -29,7 +29,7 @@ function UserView(app) {
     this.render = function(currentUser){
         /*SAME QUESTION AS IN PROJECTS*/
         let data = getUserlistOnly();
-
+        console.log(data);
 
 
         let date = Date.now();
