@@ -10,8 +10,7 @@ function ManagementController(app) {
         MView.render(arg);
     };
 
-    this.getUser = function(number){
-
-        return provider.pullUser(number);
+    this.loadUserBlock = function(){
+        provider.loadUserBlock();
     };
 }

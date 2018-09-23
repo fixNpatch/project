@@ -50,3 +50,11 @@ func (t *UserModel) GetEmployees() string {
 	url := string(file)
 	return url
 }
+
+func (t *UserModel) GetUsers() string {
+
+	path := revel.AppPath
+	file, _ := ioutil.ReadFile(path + "/providers/userlist.json")
+	url := string(file)
+	return url
+}

@@ -22,7 +22,6 @@ function ManagementView(app) {
 
     this.render = function() {
         console.log("ManagementView Rendered.");
-        let data = getUserlistOnly();
         webix.ui({
             container: $$("right-area").getNode(),
             rows: [
@@ -90,8 +89,7 @@ function ManagementView(app) {
                                 {id: "employee_middle", header: "Отчество", fillspace: 2},
                                 {id: "employee_timestamp", header: "Регистрация", fillspace: true},
                                 {id: "employee_pic", view:"button", header: "Фото", fillspace: 0.5, type:"image"},
-                            ],
-                            data:data
+                            ]
                         },
                         {
                             id:"open_block",
@@ -149,6 +147,7 @@ function ManagementView(app) {
             });
             $$("open_block").show();
         });
+        app.loadUserBlock();
     }
 }
 

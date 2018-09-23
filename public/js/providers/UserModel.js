@@ -26,6 +26,5 @@ function UserModel() {
                 return data.json();
             });
         });
-    }
-
+    };
 }

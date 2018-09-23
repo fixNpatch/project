@@ -42,3 +42,8 @@ func (c *UserController) GetEmployees() revel.Result {
 	data := c.model.GetEmployees()
 	return c.RenderJSON(data)
 }
+
+func (c *UserController) GetUsers() revel.Result {
+	data := c.model.GetUsers()
+	return c.RenderJSON(data)
+}
