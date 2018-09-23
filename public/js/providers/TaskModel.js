@@ -9,12 +9,11 @@ function TaskModel() {
         // return list;
     };
 
-    this.getTaskList = function(){
-        console.log("Trynna get tasklist");
-        // $.ajax({url:"/tasklist", type:'GET', success: function (response) {
-        //     //Метод ассинхронный. нужно сразу делать коллбэк к запросу
-        //     let data = JSON.parse(response);
-        //     console.log(data);
-        // }});
+    this.loadTaskBlock = function () {
+        $$("task_block_nest").load(function(){
+            return webix.ajax("/give_me_tasks").then(function(data){
+                return data.json();
+            });
+        });
     }
 }

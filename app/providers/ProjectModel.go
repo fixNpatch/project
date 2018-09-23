@@ -18,7 +18,6 @@ func NewProjectModel() *ProjectModel {
 }
 
 func (t *ProjectModel) GetProjects() string {
-
 	path := revel.AppPath
 	file, _ := ioutil.ReadFile(path + "/providers/projectWithUsers.json")
 	url := string(file)

@@ -144,5 +144,7 @@ function TaskView(app) {
             $$("open_task").show();
             this.hide();
         });
+
+        app.loadTaskBlock();
     }
 }

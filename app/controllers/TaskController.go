@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"github.com/revel/revel"
 	"testapp/app/providers"
 )
@@ -21,12 +20,7 @@ func (c TaskController) Init() revel.Result {
 	return nil
 }
 
-func (c *TaskController) GetTaskList() revel.Result {
-	fmt.Println("TaskController::GetTaskList")
-	data, err := c.model.GetTask()
-	if err != nil {
-		return c.RenderJSON(err.Error())
-	}
-	fmt.Println("TaskController::GetTaskList data;", data)
+func (c *TaskController) GetTasks() revel.Result {
+	data := c.model.GetTasks()
 	return c.RenderJSON(data)
 }

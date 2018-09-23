@@ -25,19 +25,9 @@ func NewTaskModel() *TaskModel {
 
 }
 
-func (t *TaskModel) GetTask() (task *Task, err error) {
-	task = &Task{
-		Task_number:   1,
-		Project_title: "asd",
-	}
-	return
-}
-func (t *TaskModel) GetFile() string {
+func (t *TaskModel) GetTasks() string {
 	path := revel.AppPath
-	file, err := ioutil.ReadFile(path + "/providers/data.json")
-
-	if err != nil {
-		panic(err)
-	}
-	return string(file)
+	file, _ := ioutil.ReadFile(path + "/providers/taskWithUsers.json")
+	url := string(file)
+	return url
 }

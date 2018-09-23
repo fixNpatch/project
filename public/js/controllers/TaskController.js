@@ -14,7 +14,8 @@ function TaskController(app) {
     this.getTask = function(number){
         return provider.getTasks(number);
     };
-    this.getTaskList = function(){
-        provider.getTaskList()
+
+    this.loadTaskBlock = function(){
+        provider.loadTaskBlock();
     }
 }
