@@ -27,7 +27,7 @@ func NewTaskModel() *TaskModel {
 
 func (t *TaskModel) GetTasks() string {
 	path := revel.AppPath
-	file, _ := ioutil.ReadFile(path + "/providers/taskWithUsers.json")
+	file, _ := ioutil.ReadFile(path + "/dummy/taskWithUsers.json")
 	url := string(file)
 	return url
 }

@@ -24,9 +24,13 @@ GET     /public/*filepath                       Static.Serve("public")
 # For rapid development uncomment the following to add new controller.action endpoints
 # without having to add them to the routes table.
 # *       /:controller/:action                    :controller.:action
-GET           /user/:id                                       App.GetUser
+GET           /user/:id                                 App.GetUser
 GET       /give_me_pic                             UserController.GetPicture
 GET       /give_me_employees                       UserController.GetEmployees
 GET       /give_me_users                           UserController.GetUsers
 GET       /give_me_projects                        ProjectController.GetProjects
 GET       /give_me_tasks                           TaskController.GetTasks
+GET       /load_modal_userlist_edit                UserController.GetUsers
+GET       /load_modal_userlist_delete              UserController.GetUsers
+GET       /load_modal_projectlist_edit             ProjectController.GetProjects
+GET       /load_modal_projectlist_delete           ProjectController.GetProjects

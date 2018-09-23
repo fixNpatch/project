@@ -141,9 +141,6 @@ function ModalView(app) {
         });
     }
     function del_project() {
-        console.log("del PROJECT");
-        let data = getProjectlistWithUsers();
-
         webix.ui({
             container:$$("modal_body").getNode(),
             view:"accordion",
@@ -156,8 +153,7 @@ function ModalView(app) {
                             {id: "project_number", header:"№"},
                             {id: "project_title", header: "Название проекта", fillspace:true},
                             {id: "project_description", header: "Описание", fillspace:2}
-                        ],
-                        data:data
+                        ]
                     }
                 },
                 { id:"del_project_form", header:"Удалить проект", collapsed:true, disabled:true, body:{
@@ -204,11 +200,12 @@ function ModalView(app) {
                     description:item.project_description,
                 }, true);
         });
-    }
-    function edit_project() {
-        console.log("EDIT PROJECT");
-        let data = getProjectlistWithUsers();
 
+        app.getPLD();
+    }
+
+
+    function edit_project() {
         webix.ui({
             container:$$("modal_body").getNode(),
             view:"accordion",
@@ -221,8 +218,7 @@ function ModalView(app) {
                             {id: "project_number", header:"№"},
                             {id: "project_title", header: "Название проекта", fillspace:true},
                             {id: "project_description", header: "Описание", fillspace:2}
-                        ],
-                        data:data
+                        ]
                     }
                 },
                 { id:"edit_project_form", header:"Изменить проект", collapsed:true, disabled:true, body:{
@@ -288,7 +284,6 @@ function ModalView(app) {
                     title:item.project_title,
                     description:item.project_description,
                 }, true);
-            console.log(item);
         });
 
         $$("all_doers").attachEvent("onItemClick", function (id) {
@@ -302,8 +297,11 @@ function ModalView(app) {
             $$("all_doers").add(item);
             this.remove(id);
         });
+        app.getPLE();
 
     }
+
+
     function add_user() {
         webix.ui({
             container:$$("modal_body").getNode(),
@@ -330,7 +328,6 @@ function ModalView(app) {
 
                 /*Upload photo Drag'n'Drop*/
 
-
                 { type:"header", template:"Перетащите сюда свою фотографию" },
                 { view:"list", id:"dropzone", type:"uploader",
                     height:200, scroll:false },
@@ -346,8 +343,8 @@ function ModalView(app) {
                 labelWidth:200,
             }
         });
-
-        /* config upload */
+        /*===================================================================*/
+        /* ---------------------- config upload ---------------------------- */
 
         webix.ui({
             id:"uploadAPI",
@@ -361,14 +358,13 @@ function ModalView(app) {
             link:"dropzone",
             apiOnly:true
         });
-
         $$("uploadAPI").addDropZone( $$("dropzone").$view, "Drop files here");
 
-        /* finishing config */
-
+        /* -------------------- finishing config --------------------------- */
+        /*===================================================================*/
     }
+
     function del_user() {
-        let data = getUserlistOnly();
         webix.ui({
             container:$$("modal_body").getNode(),
 
@@ -389,8 +385,7 @@ function ModalView(app) {
                             {id: "employee_first", header: "Имя", fillspace: 2},
                             {id: "employee_middle", header: "Отчество", fillspace: 2},
                             {id: "employee_timestamp", header: "Регистрация", fillspace: true},
-                        ],
-                        data:data
+                        ]
                     }
                 },
                 {
@@ -443,10 +438,9 @@ function ModalView(app) {
             $$("del_user_form").enable();
         });
 
-
+        app.getULD(); //User List Deletion
     }
     function edit_user() {
-        let data = getUserlistOnly();
         webix.ui({
             container:$$("modal_body").getNode(),
 
@@ -467,8 +461,7 @@ function ModalView(app) {
                             {id: "employee_first", header: "Имя", fillspace: 2},
                             {id: "employee_middle", header: "Отчество", fillspace: 2},
                             {id: "employee_timestamp", header: "Регистрация", fillspace: true},
-                        ],
-                        data:data
+                        ]
                     }
                 },
                 {
@@ -545,14 +538,12 @@ function ModalView(app) {
             $$("edit_user_form").enable();
         });
 
-
+        app.getULE();
     }
 
 
 
     this.showModal = function (arg) {
-        console.log("THERE'S MODAL");
-        console.log(arg);
         let template;
         switch(arg){
             case "add": template = "Добавить"; break;
@@ -593,35 +584,31 @@ function ModalView(app) {
             modal:true
         }).show();
         $$("modal_body").getNode().id = "modal_body";
+
         /* check page (task/project) */
 
         if(document.getElementById("task_block") !== null){
-
-            console.log("Page TASKS");
-
             switch (arg) {
                 case "add":{add_task()}break;
                 case "del":{del_task()}break;
                 case "edit":{edit_task()}break;
+                default:break;
             }
         }
         else if(document.getElementById("project_block") !== null){
-
-            console.log("Page PROJECTS");
-
             switch (arg) {
                 case "add":{add_project()}break;
                 case "del":{del_project()}break;
                 case "edit":{edit_project()}break;
+                default:break;
             }
         }
         else{
-            console.log("Page MANAGEMENT");
-
             switch (arg) {
                 case "add":{add_user()}break;
                 case "del":{del_user()}break;
                 case "edit":{edit_user()}break;
+                default:break;
             }
         }
     }

@@ -38,7 +38,7 @@ func (t *UserModel) GetPic() (user *User, err error) {
 func (t *UserModel) GetPicture() string {
 
 	path := revel.AppPath
-	file, _ := ioutil.ReadFile(path + "/providers/picture.json")
+	file, _ := ioutil.ReadFile(path + "/dummy/picture.json")
 	url := string(file)
 	return url
 }
@@ -46,7 +46,7 @@ func (t *UserModel) GetPicture() string {
 func (t *UserModel) GetEmployees() string {
 
 	path := revel.AppPath
-	file, _ := ioutil.ReadFile(path + "/providers/ela_list.json")
+	file, _ := ioutil.ReadFile(path + "/dummy/ela_list.json")
 	url := string(file)
 	return url
 }
@@ -54,7 +54,7 @@ func (t *UserModel) GetEmployees() string {
 func (t *UserModel) GetUsers() string {
 
 	path := revel.AppPath
-	file, _ := ioutil.ReadFile(path + "/providers/userlist.json")
+	file, _ := ioutil.ReadFile(path + "/dummy/userlist.json")
 	url := string(file)
 	return url
 }
