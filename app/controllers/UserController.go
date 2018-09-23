@@ -21,10 +21,6 @@ func (c UserController) Init() *UserController {
 	return nil
 }
 
-func (c *UserController) Index() revel.Result {
-	return c.Render()
-}
-
 /* Эталон */
 func (c *UserController) GetPic() revel.Result {
 	data, err := c.model.GetPic()

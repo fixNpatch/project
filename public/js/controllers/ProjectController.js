@@ -10,8 +10,11 @@ function ProjectController(app) {
         PView.render(arg);
     };
 
-    this.getProject = function(number){
-        return provider.pullProject(number);
-    };
+    // this.getProject = function(number){
+    //     return provider.pullProject(number);
+    // };
 
+    this.loadProjectBlock = function(){
+        provider.loadProjectBlock();
+    }
 }

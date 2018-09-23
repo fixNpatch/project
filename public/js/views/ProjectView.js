@@ -22,14 +22,6 @@ function ProjectView(app) {
 
 
     this.render = function (arg) {
-
-
-
-        /*HOW TO RENDER BEFORE AND THEN LOAD FROM FILE, not URL*/
-        let data = getProjectlistWithUsers();
-
-
-
         console.log("ProjectView Rendered.");
         if(arg === "full"){
             webix.ui({
@@ -138,10 +130,8 @@ function ProjectView(app) {
                         { id:"project_status",         header:"Статус проекта",        fillspace:1},
                         { id:"project_timestamp",      header:"Создан",                fillspace:true},
                         { id:"project_doers",           header:"Исполнители",           fillspace:2},
-                    ],
-                    data:data
+                    ]
                 }
-
             ]
         });
         if(arg === "full") $$("project_block_control").show();
@@ -154,5 +144,7 @@ function ProjectView(app) {
             $$("open_project").resize();
 
         });
+
+        app.loadProjectBlock();
     }
 }
