@@ -10,8 +10,7 @@ function ModalController(app) {
         MView.showModal(arg);
     };
 
-    this.getPLE = function(){
-        console.log("getPLE");
+    this.editproject = function(){
         $$("choose_project").load(function(){
             return webix.ajax("/load_modal_projectlist_edit").then(function(data){
                 console.log(data);
@@ -19,24 +18,21 @@ function ModalController(app) {
             });
         });
     };
-    this.getPLD = function(){
-        console.log("getPLD");
+    this.delproject = function(){
         $$("choose_project").load(function(){
             return webix.ajax("/load_modal_projectlist_delete").then(function(data){
                 return data.json();
             });
         });
     };
-    this.getULE = function(){
-        console.log("getULE");
+    this.edituser = function(){
         $$("choose_user").load(function(){
             return webix.ajax("/load_modal_userlist_edit").then(function(data){
                 return data.json();
             });
         });
     };
-    this.getULD = function(){
-        console.log("getULD");
+    this.deluser = function(){
         $$("choose_user").load(function(){
             return webix.ajax("/load_modal_userlist_delete").then(function(data){
                 return data.json();
@@ -49,7 +45,6 @@ function ModalController(app) {
     this.addtask = function(){
         $$("project_manager").load(function(){
             return webix.ajax("/load_modal_tasklist_add").then(function(data){
-                console.log(data);
                 return data.json();
             });
         });
@@ -57,7 +52,6 @@ function ModalController(app) {
     this.edittask = function(){
         $$("task_choose").load(function(){
             return webix.ajax("/load_modal_tasklist_edit").then(function(data){
-                console.log(data);
                 return data.json();
             });
         });

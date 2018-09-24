@@ -187,7 +187,7 @@ function ModalView(app) {
             $$("project_doers").clearAll();
             let userbase = JSON.parse(getUserlistOnly());
             let item = this.getItem(id);
-
+            console.log(userbase);
 
             for(let i = 0; i < item.userstack.length; i++){
                 $$("project_doers").add(userbase[i]);
@@ -201,7 +201,7 @@ function ModalView(app) {
                 }, true);
         });
 
-        app.getPLD();
+        app.delproject();
     }
     function edit_project() {
         webix.ui({
@@ -295,7 +295,7 @@ function ModalView(app) {
             $$("all_doers").add(item);
             this.remove(id);
         });
-        app.getPLE();
+        app.editproject();
 
     }
 
@@ -442,7 +442,7 @@ function ModalView(app) {
             $$("del_user").enable();
         });
 
-        app.getULD(); //User List Deletion
+        app.deluser(); //User List Deletion
     }
     function edit_user() {
         webix.ui({
@@ -542,7 +542,7 @@ function ModalView(app) {
             $$("edit_user").enable();
         });
 
-        app.getULE();
+        app.edituser();
     }
 
 
