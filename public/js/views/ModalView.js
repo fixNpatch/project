@@ -277,13 +277,16 @@ function ModalView(app) {
             let on = "/usersonproject/" + String(item.project_id);
             let out = "/usersoutproject/" + String(item.project_id);
             $$("project_doers").load(function(){
+                console.log('project doers: ');
                 return webix.ajax(on).then(function(data){
-                    console.log(data.json());
                     return data.json();
                 });
             });
             $$("all_doers").load(function(){
+                console.log("all doers; ");
                 return webix.ajax(out).then(function(data){
+
+                    console.log(data.json());
                     return data.json();
                 });
             });

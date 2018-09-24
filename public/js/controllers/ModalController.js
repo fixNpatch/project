@@ -13,7 +13,6 @@ function ModalController(app) {
     this.editproject = function(){
         $$("choose_project").load(function(){
             return webix.ajax("/load_modal_projectlist_edit").then(function(data){
-                console.log(data.json());
                 return data.json();
             });
         });
