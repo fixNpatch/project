@@ -63,18 +63,19 @@ func (t *ProjectModel) GetUsersOutProject(id int) string {
 	json.Unmarshal(ulfile, &userlist)
 	var i = 0
 	var j = 0
-	for i < len(data) {
-		if data[i].Project_id == id {
-			var k = 0
-			for j < len(data[i].Userstack) {
+	var k = 0
+	for i < len(data) { /* Ищем проект по id*/
+		if data[i].Project_id == id { /* если найден то */
+			for j < len(userlist) { /* берем каждый элемент в userbase*/
 				found := false
-				for k < len(userlist) {
-					if data[i].Userstack[j].User_id == userlist[k].User_id {
+				for k < len(data[i].Userstack) { /*начинаем поэлементно сравнивать со стеком проекта*/
+					if userlist[j].User_id == data[i].Userstack[k].User_id { /* если они совпадают то*/
 						found = true
 					}
+					k++
 				}
 				if found == false {
-					users = append(users, data[i].Userstack[j])
+					users = append(users, userlist[j])
 				}
 				j++
 			}
@@ -82,6 +83,7 @@ func (t *ProjectModel) GetUsersOutProject(id int) string {
 		}
 		i++
 	}
+
 	answer, _ := json.Marshal(users)
 	fmt.Println(answer)
 	return string(answer)

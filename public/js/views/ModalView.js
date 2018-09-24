@@ -185,13 +185,14 @@ function ModalView(app) {
         });
         $$("choose_project").attachEvent("onItemClick", function (id) {
             $$("project_doers").clearAll();
-            let userbase = JSON.parse(getUserlistOnly());
             let item = this.getItem(id);
-            console.log(userbase);
-
-            for(let i = 0; i < item.userstack.length; i++){
-                $$("project_doers").add(userbase[i]);
-            }
+            let on = "/usersonproject/" + String(item.project_id);
+            $$("project_doers").load(function(){
+                console.log('project doers: ');
+                return webix.ajax(on).then(function(data){
+                    return data.json();
+                });
+            });
             $$("del_project_choose").collapse();
             $$("del_project_form").enable();
             $$("del_project").setValues(
