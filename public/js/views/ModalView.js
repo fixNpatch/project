@@ -337,7 +337,7 @@ function ModalView(app) {
 
 
                 {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
-                {view:"button", id:"cancel_button", label:"Отмена", name:"button"}
+                {view:"button", id:"cancel_button", label:"Отмена", name:"button", click:close_modal}
             ],
             elementsConfig:{
                 labelWidth:200,
@@ -362,6 +362,11 @@ function ModalView(app) {
 
         /* -------------------- finishing config --------------------------- */
         /*===================================================================*/
+        $$("submit_button").attachEvent("onItemClick", function(){
+            let save = $$("add_user_form").getValues();
+            console.log(save);
+            close_modal();
+        });
     }
 
     function del_user() {
@@ -389,11 +394,11 @@ function ModalView(app) {
                     }
                 },
                 {
-                    id:"del_user_form",
+                    id:"del_user",
                     header:"Удалить пользователя",
                     collapsed:true, disabled:true,
                     body:{
-                        id:"del_user",
+                        id:"del_user_form",
                         view:"form",
                         height:450,
                         autoheight: true,
@@ -416,7 +421,7 @@ function ModalView(app) {
 
 
                             {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
-                            {view:"button", id:"cancel_button", label:"Отмена", name:"button"}
+                            {view:"button", id:"cancel_button", label:"Отмена", name:"button", click:close_modal}
                         ],
                         elementsConfig:{
                             labelWidth:200,
@@ -428,14 +433,14 @@ function ModalView(app) {
 
         $$("choose_user").attachEvent("onAfterSelect", function (id) {
             let item = this.getItem(id);
-            $$("del_user").setValues({
+            $$("del_user_form").setValues({
                 family:item.employee_second,
                 name:item.employee_first,
                 patronymic:item.employee_middle,
                 rank:1
             });
             $$("del_user_choose").collapse();
-            $$("del_user_form").enable();
+            $$("del_user").enable();
         });
 
         app.getULD(); //User List Deletion
@@ -465,11 +470,11 @@ function ModalView(app) {
                     }
                 },
                 {
-                    id:"edit_user_form",
+                    id:"edit_user",
                     header:"Изменить пользователя",
                     collapsed:true, disabled:true,
                     body:{
-                        id:"edit_user",
+                        id:"edit_user_form",
                         view:"form",
                         autoheight: true,
                         elements:[
@@ -501,7 +506,7 @@ function ModalView(app) {
 
 
                             {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
-                            {view:"button", id:"cancel_button", label:"Отмена", name:"button"}
+                            {view:"button", id:"cancel_button", label:"Отмена", name:"button", click:close_modal}
                         ],
                         elementsConfig:{
                             labelWidth:200,
@@ -527,7 +532,7 @@ function ModalView(app) {
 
         $$("choose_user").attachEvent("onAfterSelect", function (id) {
             let item = this.getItem(id);
-            $$("edit_user").setValues({
+            $$("edit_user_form").setValues({
                 family:item.employee_second,
                 name:item.employee_first,
                 patronymic:item.employee_middle,
@@ -535,7 +540,7 @@ function ModalView(app) {
             });
             console.log("IT'S OK");
             $$("edit_user_choose").collapse();
-            $$("edit_user_form").enable();
+            $$("edit_user").enable();
         });
 
         app.getULE();
