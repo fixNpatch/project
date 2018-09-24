@@ -36,3 +36,5 @@ GET       /load_modal_projectlist_edit             ProjectController.GetProjects
 GET       /load_modal_projectlist_delete           ProjectController.GetProjects
 GET       /load_modal_tasklist_add                 TaskController.OpenModalAdd
 GET       /load_modal_tasklist_edit                TaskController.OpenModalEdit
+GET       /usersonproject/:id                      ProjectController.GetUsersOnProject
+GET       /usersoutproject/:id                     ProjectController.GetUsersOutProject

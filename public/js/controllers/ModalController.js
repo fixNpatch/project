@@ -13,7 +13,7 @@ function ModalController(app) {
     this.editproject = function(){
         $$("choose_project").load(function(){
             return webix.ajax("/load_modal_projectlist_edit").then(function(data){
-                console.log(data);
+                console.log(data.json());
                 return data.json();
             });
         });
@@ -40,8 +40,6 @@ function ModalController(app) {
         });
     };
 
-
-    /* PROBLEM */
     this.addtask = function(){
         $$("project_manager").load(function(){
             return webix.ajax("/load_modal_tasklist_add").then(function(data){

@@ -223,8 +223,8 @@ function ModalView(app) {
                         view:"form",
                         id:"edit_project",
                         elements:[
-                            {view:"text", id:"project_title", label:"Название проекта", name:"title"},
-                            {view:"text", id:"project_description", label:"Описание проекта", name:"description"},
+                            {view:"text", id:"project_title", label:"Название проекта", name:"project_title"},
+                            {view:"text", id:"project_description", label:"Описание проекта", name:"project_description"},
                             {
                                 view:"datatable",
                                 css:"project_doers_modal",
@@ -260,28 +260,33 @@ function ModalView(app) {
             ]
         });
         $$("choose_project").attachEvent("onItemClick", function (id) {
+            let item = this.getItem(id);
             $$("project_doers").clearAll();
             $$("all_doers").clearAll();
-            let userbase = JSON.parse(getUserlistOnly());
-            let item = this.getItem(id);
-            for(let i = 0; i < userbase.length; i++){
 
-                let flagUserFree = true;
-                for(let j = 0; j < item.userstack.length; j++){
-                    if(userbase[i].user_id === item.userstack[j].user_id){
-                        $$("project_doers").add(userbase[i]);
-                        flagUserFree = false;
-                    }
-                }
-                if(flagUserFree){$$("all_doers").add(userbase[i]);}
-            }
             $$("edit_project_choose").collapse();
             $$("edit_project_form").enable();
             $$("edit_project").setValues(
                 {
-                    title:item.project_title,
-                    description:item.project_description,
+                    project_title:item.project_title,
+                    project_description:item.project_description,
                 }, true);
+
+
+
+            let on = "/usersonproject/" + String(item.project_id);
+            let out = "/usersoutproject/" + String(item.project_id);
+            $$("project_doers").load(function(){
+                return webix.ajax(on).then(function(data){
+                    return data.json();
+                });
+            });
+            $$("all_doers").load(function(){
+                return webix.ajax(out).then(function(data){
+                    return data.json();
+                });
+            });
+
         });
 
         $$("all_doers").attachEvent("onItemClick", function (id) {

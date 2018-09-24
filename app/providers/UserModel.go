@@ -29,7 +29,7 @@ func (t *UserModel) GetPic() (user *User, err error) {
 
 	/* create obj under template User*/
 	user = &User{
-		Employee_pic: url,
+		User_pic: url,
 	}
 	return
 }

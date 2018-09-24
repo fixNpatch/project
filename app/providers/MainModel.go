@@ -11,16 +11,16 @@ type Task struct {
 }
 
 type User struct {
-	LOGIN              string
-	PASSWORD           string
-	Employee_id        int
-	Employee_first     string
-	Employee_second    string
-	Employee_middle    string
-	Employee_rank      string
-	Employee_pic       string
-	Employee_timestamp string
-	Taskstack          []Task
+	LOGIN           string
+	PASSWORD        string
+	User_id         int
+	User_firstname  string
+	User_secondname string
+	User_middlename string
+	User_rank       string
+	User_pic        string
+	User_timestamp  string
+	Taskstack       []Task
 }
 
 type Project struct {
