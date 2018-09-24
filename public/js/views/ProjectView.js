@@ -36,15 +36,15 @@ function ProjectView(app) {
             container:"project_block",
             rows:[
                 {
-                    gravity:0.10,
-                    css:"red-head",
-                    id: "project_block_header",
-                    type:"clean",
                     borderless:true,
+                    gravity:0.1,
+                    id: "project_block_header",
+                    css:"red-head",
+                    type:"clean",
                     cols:[
                         {
                             gravity:3,
-                            css:"transparent h04v",
+                            css:"transparent",
                             id: "project_block_name",
                             template: "Ваши проекты",
                             type:"clean"
@@ -93,11 +93,26 @@ function ProjectView(app) {
                     ]
                 },
                 {
-                    gravity:10,
+                    borderless:true,
+                    css:"beige",
+                    id: "project_block_nest",
+                    view: "datatable",
+                    scrollX:false,
+                    columns:[
+                        { id:"Project_number",         header:"№",                    fillspace:0.4},
+                        { id:"Project_title",          header:"Название проекта",      fillspace:2},
+                        { id:"Project_description",    header:"Описание",              fillspace:3},
+                        { id:"Project_status",         header:"Статус проекта",        fillspace:1},
+                        { id:"Project_timestamp",      header:"Создан",                fillspace:true},
+                        { id:"Userstack",              header:"Исполнители",           fillspace:2},
+                    ]
+                },
+                {
                     id:"open_project",
                     css:"beige",
                     hidden:true,
                     view:"layout",
+                    height:"auto",
                     label:"PROJECT NAME",
                     rows:[
                         {cols:[
@@ -117,31 +132,14 @@ function ProjectView(app) {
                     ]
 
                 },
-                {
-                    css:"beige",
-                    borderless:true,
-                    id: "project_block_nest",
-                    view: "datatable",
-                    scrollX:false,
-                    columns:[
-                        { id:"Project_number",         header:"№",                    fillspace:0.4},
-                        { id:"Project_title",          header:"Название проекта",      fillspace:2},
-                        { id:"Project_description",    header:"Описание",              fillspace:3},
-                        { id:"Project_status",         header:"Статус проекта",        fillspace:1},
-                        { id:"Project_timestamp",      header:"Создан",                fillspace:true},
-                        { id:"Userstack",              header:"Исполнители",           fillspace:2},
-                    ]
-                }
             ]
         });
         if(arg === "full") $$("project_block_control").show();
 
         $$("project_block_nest").attachEvent("onItemClick", function (id) {
             let item = this.getItem(id);
-            this.hide();
             $$("open_project").show();
-            $$("project_block_header").resize();
-            $$("open_project").resize();
+            this.hide();
 
         });
 

@@ -112,9 +112,12 @@ function TaskView(app) {
                     id:"open_task",
                     css:"beige",
                     hidden:true,
+                    height:"auto",
                     view:"fieldset",
                     label:"PROJECT NAME",
                     body:{
+                        css:"beige",
+                        height:"auto",
                         rows:[
                             {cols:[
                                     { view:"text", label:"TASK TITLE", labelWidth:150},
