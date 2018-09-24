@@ -105,8 +105,8 @@ function ModalView(app) {
                     name:"all_doers",
                     height:300,
                     columns:[
-                        {id:"employee_rank", header:"Должность"},
-                        {id:"employee_second", header:"Фамилия  (Не участвует)", fillspace:true}
+                        {id:"user_rank", header:"Должность"},
+                        {id:"user_secondname", header:"Фамилия  (Не участвует)", fillspace:true}
                     ],
                     url:"assets/script/userbase.json"
                 },
@@ -118,8 +118,8 @@ function ModalView(app) {
                     name:"doers",
                     height:300,
                     columns:[
-                        {id:"employee_rank", header:"Должность"},
-                        {id:"employee_second", header:"Фамилия (Участвует в проекте)", fillspace:true}
+                        {id:"user_rank", header:"Должность"},
+                        {id:"user_secondname", header:"Фамилия (Участвует в проекте)", fillspace:true}
                     ]
                 },
                 {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
@@ -169,8 +169,8 @@ function ModalView(app) {
                                 name:"doers",
                                 height:200,
                                 columns:[
-                                    {id:"employee_rank", header:"Должность"},
-                                    {id:"employee_second", header:"Фамилия (Участвует в проекте)", fillspace:true}
+                                    {id:"user_rank", header:"Должность"},
+                                    {id:"user_secondname", header:"Фамилия (Участвует в проекте)", fillspace:true}
                                 ]
                             },
                             {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
@@ -233,8 +233,8 @@ function ModalView(app) {
                                 name:"all_doers",
                                 height:200,
                                 columns:[
-                                    {id:"employee_rank", header:"Должность"},
-                                    {id:"employee_second", header:"Фамилия  (Не участвует)", fillspace:true}
+                                    {id:"user_rank", header:"Должность"},
+                                    {id:"user_secondname", header:"Фамилия  (Не участвует)", fillspace:true}
                                 ]
                             },
                             {
@@ -245,8 +245,8 @@ function ModalView(app) {
                                 name:"doers",
                                 height:200,
                                 columns:[
-                                    {id:"employee_rank", header:"Должность"},
-                                    {id:"employee_second", header:"Фамилия (Участвует в проекте)", fillspace:true}
+                                    {id:"user_rank", header:"Должность"},
+                                    {id:"user_secondname", header:"Фамилия (Участвует в проекте)", fillspace:true}
                                 ]
                             },
                             {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
@@ -268,7 +268,7 @@ function ModalView(app) {
 
                 let flagUserFree = true;
                 for(let j = 0; j < item.userstack.length; j++){
-                    if(userbase[i].employee_id === item.userstack[j].employee_id){
+                    if(userbase[i].user_id === item.userstack[j].user_id){
                         $$("project_doers").add(userbase[i]);
                         flagUserFree = false;
                     }

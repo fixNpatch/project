@@ -133,8 +133,8 @@ function UserView(app) {
                             scroll:"y",
                             gravity: 10,
                             columns:[
-                                {id: "employee_rank", header: "Должность", type:"clean"},
-                                {id: "employee_second", header: "Фамилия", fillspace:true}
+                                {id: "user_rank", header: "Должность", type:"clean"},
+                                {id: "user_secondname", header: "Фамилия", fillspace:true}
                             ],
                         }
                     ]
@@ -144,7 +144,6 @@ function UserView(app) {
 
         app.getProfilePicture();
         app.getEmployeeBlock();
-        //getProfilePicture();
     }
 
 }
