@@ -1,145 +1,145 @@
 [
   {
-    "id":1,
-    "project_number":1,
-    "project_title":"Hello, world",
-    "project_description":"Just do it",
-    "project_status":"В процессе",
-    "project_timestamp":"29.12.1995",
-    "project_doers":[
+    "Project_id":1,
+    "Project_number":1,
+    "Project_title":"Hello, world",
+    "Project_description":"Just do it",
+    "Project_status":"В процессе",
+    "Project_timestamp":"29.12.1995",
+    "Project_doers":[
       {
-        "user_firstname": "Artyom",
-        "user_secondname": "Artemev",
-        "user_middlename": "Artemovich",
-        "user_rank": "TL",
-        "user_pic": "assets/img/avatar.jpg",
-        "user_id": "123",
-        "user_timestamp":"12.12.2012"
+        "User_firstname": "Artyom",
+        "User_secondname": "Artemev",
+        "User_middlename": "Artemovich",
+        "User_rank": "TL",
+        "User_pic": "assets/img/avatar.jpg",
+        "User_id": "123",
+        "User_timestamp":"12.12.2012"
       },
       {
-        "user_firstname": "Anton",
-        "user_secondname": "Antonov",
-        "user_middlename": "Antonovich",
-        "user_rank": "Jnr",
-        "user_pic": "../img/avatar.jpg",
-        "user_id": "222",
-        "user_timestamp":"12.12.2012"
+        "User_firstname": "Anton",
+        "User_secondname": "Antonov",
+        "User_middlename": "Antonovich",
+        "User_rank": "Jnr",
+        "User_pic": "../img/avatar.jpg",
+        "User_id": "222",
+        "User_timestamp":"12.12.2012"
       }
     ],
-    "project_tasks":[
+    "Project_tasks":[
       {
-        "task_number": "13",
-        "task_title": "Taskmanager",
-        "task_doer": "Titov A.S.",
-        "task_title": "Front-end / website layout",
-        "task_status":"В процессе",
-        "task_hours": "34",
-        "task_timestamp": "26.12.1990"
+        "Task_number": "13",
+        "Task_title": "Taskmanager",
+        "Task_doer": "Titov A.S.",
+        "Task_description": "Front-end / website layout",
+        "Task_status":"В процессе",
+        "Task_hours": "34",
+        "Task_timestamp": "26.12.1990"
       },
       {
-        "task_number": "13",
-        "task_title": "Taskmanager",
-        "task_doer": "Titov A.S.",
-        "task_title": "Front-end / website layout",
-        "task_status":"В процессе",
-        "task_hours": "34",
-        "task_timestamp": "26.12.1990"
+        "Task_number": "13",
+        "Task_title": "Taskmanager",
+        "Task_doer": "Titov A.S.",
+        "Task_description": "Front-end / website layout",
+        "Task_status":"В процессе",
+        "Task_hours": "34",
+        "Task_timestamp": "26.12.1990"
       }
     ]
   },
   {
-    "id":1,
-    "project_number":2,
-    "project_title":"Hello, world",
-    "project_description":"Just do it",
-    "project_status":"В процессе",
-    "project_timestamp":"29.12.1995",
-    "project_doers":[
+    "Project_id":1,
+    "Project_number":2,
+    "Project_title":"Hello, world",
+    "Project_description":"Just do it",
+    "Project_status":"В процессе",
+    "Project_timestamp":"29.12.1995",
+    "Project_doers":[
       {
-        "user_firstname": "Artyom",
-        "user_secondname": "Artemev",
-        "user_middlename": "Artemovich",
-        "user_rank": "TL",
-        "user_pic": "assets/img/avatar.jpg",
-        "user_id": "123",
-        "user_timestamp":"12.12.2012"
+        "User_firstname": "Artyom",
+        "User_secondname": "Artemev",
+        "User_middlename": "Artemovich",
+        "User_rank": "TL",
+        "User_pic": "assets/img/avatar.jpg",
+        "User_id": "123",
+        "User_timestamp":"12.12.2012"
       },
       {
-        "user_firstname": "Anton",
-        "user_secondname": "Antonov",
-        "user_middlename": "Antonovich",
-        "user_rank": "Jnr",
-        "user_pic": "../img/avatar.jpg",
-        "user_id": "222",
-        "user_timestamp":"12.12.2012"
+        "User_firstname": "Anton",
+        "User_secondname": "Antonov",
+        "User_middlename": "Antonovich",
+        "User_rank": "Jnr",
+        "User_pic": "../img/avatar.jpg",
+        "User_id": "222",
+        "User_timestamp":"12.12.2012"
       }
     ],
-    "project_tasks":[
+    "Project_tasks":[
       {
-        "task_number": "13",
-        "task_title": "Taskmanager",
-        "task_doer": "Titov A.S.",
-        "task_title": "Front-end / website layout",
-        "task_status":"В процессе",
-        "task_hours": "34",
-        "task_timestamp": "26.12.1990"
+        "Task_number": "13",
+        "Task_title": "Taskmanager",
+        "Task_doer": "Titov A.S.",
+        "Task_description": "Front-end / website layout",
+        "Task_status":"В процессе",
+        "Task_hours": "34",
+        "Task_timestamp": "26.12.1990"
       },
       {
-        "task_number": "13",
-        "task_title": "Taskmanager",
-        "task_doer": "Titov A.S.",
-        "task_title": "Front-end / website layout",
-        "task_status":"В процессе",
-        "task_hours": "34",
-        "task_timestamp": "26.12.1990"
+        "Task_number": "13",
+        "Task_title": "Taskmanager",
+        "Task_doer": "Titov A.S.",
+        "Task_description": "Front-end / website layout",
+        "Task_status":"В процессе",
+        "Task_hours": "34",
+        "Task_timestamp": "26.12.1990"
       }
     ]
   },
   {
-    "id":1,
-    "project_number":3,
-    "project_title":"Hello, world",
-    "project_description":"Just do it",
-    "project_status":"В процессе",
-    "project_timestamp":"29.12.1995",
-    "project_doers":[
+    "Project_id":1,
+    "Project_number":3,
+    "Project_title":"Hello, world",
+    "Project_description":"Just do it",
+    "Project_status":"В процессе",
+    "Project_timestamp":"29.12.1995",
+    "Project_doers":[
       {
-        "user_firstname": "Artyom",
-        "user_secondname": "Artemev",
-        "user_middlename": "Artemovich",
-        "user_rank": "TL",
-        "user_pic": "assets/img/avatar.jpg",
-        "user_id": "123",
-        "user_timestamp":"12.12.2012"
+        "User_firstname": "Artyom",
+        "User_secondname": "Artemev",
+        "User_middlename": "Artemovich",
+        "User_rank": "TL",
+        "User_pic": "assets/img/avatar.jpg",
+        "User_id": "123",
+        "User_timestamp":"12.12.2012"
       },
       {
-        "user_firstname": "Anton",
-        "user_secondname": "Antonov",
-        "user_middlename": "Antonovich",
-        "user_rank": "Jnr",
-        "user_pic": "../img/avatar.jpg",
-        "user_id": "222",
-        "user_timestamp":"12.12.2012"
+        "User_firstname": "Anton",
+        "User_secondname": "Antonov",
+        "User_middlename": "Antonovich",
+        "User_rank": "Jnr",
+        "User_pic": "../img/avatar.jpg",
+        "User_id": "222",
+        "User_timestamp":"12.12.2012"
       }
     ],
-    "project_tasks":[
+    "Project_tasks":[
       {
-        "task_number": "13",
-        "task_title": "Taskmanager",
-        "task_doer": "Titov A.S.",
-        "task_title": "Front-end / website layout",
-        "task_status":"В процессе",
-        "task_hours": "34",
-        "task_timestamp": "26.12.1990"
+        "Task_number": "13",
+        "Task_title": "Taskmanager",
+        "Task_doer": "Titov A.S.",
+        "Task_description": "Front-end / website layout",
+        "Task_status":"В процессе",
+        "Task_hours": "34",
+        "Task_timestamp": "26.12.1990"
       },
       {
-        "task_number": "13",
-        "task_title": "Taskmanager",
-        "task_doer": "Titov A.S.",
-        "task_title": "Front-end / website layout",
-        "task_status":"В процессе",
-        "task_hours": "34",
-        "task_timestamp": "26.12.1990"
+        "Task_number": "13",
+        "Task_title": "Taskmanager",
+        "Task_doer": "Titov A.S.",
+        "Task_description": "Front-end / website layout",
+        "Task_status":"В процессе",
+        "Task_hours": "34",
+        "Task_timestamp": "26.12.1990"
       }
     ]
   }

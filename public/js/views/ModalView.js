@@ -16,9 +16,9 @@ function ModalView(app) {
             elements:[
                 {view:"grouplist", id:"project_manager", scroll:"y", select:true},
                 {view: "text", id:"selected_doer", hidden:true},
-                {view:"text", id:"task_title", label:"Название задачи", name:"title"},
-                {view:"text", id:"task_title", label:"Описание задачи", name:"description"},
-                {view:"counter", id:"task_hours", label:"Рабочие часы", step:1, value:5, name:"hours"},
+                {view:"text", id:"Task_title", label:"Название задачи", name:"title"},
+                {view:"text", id:"Task_title", label:"Описание задачи", name:"description"},
+                {view:"counter", id:"Task_hours", label:"Рабочие часы", step:1, value:5, name:"hours"},
                 {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
                 {view:"button", id:"cancel_button", label:"Отмена", name:"button", click:close_modal}
 
@@ -65,9 +65,9 @@ function ModalView(app) {
             id:"edit_task",
             elements:[
                 {view:"grouplist", id:"task_choose", scroll:"y", select:true},
-                {view:"text", id:"task_title", label:"Название задачи", name:"title"},
-                {view:"text", id:"task_description", label:"Описание задачи", name:"description"},
-                {view:"counter", id:"task_hours", label:"Рабочие часы", step:1, value:5, name:"hours"},
+                {view:"text", id:"Task_title", label:"Название задачи", name:"Task_title"},
+                {view:"text", id:"Task_description", label:"Описание задачи", name:"Task_description"},
+                {view:"counter", id:"Task_hours", label:"Рабочие часы", step:1, value:5, name:"hours"},
                 {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
                 {view:"button", id:"cancel_button", label:"Отмена", name:"button", click:close_modal}
             ],
@@ -82,8 +82,8 @@ function ModalView(app) {
             console.log($$("edit_task").getValues());
             $$("edit_task").setValues(
                 {
-                    title:item.task_title,
-                    description:item.task_description,
+                    Task_title:item.Task_title,
+                    Task_description:item.Task_description,
                 }, true);
         });
         app.edittask();
@@ -95,8 +95,8 @@ function ModalView(app) {
             view:"form",
             id:"add_project",
             elements:[
-                {view:"text", id:"project_title", label:"Название проекта", name:"title"},
-                {view:"text", id:"project_description", label:"Описание проекта", name:"description"},
+                {view:"text", id:"Project_title", label:"Название проекта", name:"Project_title"},
+                {view:"text", id:"Project_description", label:"Описание проекта", name:"Project_description"},
                 {
                     view:"datatable",
                     css:"project_doers_modal",
@@ -105,8 +105,8 @@ function ModalView(app) {
                     name:"all_doers",
                     height:300,
                     columns:[
-                        {id:"user_rank", header:"Должность"},
-                        {id:"user_secondname", header:"Фамилия  (Не участвует)", fillspace:true}
+                        {id:"User_rank", header:"Должность"},
+                        {id:"User_secondname", header:"Фамилия  (Не участвует)", fillspace:true}
                     ],
                     url:"assets/script/userbase.json"
                 },
@@ -118,8 +118,8 @@ function ModalView(app) {
                     name:"doers",
                     height:300,
                     columns:[
-                        {id:"user_rank", header:"Должность"},
-                        {id:"user_secondname", header:"Фамилия (Участвует в проекте)", fillspace:true}
+                        {id:"User_rank", header:"Должность"},
+                        {id:"User_secondname", header:"Фамилия (Участвует в проекте)", fillspace:true}
                     ]
                 },
                 {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
@@ -150,9 +150,9 @@ function ModalView(app) {
                         view:"datatable",
                         id:"choose_project",
                         columns:[
-                            {id: "project_number", header:"№"},
-                            {id: "project_title", header: "Название проекта", fillspace:true},
-                            {id: "project_description", header: "Описание", fillspace:2}
+                            {id: "Project_number", header:"№"},
+                            {id: "Project_title", header: "Название проекта", fillspace:true},
+                            {id: "Project_description", header: "Описание", fillspace:2}
                         ]
                     }
                 },
@@ -160,8 +160,8 @@ function ModalView(app) {
                         view:"form",
                         id:"del_project",
                         elements:[
-                            {view:"text", id:"project_title", label:"Название проекта", name:"title", disabled: true},
-                            {view:"text", id:"project_description", label:"Описание проекта", name:"description", disabled: true},
+                            {view:"text", id:"Project_title", label:"Название проекта", name:"Project_title", disabled: true},
+                            {view:"text", id:"Project_description", label:"Описание проекта", name:"Project_description", disabled: true},
                             {
                                 view:"datatable",
                                 id:"project_doers",
@@ -169,8 +169,8 @@ function ModalView(app) {
                                 name:"doers",
                                 height:200,
                                 columns:[
-                                    {id:"user_rank", header:"Должность"},
-                                    {id:"user_secondname", header:"Фамилия (Участвует в проекте)", fillspace:true}
+                                    {id:"User_rank", header:"Должность"},
+                                    {id:"User_secondname", header:"Фамилия (Участвует в проекте)", fillspace:true}
                                 ]
                             },
                             {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
@@ -196,8 +196,8 @@ function ModalView(app) {
             $$("del_project_form").enable();
             $$("del_project").setValues(
                 {
-                    title:item.project_title,
-                    description:item.project_description,
+                    Project_title:item.Project_title,
+                    Project_description:item.Project_description,
                 }, true);
         });
 
@@ -213,9 +213,9 @@ function ModalView(app) {
                         view:"datatable",
                         id:"choose_project",
                         columns:[
-                            {id: "project_number", header:"№"},
-                            {id: "project_title", header: "Название проекта", fillspace:true},
-                            {id: "project_description", header: "Описание", fillspace:2}
+                            {id: "Project_number", header:"№"},
+                            {id: "Project_title", header: "Название проекта", fillspace:true},
+                            {id: "Project_description", header: "Описание", fillspace:2}
                         ]
                     }
                 },
@@ -223,8 +223,8 @@ function ModalView(app) {
                         view:"form",
                         id:"edit_project",
                         elements:[
-                            {view:"text", id:"project_title", label:"Название проекта", name:"project_title"},
-                            {view:"text", id:"project_description", label:"Описание проекта", name:"project_description"},
+                            {view:"text", id:"Project_title", label:"Название проекта", name:"project_title"},
+                            {view:"text", id:"Project_description", label:"Описание проекта", name:"project_description"},
                             {
                                 view:"datatable",
                                 css:"project_doers_modal",
@@ -233,8 +233,8 @@ function ModalView(app) {
                                 name:"all_doers",
                                 height:200,
                                 columns:[
-                                    {id:"user_rank", header:"Должность"},
-                                    {id:"user_secondname", header:"Фамилия  (Не участвует)", fillspace:true}
+                                    {id:"User_rank", header:"Должность"},
+                                    {id:"User_secondname", header:"Фамилия  (Не участвует)", fillspace:true}
                                 ]
                             },
                             {
@@ -245,8 +245,8 @@ function ModalView(app) {
                                 name:"doers",
                                 height:200,
                                 columns:[
-                                    {id:"user_rank", header:"Должность"},
-                                    {id:"user_secondname", header:"Фамилия (Участвует в проекте)", fillspace:true}
+                                    {id:"User_rank", header:"Должность"},
+                                    {id:"User_secondname", header:"Фамилия (Участвует в проекте)", fillspace:true}
                                 ]
                             },
                             {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
@@ -278,6 +278,7 @@ function ModalView(app) {
             let out = "/usersoutproject/" + String(item.project_id);
             $$("project_doers").load(function(){
                 return webix.ajax(on).then(function(data){
+                    console.log(data.json());
                     return data.json();
                 });
             });
@@ -312,10 +313,10 @@ function ModalView(app) {
             view:"form",
             autoheight: true,
             elements:[
-                {view:"text", id:"user_second", label:"Фамилия", name:"user_second"},
-                {view:"text", id:"user_first", label:"Имя", name:"user_first"},
-                {view:"text", id:"user_middle", label:"Отчество", name:"user_middle"},
-                {view:"combo", id:"user_rank",  name:"user_rank",
+                {view:"text", id:"User_second", label:"Фамилия", name:"User_second"},
+                {view:"text", id:"User_first", label:"Имя", name:"User_first"},
+                {view:"text", id:"User_middle", label:"Отчество", name:"User_middle"},
+                {view:"combo", id:"User_rank",  name:"User_rank",
                     value:1, // the initially selected one
                     label: 'Должность',
                     options:[
@@ -389,11 +390,11 @@ function ModalView(app) {
                         select:true,
                         scrollX: false,
                         columns: [
-                            {id: "user_rank", header: "Должность", fillspace: 0.8},
-                            {id: "user_secondname", header: "Фамилия", fillspace: 2},
-                            {id: "user_firstname", header: "Имя", fillspace: 2},
-                            {id: "user_middlename", header: "Отчество", fillspace: 2},
-                            {id: "user_timestamp", header: "Регистрация", fillspace: true},
+                            {id: "User_rank", header: "Должность", fillspace: 0.8},
+                            {id: "User_secondname", header: "Фамилия", fillspace: 2},
+                            {id: "User_firstname", header: "Имя", fillspace: 2},
+                            {id: "User_middlename", header: "Отчество", fillspace: 2},
+                            {id: "User_timestamp", header: "Регистрация", fillspace: true},
                         ]
                     }
                 },
@@ -407,10 +408,10 @@ function ModalView(app) {
                         height:450,
                         autoheight: true,
                         elements:[
-                            {view:"text", id:"user_secondname", label:"Фамилия", name:"user_secondname", disabled:true},
-                            {view:"text", id:"user_firstname", label:"Имя", name:"user_firstname", disabled:true},
-                            {view:"text", id:"user_middlename", label:"Отчество", name:"user_middlename", disabled:true},
-                            {view:"combo", id:"user_rank",  name:"rank", disabled:true,
+                            {view:"text", id:"User_secondname", label:"Фамилия", name:"User_secondname", disabled:true},
+                            {view:"text", id:"User_firstname", label:"Имя", name:"User_firstname", disabled:true},
+                            {view:"text", id:"User_middlename", label:"Отчество", name:"User_middlename", disabled:true},
+                            {view:"combo", id:"User_rank",  name:"User_rank", disabled:true,
                                 value:1, // the initially selected one
                                 label: 'Должность',
                                 options:[
@@ -438,10 +439,10 @@ function ModalView(app) {
         $$("choose_user").attachEvent("onAfterSelect", function (id) {
             let item = this.getItem(id);
             $$("del_user_form").setValues({
-                user_secondname:item.user_secondname,
-                user_firstname:item.user_firstname,
-                user_middlename:item.user_middlename,
-                user_rank:1
+                User_secondname:item.User_secondname,
+                User_firstname:item.User_firstname,
+                User_middlename:item.User_middlename,
+                User_rank:1
             });
             $$("del_user_choose").collapse();
             $$("del_user").enable();
@@ -465,11 +466,11 @@ function ModalView(app) {
                         select:true,
                         scrollX: false,
                         columns: [
-                            {id: "user_rank", header: "Должность", fillspace: 0.8},
-                            {id: "user_secondname", header: "Фамилия", fillspace: 2},
-                            {id: "user_firstname", header: "Имя", fillspace: 2},
-                            {id: "user_middlename", header: "Отчество", fillspace: 2},
-                            {id: "user_timestamp", header: "Регистрация", fillspace: true},
+                            {id: "User_rank", header: "Должность", fillspace: 0.8},
+                            {id: "User_secondname", header: "Фамилия", fillspace: 2},
+                            {id: "User_firstname", header: "Имя", fillspace: 2},
+                            {id: "User_middlename", header: "Отчество", fillspace: 2},
+                            {id: "User_timestamp", header: "Регистрация", fillspace: true},
                         ]
                     }
                 },
@@ -482,10 +483,10 @@ function ModalView(app) {
                         view:"form",
                         autoheight: true,
                         elements:[
-                            {view:"text", id:"user_secondname", label:"Фамилия", name:"user_secondname"},
-                            {view:"text", id:"user_firstname", label:"Имя", name:"user_firstname"},
-                            {view:"text", id:"user_middlename", label:"Отчество", name:"user_middlename"},
-                            {view:"combo", id:"user_rank",  name:"user_rank",
+                            {view:"text", id:"User_secondname", label:"Фамилия", name:"User_secondname"},
+                            {view:"text", id:"User_firstname", label:"Имя", name:"User_firstname"},
+                            {view:"text", id:"User_middlename", label:"Отчество", name:"User_middlename"},
+                            {view:"combo", id:"User_rank",  name:"User_rank",
                                 value:1, // the initially selected one
                                 label: 'Должность',
                                 options:[
@@ -537,10 +538,10 @@ function ModalView(app) {
         $$("choose_user").attachEvent("onAfterSelect", function (id) {
             let item = this.getItem(id);
             $$("edit_user_form").setValues({
-                user_secondname:item.user_secondname,
-                user_firstname:item.user_firstname,
-                user_middlename:item.user_middlename,
-                user_rank:1
+                User_secondname:item.User_secondname,
+                User_firstname:item.User_firstname,
+                User_middlename:item.User_middlename,
+                User_rank:1
             });
             console.log("IT'S OK");
             $$("edit_user_choose").collapse();

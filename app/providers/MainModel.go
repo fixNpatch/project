@@ -30,6 +30,6 @@ type Project struct {
 	Project_description string
 	Project_status      string
 	Project_timestamp   string
-	Project_doers       []User
+	Userstack           []User
 	Taskstack           []Task
 }

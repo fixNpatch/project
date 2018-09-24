@@ -98,13 +98,13 @@ function TaskView(app) {
                     view: "datatable",
                     scrollX: false,
                     columns:[
-                        { id:"task_number",         header:"№", fillspace:0.4},
-                        { id:"project_title",          header:"Название проекта", fillspace:2},
-                        { id:"task_title",          header:"Название задачи", fillspace:3},
-                        { id:"task_doer",           header:"Исполнитель", fillspace:2},
-                        { id:"task_status",         header:"Статус"},
-                        { id:"task_hours",          header:"Рабочие часы"},
-                        { id:"task_timestamp",      header:"Поставлена"}
+                        { id:"Task_number",         header:"№", fillspace:0.4},
+                        { id:"Project_title",       header:"Название проекта", fillspace:2},
+                        { id:"Task_title",          header:"Название задачи", fillspace:3},
+                        { id:"Task_doer",           header:"Исполнитель", fillspace:2},
+                        { id:"Task_status",         header:"Статус"},
+                        { id:"Task_hours",          header:"Рабочие часы"},
+                        { id:"Task_timestamp",      header:"Поставлена"}
 
                     ]
                 },

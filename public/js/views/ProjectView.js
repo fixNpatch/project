@@ -124,12 +124,12 @@ function ProjectView(app) {
                     view: "datatable",
                     scrollX:false,
                     columns:[
-                        { id:"project_number",         header:"№",                    fillspace:0.4},
-                        { id:"project_title",          header:"Название проекта",      fillspace:2},
-                        { id:"project_description",    header:"Описание",              fillspace:3},
-                        { id:"project_status",         header:"Статус проекта",        fillspace:1},
-                        { id:"project_timestamp",      header:"Создан",                fillspace:true},
-                        { id:"project_doers",           header:"Исполнители",           fillspace:2},
+                        { id:"Project_number",         header:"№",                    fillspace:0.4},
+                        { id:"Project_title",          header:"Название проекта",      fillspace:2},
+                        { id:"Project_description",    header:"Описание",              fillspace:3},
+                        { id:"Project_status",         header:"Статус проекта",        fillspace:1},
+                        { id:"Project_timestamp",      header:"Создан",                fillspace:true},
+                        { id:"Userstack",              header:"Исполнители",           fillspace:2},
                     ]
                 }
             ]

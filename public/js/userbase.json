@@ -1,56 +1,56 @@
 [{
     "LOGIN": "admin",
     "PASSWORD": "123",
-    "user_firstname": "Artyom",
-    "user_secondname": "Artemev",
-    "user_middlename": "Artemovich",
-    "user_rank": "TL",
-    "user_pic": "assets/img/avatar.jpg",
-    "user_id": "123",
-    "user_timestamp":"12.12.2012"
+    "User_firstname": "Artyom",
+    "User_secondname": "Artemev",
+    "User_middlename": "Artemovich",
+    "User_rank": "TL",
+    "User_pic": "assets/img/avatar.jpg",
+    "User_id": "123",
+    "User_timestamp":"12.12.2012"
   },
   {
     "LOGIN": "asd",
     "PASSWORD": "123",
-    "user_firstname": "Anton",
-    "user_secondname": "Antonov",
-    "user_middlename": "Antonovich",
-    "user_rank": "Jnr",
-    "user_pic": "../img/avatar.jpg",
-    "user_id": "222",
-    "user_timestamp":"12.12.2012"
+    "User_firstname": "Anton",
+    "User_secondname": "Antonov",
+    "User_middlename": "Antonovich",
+    "User_rank": "Jnr",
+    "User_pic": "../img/avatar.jpg",
+    "User_id": "222",
+    "User_timestamp":"12.12.2012"
   },
   {
     "LOGIN": "asm",
     "PASSWORD": "111",
-    "user_firstname": "Maxim ",
-    "user_secondname": "Maximov",
-    "user_middlename": "Maximovich",
-    "user_rank": "Jnr",
-    "user_pic": "assets/img/avatar.jpg",
-    "user_id": "333",
-    "user_timestamp":"12.12.2012"
+    "User_firstname": "Maxim ",
+    "User_secondname": "Maximov",
+    "User_middlename": "Maximovich",
+    "User_rank": "Jnr",
+    "User_pic": "assets/img/avatar.jpg",
+    "User_id": "333",
+    "User_timestamp":"12.12.2012"
   },
   {
     "LOGIN": "MVP",
     "PASSWORD": "777",
-    "user_firstname": "Ivan",
-    "user_secondname": "Ivanov",
-    "user_middlename": "Ivanovich",
-    "user_rank": "Dev",
-    "user_pic": "assets/img/avatar4.jpg",
-    "user_id": "112",
-    "user_timestamp":"12.12.2012"
+    "User_firstname": "Ivan",
+    "User_secondname": "Ivanov",
+    "User_middlename": "Ivanovich",
+    "User_rank": "Dev",
+    "User_pic": "assets/img/avatar4.jpg",
+    "User_id": "112",
+    "User_timestamp":"12.12.2012"
   },
   {
     "LOGIN": "CHEB",
     "PASSWORD": "1337",
-    "user_firstname": "Cheburashka",
-    "user_secondname": "Rusakov",
-    "user_middlename": "Gennadiyevich",
-    "user_rank": "HR",
-    "user_pic": "assets/img/avatar5.jpg",
-    "user_id": "777",
-    "user_timestamp":"12.12.2012"
+    "User_firstname": "Cheburashka",
+    "User_secondname": "Rusakov",
+    "User_middlename": "Gennadiyevich",
+    "User_rank": "HR",
+    "User_pic": "assets/img/avatar5.jpg",
+    "User_id": "777",
+    "User_timestamp":"12.12.2012"
   }
 ]

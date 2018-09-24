@@ -133,8 +133,8 @@ function UserView(app) {
                             scroll:"y",
                             gravity: 10,
                             columns:[
-                                {id: "user_rank", header: "Должность", type:"clean"},
-                                {id: "user_secondname", header: "Фамилия", fillspace:true}
+                                {id: "User_rank", header: "Должность", type:"clean"},
+                                {id: "User_secondname", header: "Фамилия", fillspace:true}
                             ],
                         }
                     ]

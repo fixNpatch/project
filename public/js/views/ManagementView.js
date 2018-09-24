@@ -83,12 +83,12 @@ function ManagementView(app) {
                             view: "datatable",
                             scrollX: false,
                             columns: [
-                                {id: "user_rank", header: "Должность", fillspace: 0.8},
-                                {id: "user_secondname", header: "Фамилия", fillspace: 2},
-                                {id: "user_firstname", header: "Имя", fillspace: 2},
-                                {id: "user_middlename", header: "Отчество", fillspace: 2},
-                                {id: "user_timestamp", header: "Регистрация", fillspace: true},
-                                {id: "user_pic", view:"button", header: "Фото", fillspace: 0.5, type:"image"},
+                                {id: "User_rank", header: "Должность", fillspace: 0.8},
+                                {id: "User_secondname", header: "Фамилия", fillspace: 2},
+                                {id: "User_firstname", header: "Имя", fillspace: 2},
+                                {id: "User_middlename", header: "Отчество", fillspace: 2},
+                                {id: "User_timestamp", header: "Регистрация", fillspace: true},
+                                {id: "User_pic", view:"button", header: "Фото", fillspace: 0.5, type:"image"},
                             ]
                         },
                         {
@@ -112,11 +112,11 @@ function ManagementView(app) {
                                     css:"beige",
                                     gravity:1.8,
                                     elements:[
-                                        {view:"text", id: "employee_rank", label: "Должность", name:"rank"},
-                                        {view:"text", id: "employee_second", label: "Фамилия", name:"Family"},
-                                        {view:"text", id: "employee_first", label: "Имя", name:"Name"},
-                                        {view:"text", id: "employee_middle", label: "Отчество", name:"Patronymic"},
-                                        {view:"text", id: "employee_timestamp", label: "Регистрация", name:"Registration"},
+                                        {view:"text", id: "User_rank",      label: "Должность",  name:"User_rank"},
+                                        {view:"text", id: "User_secondname",label: "Фамилия",    name:"User_secondname"},
+                                        {view:"text", id: "User_firstname", label: "Имя",        name:"User_firstname"},
+                                        {view:"text", id: "User_middlename",label: "Отчество",   name:"User_middlename"},
+                                        {view:"text", id: "User_timestamp", label: "Регистрация",name:"User_timestamp"},
                                         {view:"button", label:"Добавить задачу"},
                                         {view:"button", label:"Вернуться назад", click:function () {
                                                 $$("open_block").hide();
@@ -139,11 +139,11 @@ function ManagementView(app) {
             let item = this.getItem(id);
             this.hide();
             $$("open_main_info").setValues({
-                Name:item.employee_first,
-                Family:item.employee_second,
-                Patronymic:item.employee_middle,
-                rank:item.employee_rank,
-                Registration:item.employee_timestamp
+                User_firstname:item.User_firstname,
+                User_secondname:item.User_secondname,
+                User_middlename:item.User_middlename,
+                User_rank:item.User_rank,
+                User_timestamp:item.User_timestamp
             });
             $$("open_block").show();
         });
