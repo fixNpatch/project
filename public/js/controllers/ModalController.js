@@ -53,5 +53,13 @@ function ModalController(app) {
                 return data.json();
             });
         });
+    };
+    this.edittask = function(){
+        $$("task_choose").load(function(){
+            return webix.ajax("/load_modal_tasklist_edit").then(function(data){
+                console.log(data);
+                return data.json();
+            });
+        });
     }
 }

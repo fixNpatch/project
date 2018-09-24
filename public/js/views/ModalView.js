@@ -59,14 +59,13 @@ function ModalView(app) {
         });
     }
     function edit_task() {
-        let data = task_parse_modal_edit();
         console.log("EDIT TASK");
         webix.ui({
             container:$$("modal_body").getNode(),
             view:"form",
             id:"edit_task",
             elements:[
-                {view:"grouplist", id:"task_choose", scroll:"y", select:true, data:data},
+                {view:"grouplist", id:"task_choose", scroll:"y", select:true},
                 {view:"text", id:"task_title", label:"Название задачи", name:"title"},
                 {view:"text", id:"task_description", label:"Описание задачи", name:"description"},
                 {view:"counter", id:"task_hours", label:"Рабочие часы", step:1, value:5, name:"hours"},
@@ -88,6 +87,7 @@ function ModalView(app) {
                     description:item.task_description,
                 }, true);
         });
+        app.edittask();
     }
     function add_project() {
         webix.ui({
