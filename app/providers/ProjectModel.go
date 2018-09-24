@@ -76,7 +76,7 @@ func (t *ProjectModel) GetUsersOutProject(id int) string {
 					}
 					k++
 				}
-				if found == false {
+				if found == false { /* если элемент из базы не был найден в стеке то добавляем его к ответу*/
 					users = append(users, userlist[j])
 				}
 				j++

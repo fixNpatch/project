@@ -13,7 +13,7 @@ type Task struct {
 type User struct {
 	LOGIN           string
 	PASSWORD        string
-	User_id         int
+	User_id         string
 	User_firstname  string
 	User_secondname string
 	User_middlename string
