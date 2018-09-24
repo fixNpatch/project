@@ -37,7 +37,7 @@ function ProjectView(app) {
             rows:[
                 {
                     borderless:true,
-                    gravity:0.1,
+                    gravity:0.08,
                     id: "project_block_header",
                     css:"red-head",
                     type:"clean",
@@ -111,26 +111,27 @@ function ProjectView(app) {
                     id:"open_project",
                     css:"beige",
                     hidden:true,
-                    view:"layout",
                     height:"auto",
+                    view:"fieldset",
                     label:"PROJECT NAME",
-                    rows:[
-                        {cols:[
-                                { view:"text", label:"PROJECT TITLE", labelWidth:150},
-                                { view:"text", value:"PROJECT TIMESTAMP", labelWidth:150},
-                                { view:"text", value:"PROJECT STATUS", labelWidth:150},
-                            ]
-                        },
-                        { view:"text", label:"PROJECT DESCRIPTION", labelWidth:150},
-                        { view:"text", label:"TASK DOER", labelWidth:150},
-                        { view:"text", label:"TASK HOURS", labelWidth:150},
-                        { view:"button", label:"НАЗАД", click:function () {
-                                $$("open_project").hide();
-                                $$("project_block_nest").show();
+                    body:{
+                        rows:[
+                            {cols:[
+                                    { view:"text", label:"PROJECT TITLE", labelWidth:150},
+                                    { view:"text", value:"PROJECT TIMESTAMP", labelWidth:150},
+                                    { view:"text", value:"PROJECT STATUS", labelWidth:150},
+                                ]
+                            },
+                            { view:"text", label:"PROJECT DESCRIPTION", labelWidth:150},
+                            { view:"text", label:"TASK DOER", labelWidth:150},
+                            { view:"text", label:"TASK HOURS", labelWidth:150},
+                            { view:"button", label:"НАЗАД", click:function () {
+                                    $$("open_project").hide();
+                                    $$("project_block_nest").show();
+                                }
                             }
-                        }
-                    ]
-
+                        ]
+                    }
                 },
             ]
         });

@@ -17,13 +17,12 @@ function MainView(app) {
         if(arg === "right"){
             webix.ui({
                 container: $$("right-area").getNode(),
-                type:"template",
                 rows:[
                     {
                         id: "task_block",
                     },
                     {
-                        gravity:1.4,
+                        gravity:1.65,
                         id: "project_block"
                     }
                 ]
@@ -37,13 +36,11 @@ function MainView(app) {
             cols:[
                 {
                     css:"left-area",
-                    type:"template",
                     id: "left-area"
                 },
                 {
                     gravity:5,
                     css:"right-area",
-                    type:"template",
                     id: "right-area"
                 }
             ]
