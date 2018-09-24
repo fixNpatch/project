@@ -307,10 +307,10 @@ function ModalView(app) {
             view:"form",
             autoheight: true,
             elements:[
-                {view:"text", id:"user_second", label:"Фамилия", name:"family"},
-                {view:"text", id:"user_first", label:"Имя", name:"name"},
-                {view:"text", id:"user_middle", label:"Отчество", name:"patronymic"},
-                {view:"combo", id:"user_rank",  name:"rank",
+                {view:"text", id:"user_second", label:"Фамилия", name:"user_second"},
+                {view:"text", id:"user_first", label:"Имя", name:"user_first"},
+                {view:"text", id:"user_middle", label:"Отчество", name:"user_middle"},
+                {view:"combo", id:"user_rank",  name:"user_rank",
                     value:1, // the initially selected one
                     label: 'Должность',
                     options:[
@@ -362,6 +362,8 @@ function ModalView(app) {
         /*===================================================================*/
         $$("submit_button").attachEvent("onItemClick", function(){
             let save = $$("add_user_form").getValues();
+            delete save.button;
+            save = JSON.stringify(save, "", 1);
             console.log(save);
             close_modal();
         });
@@ -382,11 +384,11 @@ function ModalView(app) {
                         select:true,
                         scrollX: false,
                         columns: [
-                            {id: "employee_rank", header: "Должность", fillspace: 0.8},
-                            {id: "employee_second", header: "Фамилия", fillspace: 2},
-                            {id: "employee_first", header: "Имя", fillspace: 2},
-                            {id: "employee_middle", header: "Отчество", fillspace: 2},
-                            {id: "employee_timestamp", header: "Регистрация", fillspace: true},
+                            {id: "user_rank", header: "Должность", fillspace: 0.8},
+                            {id: "user_secondname", header: "Фамилия", fillspace: 2},
+                            {id: "user_firstname", header: "Имя", fillspace: 2},
+                            {id: "user_middlename", header: "Отчество", fillspace: 2},
+                            {id: "user_timestamp", header: "Регистрация", fillspace: true},
                         ]
                     }
                 },
@@ -400,9 +402,9 @@ function ModalView(app) {
                         height:450,
                         autoheight: true,
                         elements:[
-                            {view:"text", id:"user_second", label:"Фамилия", name:"family", disabled:true},
-                            {view:"text", id:"user_first", label:"Имя", name:"name", disabled:true},
-                            {view:"text", id:"user_middle", label:"Отчество", name:"patronymic", disabled:true},
+                            {view:"text", id:"user_secondname", label:"Фамилия", name:"user_secondname", disabled:true},
+                            {view:"text", id:"user_firstname", label:"Имя", name:"user_firstname", disabled:true},
+                            {view:"text", id:"user_middlename", label:"Отчество", name:"user_middlename", disabled:true},
                             {view:"combo", id:"user_rank",  name:"rank", disabled:true,
                                 value:1, // the initially selected one
                                 label: 'Должность',
@@ -431,10 +433,10 @@ function ModalView(app) {
         $$("choose_user").attachEvent("onAfterSelect", function (id) {
             let item = this.getItem(id);
             $$("del_user_form").setValues({
-                family:item.employee_second,
-                name:item.employee_first,
-                patronymic:item.employee_middle,
-                rank:1
+                user_secondname:item.user_secondname,
+                user_firstname:item.user_firstname,
+                user_middlename:item.user_middlename,
+                user_rank:1
             });
             $$("del_user_choose").collapse();
             $$("del_user").enable();
@@ -458,11 +460,11 @@ function ModalView(app) {
                         select:true,
                         scrollX: false,
                         columns: [
-                            {id: "employee_rank", header: "Должность", fillspace: 0.8},
-                            {id: "employee_second", header: "Фамилия", fillspace: 2},
-                            {id: "employee_first", header: "Имя", fillspace: 2},
-                            {id: "employee_middle", header: "Отчество", fillspace: 2},
-                            {id: "employee_timestamp", header: "Регистрация", fillspace: true},
+                            {id: "user_rank", header: "Должность", fillspace: 0.8},
+                            {id: "user_secondname", header: "Фамилия", fillspace: 2},
+                            {id: "user_firstname", header: "Имя", fillspace: 2},
+                            {id: "user_middlename", header: "Отчество", fillspace: 2},
+                            {id: "user_timestamp", header: "Регистрация", fillspace: true},
                         ]
                     }
                 },
@@ -475,10 +477,10 @@ function ModalView(app) {
                         view:"form",
                         autoheight: true,
                         elements:[
-                            {view:"text", id:"user_second", label:"Фамилия", name:"family"},
-                            {view:"text", id:"user_first", label:"Имя", name:"name"},
-                            {view:"text", id:"user_middle", label:"Отчество", name:"patronymic"},
-                            {view:"combo", id:"user_rank",  name:"rank",
+                            {view:"text", id:"user_secondname", label:"Фамилия", name:"user_secondname"},
+                            {view:"text", id:"user_firstname", label:"Имя", name:"user_firstname"},
+                            {view:"text", id:"user_middlename", label:"Отчество", name:"user_middlename"},
+                            {view:"combo", id:"user_rank",  name:"user_rank",
                                 value:1, // the initially selected one
                                 label: 'Должность',
                                 options:[
@@ -530,10 +532,10 @@ function ModalView(app) {
         $$("choose_user").attachEvent("onAfterSelect", function (id) {
             let item = this.getItem(id);
             $$("edit_user_form").setValues({
-                family:item.employee_second,
-                name:item.employee_first,
-                patronymic:item.employee_middle,
-                rank:1
+                user_secondname:item.user_secondname,
+                user_firstname:item.user_firstname,
+                user_middlename:item.user_middlename,
+                user_rank:1
             });
             console.log("IT'S OK");
             $$("edit_user_choose").collapse();

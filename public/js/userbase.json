@@ -1,56 +1,56 @@
 [{
     "LOGIN": "admin",
     "PASSWORD": "123",
-    "employee_first": "Artyom",
-    "employee_second": "Artemev",
-    "employee_middle": "Artemovich",
-    "employee_rank": "TL",
-    "employee_pic": "assets/img/avatar.jpg",
-    "employee_id": "123",
-    "employee_timestamp":"12.12.2012"
+    "user_firstname": "Artyom",
+    "user_secondname": "Artemev",
+    "user_middlename": "Artemovich",
+    "user_rank": "TL",
+    "user_pic": "assets/img/avatar.jpg",
+    "user_id": "123",
+    "user_timestamp":"12.12.2012"
   },
   {
     "LOGIN": "asd",
     "PASSWORD": "123",
-    "employee_first": "Anton",
-    "employee_second": "Antonov",
-    "employee_middle": "Antonovich",
-    "employee_rank": "Jnr",
-    "employee_pic": "../img/avatar.jpg",
-    "employee_id": "222",
-    "employee_timestamp":"12.12.2012"
+    "user_firstname": "Anton",
+    "user_secondname": "Antonov",
+    "user_middlename": "Antonovich",
+    "user_rank": "Jnr",
+    "user_pic": "../img/avatar.jpg",
+    "user_id": "222",
+    "user_timestamp":"12.12.2012"
   },
   {
     "LOGIN": "asm",
     "PASSWORD": "111",
-    "employee_first": "Maxim ",
-    "employee_second": "Maximov",
-    "employee_middle": "Maximovich",
-    "employee_rank": "Jnr",
-    "employee_pic": "assets/img/avatar.jpg",
-    "employee_id": "333",
-    "employee_timestamp":"12.12.2012"
+    "user_firstname": "Maxim ",
+    "user_secondname": "Maximov",
+    "user_middlename": "Maximovich",
+    "user_rank": "Jnr",
+    "user_pic": "assets/img/avatar.jpg",
+    "user_id": "333",
+    "user_timestamp":"12.12.2012"
   },
   {
     "LOGIN": "MVP",
     "PASSWORD": "777",
-    "employee_first": "Ivan",
-    "employee_second": "Ivanov",
-    "employee_middle": "Ivanovich",
-    "employee_rank": "Dev",
-    "employee_pic": "assets/img/avatar4.jpg",
-    "employee_id": "112",
-    "employee_timestamp":"12.12.2012"
+    "user_firstname": "Ivan",
+    "user_secondname": "Ivanov",
+    "user_middlename": "Ivanovich",
+    "user_rank": "Dev",
+    "user_pic": "assets/img/avatar4.jpg",
+    "user_id": "112",
+    "user_timestamp":"12.12.2012"
   },
   {
     "LOGIN": "CHEB",
     "PASSWORD": "1337",
-    "employee_first": "Cheburashka",
-    "employee_second": "Rusakov",
-    "employee_middle": "Gennadiyevich",
-    "employee_rank": "HR",
-    "employee_pic": "assets/img/avatar5.jpg",
-    "employee_id": "777",
-    "employee_timestamp":"12.12.2012"
+    "user_firstname": "Cheburashka",
+    "user_secondname": "Rusakov",
+    "user_middlename": "Gennadiyevich",
+    "user_rank": "HR",
+    "user_pic": "assets/img/avatar5.jpg",
+    "user_id": "777",
+    "user_timestamp":"12.12.2012"
   }
 ]

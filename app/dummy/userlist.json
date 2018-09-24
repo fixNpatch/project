@@ -1,55 +1,55 @@
 [{
-    "employee_first": "Artyom",
-    "employee_second": "Artemev",
-    "employee_middle": "Artemovich",
-    "employee_rank": "TL",
-    "employee_pic": "assets/img/avatar.jpg",
-    "employee_id": "123",
-    "employee_timestamp": "19.09.2018"
+    "user_firstname": "Artyom",
+    "user_secondname": "Artemev",
+    "user_middlename": "Artemovich",
+    "user_rank": "TL",
+    "user_pic": "assets/img/avatar.jpg",
+    "user_id": "123",
+    "user_timestamp": "19.09.2018"
   },
   {
-    "employee_first": "Anton",
-    "employee_second": "Titov",
-    "employee_middle": "Sergeyevich",
-    "employee_rank": "Jnr",
-    "employee_pic": "assets/img/avatar2.jpg",
-    "employee_id": "135",
-    "employee_timestamp": "19.09.2018"
+    "user_firstname": "Anton",
+    "user_secondname": "Titov",
+    "user_middlename": "Sergeyevich",
+    "user_rank": "Jnr",
+    "user_pic": "assets/img/avatar2.jpg",
+    "user_id": "135",
+    "user_timestamp": "19.09.2018"
   },
   {
-    "employee_first": "Maxim",
-    "employee_second": "Maximov",
-    "employee_middle": "Maximovich",
-    "employee_rank": "Jnr",
-    "employee_pic": "assets/img/avatar3.jpg",
-    "employee_id": "111",
-    "employee_timestamp": "19.09.2018"
+    "user_firstname": "Maxim",
+    "user_secondname": "Maximov",
+    "user_middlename": "Maximovich",
+    "user_rank": "Jnr",
+    "user_pic": "assets/img/avatar3.jpg",
+    "user_id": "111",
+    "user_timestamp": "19.09.2018"
   },
   {
-    "employee_first": "Ivan",
-    "employee_second": "Ivanov",
-    "employee_middle": "Ivanovich",
-    "employee_rank": "Dev",
-    "employee_pic": "assets/img/avatar4.jpg",
-    "employee_id": "112",
-    "employee_timestamp": "19.09.2018"
+    "user_firstname": "Ivan",
+    "user_secondname": "Ivanov",
+    "user_middlename": "Ivanovich",
+    "user_rank": "Dev",
+    "user_pic": "assets/img/avatar4.jpg",
+    "user_id": "112",
+    "user_timestamp": "19.09.2018"
   },
   {
-    "employee_first": "Cheburashka",
-    "employee_second": "Rusakov",
-    "employee_middle": "Gennadiyevich",
-    "employee_rank": "HR",
-    "employee_pic": "assets/img/avatar5.jpg",
-    "employee_id": "777",
-    "employee_timestamp": "19.09.2018"
+    "user_firstname": "Cheburashka",
+    "user_secondname": "Rusakov",
+    "user_middlename": "Gennadiyevich",
+    "user_rank": "HR",
+    "user_pic": "assets/img/avatar5.jpg",
+    "user_id": "777",
+    "user_timestamp": "19.09.2018"
   },
   {
-    "employee_first": "Vladimir",
-    "employee_second": "Kudin",
-    "employee_middle": "Vladimirovich",
-    "employee_rank": "Chief",
-    "employee_pic": "assets/img/avatar6.jpg",
-    "employee_id": "666",
-    "employee_timestamp": "19.09.2018"
+    "user_firstname": "Vladimir",
+    "user_secondname": "Kudin",
+    "user_middlename": "Vladimirovich",
+    "user_rank": "Chief",
+    "user_pic": "assets/img/avatar6.jpg",
+    "user_id": "666",
+    "user_timestamp": "19.09.2018"
   }
 ]

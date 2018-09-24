@@ -9,22 +9,22 @@
       "project_timestamp":"29.12.1995",
       "project_doers":[
         {
-          "employee_first": "Artyom",
-          "employee_second": "Artemev",
-          "employee_middle": "Artemovich",
-          "employee_rank": "TL",
-          "employee_pic": "assets/img/avatar.jpg",
-          "employee_id": "123",
-          "employee_timestamp":"12.12.2012"
+          "user_firstname": "Artyom",
+          "user_secondname": "Artemev",
+          "user_middlename": "Artemovich",
+          "user_rank": "TL",
+          "user_pic": "assets/img/avatar.jpg",
+          "user_id": "123",
+          "user_timestamp":"12.12.2012"
         },
         {
-          "employee_first": "Anton",
-          "employee_second": "Antonov",
-          "employee_middle": "Antonovich",
-          "employee_rank": "Jnr",
-          "employee_pic": "../img/avatar.jpg",
-          "employee_id": "222",
-          "employee_timestamp":"12.12.2012"
+          "user_firstname": "Anton",
+          "user_secondname": "Antonov",
+          "user_middlename": "Antonovich",
+          "user_rank": "Jnr",
+          "user_pic": "../img/avatar.jpg",
+          "user_id": "222",
+          "user_timestamp":"12.12.2012"
         }
       ],
       "project_tasks":[
@@ -57,22 +57,22 @@
       "project_timestamp":"29.12.1995",
       "project_doers":[
         {
-          "employee_first": "Artyom",
-          "employee_second": "Artemev",
-          "employee_middle": "Artemovich",
-          "employee_rank": "TL",
-          "employee_pic": "assets/img/avatar.jpg",
-          "employee_id": "123",
-          "employee_timestamp":"12.12.2012"
+          "user_firstname": "Artyom",
+          "user_secondname": "Artemev",
+          "user_middlename": "Artemovich",
+          "user_rank": "TL",
+          "user_pic": "assets/img/avatar.jpg",
+          "user_id": "123",
+          "user_timestamp":"12.12.2012"
         },
         {
-          "employee_first": "Anton",
-          "employee_second": "Antonov",
-          "employee_middle": "Antonovich",
-          "employee_rank": "Jnr",
-          "employee_pic": "../img/avatar.jpg",
-          "employee_id": "222",
-          "employee_timestamp":"12.12.2012"
+          "user_firstname": "Anton",
+          "user_secondname": "Antonov",
+          "user_middlename": "Antonovich",
+          "user_rank": "Jnr",
+          "user_pic": "../img/avatar.jpg",
+          "user_id": "222",
+          "user_timestamp":"12.12.2012"
         }
       ],
       "project_tasks":[
@@ -105,22 +105,22 @@
       "project_timestamp":"29.12.1995",
       "project_doers":[
         {
-          "employee_first": "Artyom",
-          "employee_second": "Artemev",
-          "employee_middle": "Artemovich",
-          "employee_rank": "TL",
-          "employee_pic": "assets/img/avatar.jpg",
-          "employee_id": "123",
-          "employee_timestamp":"12.12.2012"
+          "user_firstname": "Artyom",
+          "user_secondname": "Artemev",
+          "user_middlename": "Artemovich",
+          "user_rank": "TL",
+          "user_pic": "assets/img/avatar.jpg",
+          "user_id": "123",
+          "user_timestamp":"12.12.2012"
         },
         {
-          "employee_first": "Anton",
-          "employee_second": "Antonov",
-          "employee_middle": "Antonovich",
-          "employee_rank": "Jnr",
-          "employee_pic": "../img/avatar.jpg",
-          "employee_id": "222",
-          "employee_timestamp":"12.12.2012"
+          "user_firstname": "Anton",
+          "user_secondname": "Antonov",
+          "user_middlename": "Antonovich",
+          "user_rank": "Jnr",
+          "user_pic": "../img/avatar.jpg",
+          "user_id": "222",
+          "user_timestamp":"12.12.2012"
         }
       ],
       "project_tasks":[

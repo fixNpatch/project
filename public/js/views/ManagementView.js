@@ -83,12 +83,12 @@ function ManagementView(app) {
                             view: "datatable",
                             scrollX: false,
                             columns: [
-                                {id: "employee_rank", header: "Должность", fillspace: 0.8},
-                                {id: "employee_second", header: "Фамилия", fillspace: 2},
-                                {id: "employee_first", header: "Имя", fillspace: 2},
-                                {id: "employee_middle", header: "Отчество", fillspace: 2},
-                                {id: "employee_timestamp", header: "Регистрация", fillspace: true},
-                                {id: "employee_pic", view:"button", header: "Фото", fillspace: 0.5, type:"image"},
+                                {id: "user_rank", header: "Должность", fillspace: 0.8},
+                                {id: "user_secondname", header: "Фамилия", fillspace: 2},
+                                {id: "user_firstname", header: "Имя", fillspace: 2},
+                                {id: "user_middlename", header: "Отчество", fillspace: 2},
+                                {id: "user_timestamp", header: "Регистрация", fillspace: true},
+                                {id: "user_pic", view:"button", header: "Фото", fillspace: 0.5, type:"image"},
                             ]
                         },
                         {

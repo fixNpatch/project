@@ -10,11 +10,6 @@ function getProjectlist() {
 }
 
 
-
-
-
-
-
 function getTasklistOnly() {
     let list = JSON.stringify(TASKS, "", 4);
     return list
