@@ -42,6 +42,7 @@ func (t *ProjectModel) GetUsersOnProject(id int) string {
 				users = append(users, data[i].Userstack[j])
 				j++
 			}
+			break
 		}
 		i++
 	}
@@ -51,24 +52,37 @@ func (t *ProjectModel) GetUsersOnProject(id int) string {
 }
 
 func (t *ProjectModel) GetUsersOutProject(id int) string {
-	//path := revel.AppPath
-	//file, _ := ioutil.ReadFile(path + "/dummy/projectWithUsers.json")
-	//var data []Project
-	//var users []User
-	//json.Unmarshal(file, &data)
-	//
-	//var i = 0
-	//var j = 0
-	//for i < len(data) {
-	//	if data[i].Project_id == id {
-	//		for j < len(data[i].Userstack) {
-	//			users = append(users, data[i].Userstack[j])
-	//			j++
-	//		}
-	//	}
-	//	i++
-	//}
-	//answer, _ := json.Marshal(users)
-	//return string(answer)
-	return ""
+	path := revel.AppPath
+	file, _ := ioutil.ReadFile(path + "/dummy/projectWithUsers.json")
+	ulfile, _ := ioutil.ReadFile(path + "/dummy/userlist.json")
+	var data []Project //включает в себя поле Project_doer []User
+	var userlist []User
+	var users []User
+
+	json.Unmarshal(file, &data) //парсим
+	json.Unmarshal(ulfile, &userlist)
+	var i = 0
+	var j = 0
+	for i < len(data) {
+		if data[i].Project_id == id {
+			var k = 0
+			for j < len(data[i].Userstack) {
+				found := false
+				for k < len(userlist) {
+					if data[i].Userstack[j].User_id == userlist[k].User_id {
+						found = true
+					}
+				}
+				if found == false {
+					users = append(users, data[i].Userstack[j])
+				}
+				j++
+			}
+			break
+		}
+		i++
+	}
+	answer, _ := json.Marshal(users)
+	fmt.Println(answer)
+	return string(answer)
 }
