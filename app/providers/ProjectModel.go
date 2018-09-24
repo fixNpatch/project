@@ -63,11 +63,12 @@ func (t *ProjectModel) GetUsersOutProject(id int) string {
 	json.Unmarshal(ulfile, &userlist)
 	var i = 0
 	var j = 0
-	var k = 0
+	var k int
 	for i < len(data) { /* Ищем проект по id*/
 		if data[i].Project_id == id { /* если найден то */
 			for j < len(userlist) { /* берем каждый элемент в userbase*/
 				found := false
+				k = 0
 				for k < len(data[i].Userstack) { /*начинаем поэлементно сравнивать со стеком проекта*/
 					if userlist[j].User_id == data[i].Userstack[k].User_id { /* если они совпадают то*/
 						found = true

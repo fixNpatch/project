@@ -224,8 +224,8 @@ function ModalView(app) {
                         view:"form",
                         id:"edit_project",
                         elements:[
-                            {view:"text", id:"Project_title", label:"Название проекта", name:"project_title"},
-                            {view:"text", id:"Project_description", label:"Описание проекта", name:"project_description"},
+                            {view:"text", id:"Project_title", label:"Название проекта", name:"Project_title"},
+                            {view:"text", id:"Project_description", label:"Описание проекта", name:"Project_description"},
                             {
                                 view:"datatable",
                                 css:"project_doers_modal",
@@ -269,8 +269,8 @@ function ModalView(app) {
             $$("edit_project_form").enable();
             $$("edit_project").setValues(
                 {
-                    project_title:item.project_title,
-                    project_description:item.project_description,
+                    Project_title:item.Project_title,
+                    Project_description:item.Project_description,
                 }, true);
 
 

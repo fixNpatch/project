@@ -4,7 +4,7 @@
     "Task_title": "Back-end / server setup",
     "Task_hours": "56",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Anton",
       "User_secondname": "Titov",
@@ -21,7 +21,7 @@
     "Task_title": "Database",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Maxim",
       "User_secondname": "Maximov",
@@ -38,7 +38,7 @@
     "Task_title": "Back-end / server setup",
     "Task_hours": "56",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "2",
     "Task_doer": {
       "User_firstname": "Anton",
       "User_secondname": "Titov",
@@ -55,7 +55,7 @@
     "Task_title": "Database",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "3",
     "Task_doer": {
       "User_firstname": "Maxim",
       "User_secondname": "Maximov",
@@ -72,7 +72,7 @@
     "Task_title": "Documentation",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "4",
     "Task_doer": {
       "User_firstname": "Ivan",
       "User_secondname": "Ivanov",
@@ -89,7 +89,7 @@
     "Task_title": "Back-end / server setup",
     "Task_hours": "56",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Anton",
       "User_secondname": "Titov",
@@ -106,7 +106,7 @@
     "Task_title": "Database",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "2",
     "Task_doer": {
       "User_firstname": "Maxim",
       "User_secondname": "Maximov",
@@ -123,7 +123,7 @@
     "Task_title": "Documentation",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "3",
     "Task_doer": {
       "User_firstname": "Ivan",
       "User_secondname": "Ivanov",
@@ -140,7 +140,7 @@
     "Task_title": "DEPLOYING",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "4",
     "Task_doer": {
       "User_firstname": "Cheburashka",
       "User_secondname": "Rusakov",
@@ -157,7 +157,7 @@
     "Task_title": "Front-end / website layout",
     "Task_hours": "34",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Artyom",
       "User_secondname": "Artemev",
@@ -174,7 +174,7 @@
     "Task_title": "Database",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "2",
     "Task_doer": {
       "User_firstname": "Maxim",
       "User_secondname": "Maximov",
@@ -191,7 +191,7 @@
     "Task_title": "Front-end / website layout",
     "Task_hours": "34",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "4",
     "Task_doer": {
       "User_firstname": "Artyom",
       "User_secondname": "Artemev",
@@ -208,7 +208,7 @@
     "Task_title": "Back-end / server setup",
     "Task_hours": "56",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "3",
     "Task_doer": {
       "User_firstname": "Anton",
       "User_secondname": "Titov",
@@ -225,7 +225,7 @@
     "Task_title": "Database",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Maxim",
       "User_secondname": "Maximov",
@@ -242,7 +242,7 @@
     "Task_title": "Back-end / server setup",
     "Task_hours": "56",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "2",
     "Task_doer": {
       "User_firstname": "Anton",
       "User_secondname": "Titov",
@@ -259,7 +259,7 @@
     "Task_title": "Front-end / website layout",
     "Task_hours": "34",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Artyom",
       "User_secondname": "Artemev",
@@ -276,7 +276,7 @@
     "Task_title": "DEPLOYING",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "2",
     "Task_doer": {
       "User_firstname": "Cheburashka",
       "User_secondname": "Rusakov",
@@ -293,7 +293,7 @@
     "Task_title": "Documentation",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "2",
     "Task_doer": {
       "User_firstname": "Ivan",
       "User_secondname": "Ivanov",
@@ -310,7 +310,7 @@
     "Task_title": "Front-end / website layout",
     "Task_hours": "34",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "2",
     "Task_doer": {
       "User_firstname": "Artyom",
       "User_secondname": "Artemev",
@@ -327,7 +327,7 @@
     "Task_title": "DEPLOYING",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Cheburashka",
       "User_secondname": "Rusakov",
@@ -344,7 +344,7 @@
     "Task_title": "Documentation",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "3",
     "Task_doer": {
       "User_firstname": "Ivan",
       "User_secondname": "Ivanov",
@@ -361,7 +361,7 @@
     "Task_title": "Back-end / server setup",
     "Task_hours": "56",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "4",
     "Task_doer": {
       "User_firstname": "Anton",
       "User_secondname": "Titov",
@@ -378,7 +378,7 @@
     "Task_title": "DEPLOYING",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "2",
     "Task_doer": {
       "User_firstname": "Cheburashka",
       "User_secondname": "Rusakov",
@@ -395,7 +395,7 @@
     "Task_title": "Documentation",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Ivan",
       "User_secondname": "Ivanov",
@@ -412,7 +412,7 @@
     "Task_title": "Back-end / server setup",
     "Task_hours": "56",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Anton",
       "User_secondname": "Titov",
@@ -429,7 +429,7 @@
     "Task_title": "Database",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Maxim",
       "User_secondname": "Maximov",
@@ -446,7 +446,7 @@
     "Task_title": "Back-end / server setup",
     "Task_hours": "56",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Anton",
       "User_secondname": "Titov",
@@ -463,7 +463,7 @@
     "Task_title": "Front-end / website layout",
     "Task_hours": "34",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Artyom",
       "User_secondname": "Artemev",
@@ -480,7 +480,7 @@
     "Task_title": "DEPLOYING",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Cheburashka",
       "User_secondname": "Rusakov",
@@ -497,7 +497,7 @@
     "Task_title": "Documentation",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Ivan",
       "User_secondname": "Ivanov",
@@ -514,7 +514,7 @@
     "Task_title": "Front-end / website layout",
     "Task_hours": "34",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "2",
     "Task_doer": {
       "User_firstname": "Artyom",
       "User_secondname": "Artemev",
@@ -531,7 +531,7 @@
     "Task_title": "DEPLOYING",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "3",
     "Task_doer": {
       "User_firstname": "Cheburashka",
       "User_secondname": "Rusakov",
@@ -548,7 +548,7 @@
     "Task_title": "Documentation",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "4",
     "Task_doer": {
       "User_firstname": "Ivan",
       "User_secondname": "Ivanov",
@@ -565,7 +565,7 @@
     "Task_title": "Database",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "2",
     "Task_doer": {
       "User_firstname": "Maxim",
       "User_secondname": "Maximov",
@@ -582,7 +582,7 @@
     "Task_title": "Back-end / server setup",
     "Task_hours": "56",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "2",
     "Task_doer": {
       "User_firstname": "Anton",
       "User_secondname": "Titov",
@@ -599,7 +599,7 @@
     "Task_title": "Front-end / website layout",
     "Task_hours": "34",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Artyom",
       "User_secondname": "Artemev",
@@ -616,7 +616,7 @@
     "Task_title": "DEPLOYING",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "3",
     "Task_doer": {
       "User_firstname": "Cheburashka",
       "User_secondname": "Rusakov",
@@ -633,7 +633,7 @@
     "Task_title": "Documentation",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "2",
     "Task_doer": {
       "User_firstname": "Ivan",
       "User_secondname": "Ivanov",
@@ -650,7 +650,7 @@
     "Task_title": "DEPLOYING",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "2",
     "Task_doer": {
       "User_firstname": "Cheburashka",
       "User_secondname": "Rusakov",
@@ -667,7 +667,7 @@
     "Task_title": "Documentation",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Ivan",
       "User_secondname": "Ivanov",
@@ -684,7 +684,7 @@
     "Task_title": "Documentation",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "2",
     "Task_doer": {
       "User_firstname": "Ivan",
       "User_secondname": "Ivanov",
@@ -701,7 +701,7 @@
     "Task_title": "DEPLOYING",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Cheburashka",
       "User_secondname": "Rusakov",
@@ -718,7 +718,7 @@
     "Task_title": "Documentation",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "2",
     "Task_doer": {
       "User_firstname": "Ivan",
       "User_secondname": "Ivanov",
@@ -735,7 +735,7 @@
     "Task_title": "DEPLOYING",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "3",
     "Task_doer": {
       "User_firstname": "Cheburashka",
       "User_secondname": "Rusakov",
@@ -752,7 +752,7 @@
     "Task_title": "Documentation",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Ivan",
       "User_secondname": "Ivanov",
@@ -769,7 +769,7 @@
     "Task_title": "DEPLOYING",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "2",
     "Task_doer": {
       "User_firstname": "Cheburashka",
       "User_secondname": "Rusakov",
@@ -786,7 +786,7 @@
     "Task_title": "Documentation",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "1",
     "Task_doer": {
       "User_firstname": "Ivan",
       "User_secondname": "Ivanov",
@@ -803,7 +803,7 @@
     "Task_title": "DEPLOYING",
     "Task_hours": "20",
     "Task_timestamp": "26.12.1990",
-    "Task_status": "",
+    "Task_status": "3",
     "Task_doer": {
       "User_firstname": "Cheburashka",
       "User_secondname": "Rusakov",
