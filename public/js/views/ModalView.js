@@ -20,7 +20,7 @@ function ModalView(app) {
                 {view:"text", id:"task_title", label:"Описание задачи", name:"description"},
                 {view:"counter", id:"task_hours", label:"Рабочие часы", step:1, value:5, name:"hours"},
                 {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
-                {view:"button", id:"cancel_button", label:"Отмена", name:"button"}
+                {view:"button", id:"cancel_button", label:"Отмена", name:"button", click:close_modal}
 
             ],
             elementsConfig:{
@@ -41,22 +41,21 @@ function ModalView(app) {
     }
     function del_task() {
         console.log("DELETE TASK");
-        let data = task_parse_modal_edit();
-
         webix.ui({
             container:$$("modal_body").getNode(),
             view:"form",
             id:"add_task",
             elements:[
-                {view:"grouplist", scroll:"y", select:true, data:data},
+                {view:"grouplist", id:"task_choose", scroll:"y", select:true},
                 {view:"button", id:"submit_button", label:"Удалить", name:"button"},
-                {view:"button", id:"cancel_button", label:"Отмена", name:"button"}
+                {view:"button", id:"cancel_button", label:"Отмена", name:"button", click:close_modal}
 
             ],
             elementsConfig:{
                 labelWidth:200
             }
         });
+        app.edittask();
     }
     function edit_task() {
         console.log("EDIT TASK");
@@ -70,7 +69,7 @@ function ModalView(app) {
                 {view:"text", id:"task_description", label:"Описание задачи", name:"description"},
                 {view:"counter", id:"task_hours", label:"Рабочие часы", step:1, value:5, name:"hours"},
                 {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
-                {view:"button", id:"cancel_button", label:"Отмена", name:"button"}
+                {view:"button", id:"cancel_button", label:"Отмена", name:"button", click:close_modal}
             ],
             elementsConfig:{
                 labelWidth:200
@@ -89,6 +88,7 @@ function ModalView(app) {
         });
         app.edittask();
     }
+
     function add_project() {
         webix.ui({
             container:$$("modal_body").getNode(),
@@ -123,7 +123,7 @@ function ModalView(app) {
                     ]
                 },
                 {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
-                {view:"button", id:"cancel_button", label:"Отмена", name:"button"}
+                {view:"button", id:"cancel_button", label:"Отмена", name:"button", click:close_modal}
             ],
             elementsConfig:{
                 labelWidth:200,
@@ -174,7 +174,7 @@ function ModalView(app) {
                                 ]
                             },
                             {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
-                            {view:"button", id:"cancel_button", label:"Отмена", name:"button"}
+                            {view:"button", id:"cancel_button", label:"Отмена", name:"button", click:close_modal}
                         ],
                         elementsConfig:{
                             labelWidth:200,
@@ -203,8 +203,6 @@ function ModalView(app) {
 
         app.getPLD();
     }
-
-
     function edit_project() {
         webix.ui({
             container:$$("modal_body").getNode(),
@@ -252,7 +250,7 @@ function ModalView(app) {
                                 ]
                             },
                             {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
-                            {view:"button", id:"cancel_button", label:"Отмена", name:"button"}
+                            {view:"button", id:"cancel_button", label:"Отмена", name:"button", click:close_modal}
                         ],
                         elementsConfig:{
                             labelWidth:200,
@@ -368,7 +366,6 @@ function ModalView(app) {
             close_modal();
         });
     }
-
     function del_user() {
         webix.ui({
             container:$$("modal_body").getNode(),

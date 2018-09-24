@@ -150,12 +150,7 @@ function task_parse_modal(url) {
 function task_parse_modal() {
     let base = getProjectlistWithUsers();
     let list = {data:[]};
-
-    console.log(base);
-
-
     base = JSON.parse(base);
-    console.log(base);
 
     for(let i = 0; i < base.length; i++){
         list.data.push({value: base[i].project_title, type:"folder", data:[]});
@@ -172,7 +167,7 @@ function task_parse_modal() {
         }
     }
 
-    console.log(list);
+    console.log(JSON.stringify(list, " ", 4));
 
 
     return list
@@ -193,12 +188,7 @@ function task_add_to_list(obj) {
 function task_parse_modal_edit() {
     let base = getProjectlist();
     let list = {data:[]};
-
-    console.log(base);
-
-
     base = JSON.parse(base);
-    console.log(base);
 
     for(let i = 0; i < base.length; i++){
         list.data.push({value: base[i].project_title, type:"folder", data:[]});
@@ -219,6 +209,6 @@ function task_parse_modal_edit() {
     }
 
 
-    console.log(list);
+    console.log(JSON.stringify(list, " ", 4));
     return list
 }
