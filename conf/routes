@@ -34,3 +34,5 @@ GET       /load_modal_userlist_edit                UserController.GetUsers
 GET       /load_modal_userlist_delete              UserController.GetUsers
 GET       /load_modal_projectlist_edit             ProjectController.GetProjects
 GET       /load_modal_projectlist_delete           ProjectController.GetProjects
+GET       /load_modal_tasklist_add                 TaskController.OpenModalAdd
+GET       /load_modal_tasklist_edit                TaskController.OpenModalEdit

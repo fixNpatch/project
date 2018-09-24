@@ -24,3 +24,13 @@ func (c *TaskController) GetTasks() revel.Result {
 	data := c.model.GetTasks()
 	return c.RenderJSON(data)
 }
+
+func (c *TaskController) OpenModalAdd() revel.Result {
+	data := c.model.OpenModalAdd()
+	return c.RenderJSON(data)
+}
+
+func (c *TaskController) OpenModalEdit() revel.Result {
+	data := c.model.OpenModalEdit()
+	return c.RenderJSON(data)
+}

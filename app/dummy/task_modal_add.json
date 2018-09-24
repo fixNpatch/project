@@ -1,0 +1,712 @@
+[{
+    "project_id": 252,
+    "project_number": "1",
+    "project_title": "Taskmanager",
+    "project_description": "Front-end / website layout",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Anton",
+        "employee_second": "Titov",
+        "employee_middle": "Sergeyevich",
+        "employee_rank": "Jnr",
+        "employee_pic": "assets/img/avatar2.jpg",
+        "employee_id": "135",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Maxim",
+        "employee_second": "Maximov",
+        "employee_middle": "Maximovich",
+        "employee_rank": "Jnr",
+        "employee_pic": "assets/img/avatar3.jpg",
+        "employee_id": "111",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  },
+  {
+    "project_id": 44,
+    "project_number": "2",
+    "project_title": "Tomb Rider",
+    "project_description": "Back-end / server setup",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Anton",
+        "employee_second": "Titov",
+        "employee_middle": "Sergeyevich",
+        "employee_rank": "Jnr",
+        "employee_pic": "assets/img/avatar2.jpg",
+        "employee_id": "135",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Maxim",
+        "employee_second": "Maximov",
+        "employee_middle": "Maximovich",
+        "employee_rank": "Jnr",
+        "employee_pic": "assets/img/avatar3.jpg",
+        "employee_id": "111",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Ivan",
+        "employee_second": "Ivanov",
+        "employee_middle": "Ivanovich",
+        "employee_rank": "Dev",
+        "employee_pic": "assets/img/avatar4.jpg",
+        "employee_id": "112",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  },
+  {
+    "project_id": 324,
+    "project_number": "3",
+    "project_title": "Fortnite",
+    "project_description": "Database",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Anton",
+        "employee_second": "Titov",
+        "employee_middle": "Sergeyevich",
+        "employee_rank": "Jnr",
+        "employee_pic": "assets/img/avatar2.jpg",
+        "employee_id": "135",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Maxim",
+        "employee_second": "Maximov",
+        "employee_middle": "Maximovich",
+        "employee_rank": "Jnr",
+        "employee_pic": "assets/img/avatar3.jpg",
+        "employee_id": "111",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Ivan",
+        "employee_second": "Ivanov",
+        "employee_middle": "Ivanovich",
+        "employee_rank": "Dev",
+        "employee_pic": "assets/img/avatar4.jpg",
+        "employee_id": "112",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Cheburashka",
+        "employee_second": "Rusakov",
+        "employee_middle": "Gennadiyevich",
+        "employee_rank": "HR",
+        "employee_pic": "assets/img/avatar5.jpg",
+        "employee_id": "777",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  },
+  {
+    "project_id": 254,
+    "project_number": "4",
+    "project_title": "FlyManager",
+    "project_description": "Documentation",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Artyom",
+        "employee_second": "Artemev",
+        "employee_middle": "Artemovich",
+        "employee_rank": "TL",
+        "employee_pic": "assets/img/avatar.jpg",
+        "employee_id": "123",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Maxim",
+        "employee_second": "Maximov",
+        "employee_middle": "Maximovich",
+        "employee_rank": "Jnr",
+        "employee_pic": "assets/img/avatar3.jpg",
+        "employee_id": "111",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  },
+  {
+    "project_id": 182,
+    "project_number": "5",
+    "project_title": "Kek-master",
+    "project_description": "DEPLOYING",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Artyom",
+        "employee_second": "Artemev",
+        "employee_middle": "Artemovich",
+        "employee_rank": "TL",
+        "employee_pic": "assets/img/avatar.jpg",
+        "employee_id": "123",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Anton",
+        "employee_second": "Titov",
+        "employee_middle": "Sergeyevich",
+        "employee_rank": "Jnr",
+        "employee_pic": "assets/img/avatar2.jpg",
+        "employee_id": "135",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  },
+  {
+    "project_id": 464,
+    "project_number": "6",
+    "project_title": "Cooking book",
+    "project_description": "Create cooking book, describing how to cook cookies, meat, bad coders",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Maxim",
+        "employee_second": "Maximov",
+        "employee_middle": "Maximovich",
+        "employee_rank": "Jnr",
+        "employee_pic": "assets/img/avatar3.jpg",
+        "employee_id": "111",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Anton",
+        "employee_second": "Titov",
+        "employee_middle": "Sergeyevich",
+        "employee_rank": "Jnr",
+        "employee_pic": "assets/img/avatar2.jpg",
+        "employee_id": "135",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Vladimir",
+        "employee_second": "Kudin",
+        "employee_middle": "Vladimirovich",
+        "employee_rank": "Chief",
+        "employee_pic": "assets/img/avatar6.jpg",
+        "employee_id": "666",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Artyom",
+        "employee_second": "Artemev",
+        "employee_middle": "Artemovich",
+        "employee_rank": "TL",
+        "employee_pic": "assets/img/avatar.jpg",
+        "employee_id": "123",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Cheburashka",
+        "employee_second": "Rusakov",
+        "employee_middle": "Gennadiyevich",
+        "employee_rank": "HR",
+        "employee_pic": "assets/img/avatar5.jpg",
+        "employee_id": "777",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Ivan",
+        "employee_second": "Ivanov",
+        "employee_middle": "Ivanovich",
+        "employee_rank": "Dev",
+        "employee_pic": "assets/img/avatar4.jpg",
+        "employee_id": "112",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  },
+  {
+    "project_id": 139,
+    "project_number": "7",
+    "project_title": "World of Warcraft",
+    "project_description": "Create and deploy the most popular massive multiplayer online game ever. Should contains all of religions, races,types of bodies and sex. Paid well!",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Artyom",
+        "employee_second": "Artemev",
+        "employee_middle": "Artemovich",
+        "employee_rank": "TL",
+        "employee_pic": "assets/img/avatar.jpg",
+        "employee_id": "123",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Cheburashka",
+        "employee_second": "Rusakov",
+        "employee_middle": "Gennadiyevich",
+        "employee_rank": "HR",
+        "employee_pic": "assets/img/avatar5.jpg",
+        "employee_id": "777",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Ivan",
+        "employee_second": "Ivanov",
+        "employee_middle": "Ivanovich",
+        "employee_rank": "Dev",
+        "employee_pic": "assets/img/avatar4.jpg",
+        "employee_id": "112",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Anton",
+        "employee_second": "Titov",
+        "employee_middle": "Sergeyevich",
+        "employee_rank": "Jnr",
+        "employee_pic": "assets/img/avatar2.jpg",
+        "employee_id": "135",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Vladimir",
+        "employee_second": "Kudin",
+        "employee_middle": "Vladimirovich",
+        "employee_rank": "Chief",
+        "employee_pic": "assets/img/avatar6.jpg",
+        "employee_id": "666",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  },
+  {
+    "project_id": 250,
+    "project_number": "8",
+    "project_title": "Mafia",
+    "project_description": "DEPLOYING",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Cheburashka",
+        "employee_second": "Rusakov",
+        "employee_middle": "Gennadiyevich",
+        "employee_rank": "HR",
+        "employee_pic": "assets/img/avatar5.jpg",
+        "employee_id": "777",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Ivan",
+        "employee_second": "Ivanov",
+        "employee_middle": "Ivanovich",
+        "employee_rank": "Dev",
+        "employee_pic": "assets/img/avatar4.jpg",
+        "employee_id": "112",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Anton",
+        "employee_second": "Titov",
+        "employee_middle": "Sergeyevich",
+        "employee_rank": "Jnr",
+        "employee_pic": "assets/img/avatar2.jpg",
+        "employee_id": "135",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  },
+  {
+    "project_id": 366,
+    "project_number": "9",
+    "project_title": "WhereIsMyMoney",
+    "project_description": "DEPLOYING",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Maxim",
+        "employee_second": "Maximov",
+        "employee_middle": "Maximovich",
+        "employee_rank": "Jnr",
+        "employee_pic": "assets/img/avatar3.jpg",
+        "employee_id": "111",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Anton",
+        "employee_second": "Titov",
+        "employee_middle": "Sergeyevich",
+        "employee_rank": "Jnr",
+        "employee_pic": "assets/img/avatar2.jpg",
+        "employee_id": "135",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Vladimir",
+        "employee_second": "Kudin",
+        "employee_middle": "Vladimirovich",
+        "employee_rank": "Chief",
+        "employee_pic": "assets/img/avatar6.jpg",
+        "employee_id": "666",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Artyom",
+        "employee_second": "Artemev",
+        "employee_middle": "Artemovich",
+        "employee_rank": "TL",
+        "employee_pic": "assets/img/avatar.jpg",
+        "employee_id": "123",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Cheburashka",
+        "employee_second": "Rusakov",
+        "employee_middle": "Gennadiyevich",
+        "employee_rank": "HR",
+        "employee_pic": "assets/img/avatar5.jpg",
+        "employee_id": "777",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Ivan",
+        "employee_second": "Ivanov",
+        "employee_middle": "Ivanovich",
+        "employee_rank": "Dev",
+        "employee_pic": "assets/img/avatar4.jpg",
+        "employee_id": "112",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  },
+  {
+    "project_id": 166,
+    "project_number": "10",
+    "project_title": "NetMonet",
+    "project_description": "DEPLOYING",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Vladimir",
+        "employee_second": "Kudin",
+        "employee_middle": "Vladimirovich",
+        "employee_rank": "Chief",
+        "employee_pic": "assets/img/avatar6.jpg",
+        "employee_id": "666",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Artyom",
+        "employee_second": "Artemev",
+        "employee_middle": "Artemovich",
+        "employee_rank": "TL",
+        "employee_pic": "assets/img/avatar.jpg",
+        "employee_id": "123",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Cheburashka",
+        "employee_second": "Rusakov",
+        "employee_middle": "Gennadiyevich",
+        "employee_rank": "HR",
+        "employee_pic": "assets/img/avatar5.jpg",
+        "employee_id": "777",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Ivan",
+        "employee_second": "Ivanov",
+        "employee_middle": "Ivanovich",
+        "employee_rank": "Dev",
+        "employee_pic": "assets/img/avatar4.jpg",
+        "employee_id": "112",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  },
+  {
+    "project_id": 492,
+    "project_number": "11",
+    "project_title": "HoolaHoop",
+    "project_description": "DEPLOYING",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Maxim",
+        "employee_second": "Maximov",
+        "employee_middle": "Maximovich",
+        "employee_rank": "Jnr",
+        "employee_pic": "assets/img/avatar3.jpg",
+        "employee_id": "111",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Anton",
+        "employee_second": "Titov",
+        "employee_middle": "Sergeyevich",
+        "employee_rank": "Jnr",
+        "employee_pic": "assets/img/avatar2.jpg",
+        "employee_id": "135",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Vladimir",
+        "employee_second": "Kudin",
+        "employee_middle": "Vladimirovich",
+        "employee_rank": "Chief",
+        "employee_pic": "assets/img/avatar6.jpg",
+        "employee_id": "666",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Artyom",
+        "employee_second": "Artemev",
+        "employee_middle": "Artemovich",
+        "employee_rank": "TL",
+        "employee_pic": "assets/img/avatar.jpg",
+        "employee_id": "123",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Cheburashka",
+        "employee_second": "Rusakov",
+        "employee_middle": "Gennadiyevich",
+        "employee_rank": "HR",
+        "employee_pic": "assets/img/avatar5.jpg",
+        "employee_id": "777",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Ivan",
+        "employee_second": "Ivanov",
+        "employee_middle": "Ivanovich",
+        "employee_rank": "Dev",
+        "employee_pic": "assets/img/avatar4.jpg",
+        "employee_id": "112",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  },
+  {
+    "project_id": 440,
+    "project_number": "12",
+    "project_title": "Circus",
+    "project_description": "DEPLOYING",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Vladimir",
+        "employee_second": "Kudin",
+        "employee_middle": "Vladimirovich",
+        "employee_rank": "Chief",
+        "employee_pic": "assets/img/avatar6.jpg",
+        "employee_id": "666",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Cheburashka",
+        "employee_second": "Rusakov",
+        "employee_middle": "Gennadiyevich",
+        "employee_rank": "HR",
+        "employee_pic": "assets/img/avatar5.jpg",
+        "employee_id": "777",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Ivan",
+        "employee_second": "Ivanov",
+        "employee_middle": "Ivanovich",
+        "employee_rank": "Dev",
+        "employee_pic": "assets/img/avatar4.jpg",
+        "employee_id": "112",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  },
+  {
+    "project_id": 347,
+    "project_number": "13",
+    "project_title": "Bachata",
+    "project_description": "DEPLOYING",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Vladimir",
+        "employee_second": "Kudin",
+        "employee_middle": "Vladimirovich",
+        "employee_rank": "Chief",
+        "employee_pic": "assets/img/avatar6.jpg",
+        "employee_id": "666",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Ivan",
+        "employee_second": "Ivanov",
+        "employee_middle": "Ivanovich",
+        "employee_rank": "Dev",
+        "employee_pic": "assets/img/avatar4.jpg",
+        "employee_id": "112",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  },
+  {
+    "project_id": 465,
+    "project_number": "14",
+    "project_title": "BeliveYouFly",
+    "project_description": "DEPLOYING",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Vladimir",
+        "employee_second": "Kudin",
+        "employee_middle": "Vladimirovich",
+        "employee_rank": "Chief",
+        "employee_pic": "assets/img/avatar6.jpg",
+        "employee_id": "666",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Cheburashka",
+        "employee_second": "Rusakov",
+        "employee_middle": "Gennadiyevich",
+        "employee_rank": "HR",
+        "employee_pic": "assets/img/avatar5.jpg",
+        "employee_id": "777",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Ivan",
+        "employee_second": "Ivanov",
+        "employee_middle": "Ivanovich",
+        "employee_rank": "Dev",
+        "employee_pic": "assets/img/avatar4.jpg",
+        "employee_id": "112",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  },
+  {
+    "project_id": 355,
+    "project_number": "15",
+    "project_title": "MagicWand",
+    "project_description": "DEPLOYING",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Vladimir",
+        "employee_second": "Kudin",
+        "employee_middle": "Vladimirovich",
+        "employee_rank": "Chief",
+        "employee_pic": "assets/img/avatar6.jpg",
+        "employee_id": "666",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Cheburashka",
+        "employee_second": "Rusakov",
+        "employee_middle": "Gennadiyevich",
+        "employee_rank": "HR",
+        "employee_pic": "assets/img/avatar5.jpg",
+        "employee_id": "777",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Ivan",
+        "employee_second": "Ivanov",
+        "employee_middle": "Ivanovich",
+        "employee_rank": "Dev",
+        "employee_pic": "assets/img/avatar4.jpg",
+        "employee_id": "112",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  },
+  {
+    "project_id": 67,
+    "project_number": "16",
+    "project_title": "Scorpion",
+    "project_description": "DEPLOYING",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Cheburashka",
+        "employee_second": "Rusakov",
+        "employee_middle": "Gennadiyevich",
+        "employee_rank": "HR",
+        "employee_pic": "assets/img/avatar5.jpg",
+        "employee_id": "777",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Ivan",
+        "employee_second": "Ivanov",
+        "employee_middle": "Ivanovich",
+        "employee_rank": "Dev",
+        "employee_pic": "assets/img/avatar4.jpg",
+        "employee_id": "112",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  },
+  {
+    "project_id": 49,
+    "project_number": "17",
+    "project_title": "All Of My Love",
+    "project_description": "DEPLOYING",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Vladimir",
+        "employee_second": "Kudin",
+        "employee_middle": "Vladimirovich",
+        "employee_rank": "Chief",
+        "employee_pic": "assets/img/avatar6.jpg",
+        "employee_id": "666",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  },
+  {
+    "project_id": 217,
+    "project_number": "18",
+    "project_title": "CinemaPark",
+    "project_description": "DEPLOYING",
+    "project_timestamp": "26.12.1990",
+    "project_status": "В процессе",
+    "userstack": [
+      {
+        "employee_first": "Vladimir",
+        "employee_second": "Kudin",
+        "employee_middle": "Vladimirovich",
+        "employee_rank": "Chief",
+        "employee_pic": "assets/img/avatar6.jpg",
+        "employee_id": "666",
+        "employee_timestamp": "19.09.2018"
+      },
+      {
+        "employee_first": "Cheburashka",
+        "employee_second": "Rusakov",
+        "employee_middle": "Gennadiyevich",
+        "employee_rank": "HR",
+        "employee_pic": "assets/img/avatar5.jpg",
+        "employee_id": "777",
+        "employee_timestamp": "19.09.2018"
+      }
+    ]
+  }
+]

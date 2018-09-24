@@ -172,7 +172,7 @@ function task_parse_modal() {
         }
     }
 
-    // console.log(list);
+    console.log(list);
 
 
     return list
@@ -219,5 +219,6 @@ function task_parse_modal_edit() {
     }
 
 
+    console.log(list);
     return list
 }

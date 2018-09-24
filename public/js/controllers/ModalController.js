@@ -43,4 +43,15 @@ function ModalController(app) {
             });
         });
     };
+
+
+    /* PROBLEM */
+    this.addtask = function(){
+        $$("project_manager").load(function(){
+            return webix.ajax("/load_modal_tasklist_add").then(function(data){
+                console.log(data);
+                return data.json();
+            });
+        });
+    }
 }

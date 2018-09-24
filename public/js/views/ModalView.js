@@ -8,14 +8,13 @@ function ModalView(app) {
     }
 
     function add_task() {
-        let data = task_parse_modal();
         console.log("add_task triggered");
         webix.ui({
             container:$$("modal_body").getNode(),
             view:"form",
             id:"add_task",
             elements:[
-                {view:"grouplist", id:"project_manager", scroll:"y", select:true, data:data},
+                {view:"grouplist", id:"project_manager", scroll:"y", select:true},
                 {view: "text", id:"selected_doer", hidden:true},
                 {view:"text", id:"task_title", label:"Название задачи", name:"title"},
                 {view:"text", id:"task_title", label:"Описание задачи", name:"description"},
@@ -38,6 +37,7 @@ function ModalView(app) {
             console.log(save);
 
         });
+        app.addtask()
     }
     function del_task() {
         console.log("DELETE TASK");

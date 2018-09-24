@@ -31,3 +31,17 @@ func (t *TaskModel) GetTasks() string {
 	url := string(file)
 	return url
 }
+
+func (t *TaskModel) OpenModalAdd() string {
+	path := revel.AppPath
+	file, _ := ioutil.ReadFile(path + "/dummy/task_modal_add.json")
+	url := string(file)
+	return url
+}
+
+func (t *TaskModel) OpenModalEdit() string {
+	path := revel.AppPath
+	file, _ := ioutil.ReadFile(path + "/dummy/task_modal_edit.json")
+	url := string(file)
+	return url
+}
