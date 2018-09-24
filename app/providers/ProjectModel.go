@@ -70,8 +70,9 @@ func (t *ProjectModel) GetUsersOutProject(id int) string {
 				found := false
 				k = 0
 				for k < len(data[i].Userstack) { /*начинаем поэлементно сравнивать со стеком проекта*/
-					if userlist[j].User_id == data[i].Userstack[k].User_id { /* если они совпадают то*/
+					if data[i].Userstack[k].User_id == userlist[j].User_id { /* если они совпадают то*/
 						found = true
+						break
 					}
 					k++
 				}
