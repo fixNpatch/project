@@ -41,17 +41,10 @@ function MainView(app) {
                     id: "left-area"
                 },
                 {
+                    gravity:5,
                     css:"right-area",
                     type:"template",
-                    id: "right-area",
-                    rows:[
-                        {
-                            id: "task_block"
-                        },
-                        {
-                            id: "project_block"
-                        }
-                    ]
+                    id: "right-area"
                 }
             ]
         });

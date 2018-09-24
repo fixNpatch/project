@@ -98,7 +98,6 @@ function UserView(app) {
                             ]
                         }
                     ]
-
                 },
                 {
                     css:"black",
@@ -107,8 +106,8 @@ function UserView(app) {
                     id:"calendar",
                     date:new Date(date),
                     weekHeader:true,
-                    width:272,
-                    height:200,
+                    //WTF !!!!!!!!!!!
+                    width:"auto",
                     icons: true,
                     borderless:true
                 },
@@ -141,7 +140,6 @@ function UserView(app) {
                 }
             ]
         });
-
         app.getProfilePicture();
         app.getEmployeeBlock();
     }
