@@ -65,7 +65,9 @@ body{
     color: white;
 }
 
-
+.hoverrow{
+    background: rgba(60, 135, 255, 0.3);
+}
 
 
 

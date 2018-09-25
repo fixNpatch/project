@@ -105,7 +105,8 @@ function ProjectView(app) {
                         { id:"Project_status",         header:"Статус проекта",        fillspace:1},
                         { id:"Project_timestamp",      header:"Создан",                fillspace:true},
                         { id:"Userstack",              header:"Исполнители",           fillspace:2},
-                    ]
+                    ],
+                    hover:"hoverrow"
                 },
                 {
                     id:"open_project",

@@ -89,7 +89,8 @@ function ManagementView(app) {
                                 {id: "User_middlename", header: "Отчество", fillspace: 2},
                                 {id: "User_timestamp", header: "Регистрация", fillspace: true},
                                 {id: "User_pic", view:"button", header: "Фото", fillspace: 0.5, type:"image"},
-                            ]
+                            ],
+                            hover:"hoverrow"
                         },
                         {
                             id:"open_block",

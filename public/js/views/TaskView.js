@@ -105,8 +105,8 @@ function TaskView(app) {
                         { id:"Task_status",         header:"Статус"},
                         { id:"Task_hours",          header:"Рабочие часы"},
                         { id:"Task_timestamp",      header:"Поставлена"}
-
-                    ]
+                    ],
+                    hover:"hoverrow"
                 },
                 {
                     id:"open_task",
