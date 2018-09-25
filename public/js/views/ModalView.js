@@ -470,6 +470,7 @@ function ModalView(app) {
         $$("choose_user").attachEvent("onAfterSelect", function (id) {
             let item = this.getItem(id);
             $$("del_user_form").setValues({
+                User_id:item.User_id,
                 User_secondname:item.User_secondname,
                 User_firstname:item.User_firstname,
                 User_middlename:item.User_middlename,
@@ -477,9 +478,16 @@ function ModalView(app) {
             });
             $$("del_user_choose").collapse();
             $$("del_user").enable();
+            console.log(item.User_id);
         });
-
         app.LoadData4DelUser(); //User List Deletion
+
+        $$("submit_button").attachEvent("onItemClick", function(){
+            let save = $$("add_user_form").getValues();
+            let User_id = save.User_id;
+            app.DelUser(User_id);
+            close_modal();
+        });
     }
     function edit_user() {
         webix.ui({
@@ -580,6 +588,15 @@ function ModalView(app) {
         });
 
         app.LoadData4EditUser();
+
+
+        $$("submit_button").attachEvent("onItemClick", function(){
+            let save = $$("edit_user_form").getValues();
+            delete save.button;
+            let User_id = save.User_id;
+            app.EditUser(User_id, save);
+            close_modal();
+        });
     }
 
 
