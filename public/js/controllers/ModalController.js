@@ -69,5 +69,11 @@ function ModalController(app) {
                 alert(errMsg);
             }
         });
+
+        /*     2 variant         */
+        // let dat = JSON.stringify(object);
+        // webix.ajax().post("/post_new_user", dat, function (data) {
+        //     console.log(data);
+        // });
     }
 }

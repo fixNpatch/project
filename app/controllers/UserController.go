@@ -51,19 +51,7 @@ func (c *UserController) GetUsers() revel.Result {
 	return c.RenderJSON(data)
 }
 
-//func (c *UserController) AddUser() revel.Result {
-//
-//
-//	ssa
-//
-//	path := revel.AppPath
-//	file, _ := os.Create(path + "/dummy/test.json")
-//	defer file.Close()
-//	_, _ = file.WriteString(string(content))
-//
-//	log.Println(content)
-//	return c.RenderJSON(content)
-//}
+/*================================================*/
 
 func (c *UserController) AddUser() revel.Result {
 
@@ -88,6 +76,10 @@ func (c *UserController) AddUser() revel.Result {
 
 	return c.RenderJSON(content)
 }
+
+/*================================================*/
+
+/*          2 variant         */
 
 //func (c *UserController) AddUser() revel.Result {
 //
