@@ -57,3 +57,18 @@ func (c *UserController) AddUser(r *http.Request) revel.Result {
 	log.Print(data)
 	return c.RenderJSON(data)
 }
+
+func (c *UserController) DelUser() revel.Result {
+	request := c.Params.JSON
+	c.model.AddUser(request)
+	data := string(request)
+	log.Print(data)
+	return c.RenderJSON(data)
+}
+
+func (c *UserController) EditUser(id int) revel.Result {
+	request := c.Params.JSON
+	data := string(request)
+	log.Print(data)
+	return c.RenderJSON(data)
+}

@@ -42,5 +42,8 @@ GET       /usersoutproject/:id                     ProjectController.GetUsersOut
 
 
 POST       /post_new_user                          UserController.AddUser
+POST       /delete_user                            UserController.DelUser
+POST       /edit_user/:id                          UserController.EditUser
+
 POST       /post_new_task                          TaskController.AddTask
 POST       /post_new_project                       ProjectController.AddProject

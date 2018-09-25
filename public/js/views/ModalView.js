@@ -483,7 +483,7 @@ function ModalView(app) {
         app.LoadData4DelUser(); //User List Deletion
 
         $$("submit_button").attachEvent("onItemClick", function(){
-            let save = $$("add_user_form").getValues();
+            let save = $$("del_user_form").getValues();
             let User_id = save.User_id;
             app.DelUser(User_id);
             close_modal();
@@ -577,12 +577,12 @@ function ModalView(app) {
         $$("choose_user").attachEvent("onAfterSelect", function (id) {
             let item = this.getItem(id);
             $$("edit_user_form").setValues({
+                User_id:item.User_id,
                 User_secondname:item.User_secondname,
                 User_firstname:item.User_firstname,
                 User_middlename:item.User_middlename,
                 User_rank:1
             });
-            console.log("IT'S OK");
             $$("edit_user_choose").collapse();
             $$("edit_user").enable();
         });

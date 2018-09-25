@@ -61,23 +61,7 @@ function ModalController(app) {
         });
     };
 
-    this.AddUser = function(object){
-        console.log('post => post_new_user');
-        //object.User_rank = object.User_rank.toString();
-        let data = JSON.stringify(object);
-        console.log(data);
-        $.ajax({
-            type: "POST",
-            url: "/post_new_user",
-            data:data,
-            contentType: "application/json; charset=utf-8",
-            dataType: "JSON",
-            success: function(data){console.log(data);},
-            fail: function(errMsg) {
-                alert(errMsg);
-            }
-        });
-    };
+
 
     this.AddTask = function(object){
         console.log('post => post_new_task');
@@ -120,5 +104,61 @@ function ModalController(app) {
                 return data.json();
             });
         });
-    }
+    };
+
+
+    this.AddUser = function(object){
+        console.log('post => post_new_user');
+        //object.User_rank = object.User_rank.toString();
+        let data = JSON.stringify(object);
+        console.log(data);
+        $.ajax({
+            type: "POST",
+            url: "/post_new_user",
+            data:data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "JSON",
+            success: function(data){console.log(data);},
+            fail: function(errMsg) {
+                alert(errMsg);
+            }
+        });
+    };
+
+    this.DelUser = function(User_id){
+        let data = {id:User_id};
+        console.log('post => delete_user');
+        console.log(data);
+        $.ajax({
+            type: "POST",
+            url: "/delete_user",
+            data:JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "JSON",
+            success: function(data){console.log(data);},
+            fail: function(errMsg) {
+                alert(errMsg);
+            }
+        });
+    };
+
+    this.EditUser = function(User_id, object){
+        let url = /edit_user/ + User_id;
+        console.log(url);
+        console.log('post => delete_user');
+        let data = JSON.stringify(object);
+        console.log(data);
+        $.ajax({
+            type: "POST",
+            url: url,
+            data:data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "JSON",
+            success: function(data){console.log(data);},
+            fail: function(errMsg) {
+                alert(errMsg);
+            }
+        });
+    };
+
 }
