@@ -52,30 +52,39 @@ func (c *UserController) GetUsers() revel.Result {
 }
 
 /*================================================*/
+/*                 MY VARIANT                     */
 
 func (c *UserController) AddUser() revel.Result {
 
 	body := c.Request.GetBody()
 
-	content, err := ioutil.ReadAll(body)
-	/* content is empty ??? */
-	if err != nil {
-		fmt.Println(err.Error())
-		log.Println(err.Error())
-	}
+	content, _ := ioutil.ReadAll(body)
 	path := revel.AppPath
 	file, _ := os.Create(path + "/dummy/test.json")
 	defer file.Close()
-	_, err = file.WriteString(string(content))
-	if err != nil {
-		fmt.Println(err.Error())
-		log.Println(err.Error())
-	}
+	_, _ = file.WriteString(string(content))
 
 	log.Print(content)
 
 	return c.RenderJSON(content)
 }
+
+/*================================================*/
+/*                 ULTRA KOSTYL                   */
+
+//
+//func (c *UserController) AddUser() revel.Result {
+//	data1 := c.Params.Get("data")
+//	var data *providers.User
+//	fmt.Printf("ggggggggggggggggggggggg %+v", data1)
+//	err := json.Unmarshal([]byte(data1), &data)
+//	if err != nil {
+//		return c.RenderJSON(err.Error())
+//	}
+//
+//
+//	return c.RenderJSON(1)
+//}
 
 /*================================================*/
 
