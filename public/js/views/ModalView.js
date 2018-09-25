@@ -43,10 +43,10 @@ function ModalView(app) {
         $$("project_manager").attachEvent("onItemClick", function(id){
             let item = this.getItem(id);
             if(item.type === "folder"){
-                $$("add_task").setValues({Project_title:item.value}, true);
+                $$("add_task").setValues({Project_title:item.value, Project_id:item.Project_id}, true);
             }
             else{
-                $$("add_task").setValues({Task_doer:item.value}, true);
+                $$("add_task").setValues({Task_doer:item.value, User_id:item.User_id}, true);
             }
         });
         app.LoadData4AddTask();

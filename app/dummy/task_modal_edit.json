@@ -1,10 +1,12 @@
 {
   "data": [
     {
+      "Project_id": "298",
       "value": "Taskmanager",
       "type": "folder",
       "data": [
         {
+          "User_id": "135",
           "type": "folder",
           "value": "Titov A. S.",
           "data": [
@@ -15,6 +17,7 @@
           ]
         },
         {
+          "User_id": "111",
           "type": "folder",
           "value": "Maximov M. M.",
           "data": [
@@ -27,10 +30,12 @@
       ]
     },
     {
+      "Project_id": "410",
       "value": "Tomb Rider",
       "type": "folder",
       "data": [
         {
+          "User_id": "135",
           "type": "folder",
           "value": "Titov A. S.",
           "data": [
@@ -41,6 +46,7 @@
           ]
         },
         {
+          "User_id": "111",
           "type": "folder",
           "value": "Maximov M. M.",
           "data": [
@@ -51,6 +57,7 @@
           ]
         },
         {
+          "User_id": "112",
           "type": "folder",
           "value": "Ivanov I. I.",
           "data": [
@@ -63,10 +70,12 @@
       ]
     },
     {
+      "Project_id": "375",
       "value": "Fortnite",
       "type": "folder",
       "data": [
         {
+          "User_id": "135",
           "type": "folder",
           "value": "Titov A. S.",
           "data": [
@@ -77,6 +86,7 @@
           ]
         },
         {
+          "User_id": "111",
           "type": "folder",
           "value": "Maximov M. M.",
           "data": [
@@ -87,6 +97,7 @@
           ]
         },
         {
+          "User_id": "112",
           "type": "folder",
           "value": "Ivanov I. I.",
           "data": [
@@ -97,6 +108,7 @@
           ]
         },
         {
+          "User_id": "777",
           "type": "folder",
           "value": "Rusakov C. G.",
           "data": [
@@ -109,10 +121,12 @@
       ]
     },
     {
+      "Project_id": "419",
       "value": "FlyManager",
       "type": "folder",
       "data": [
         {
+          "User_id": "123",
           "type": "folder",
           "value": "Artemev A. A.",
           "data": [
@@ -123,6 +137,7 @@
           ]
         },
         {
+          "User_id": "111",
           "type": "folder",
           "value": "Maximov M. M.",
           "data": [
@@ -135,10 +150,12 @@
       ]
     },
     {
+      "Project_id": "189",
       "value": "Kek-master",
       "type": "folder",
       "data": [
         {
+          "User_id": "123",
           "type": "folder",
           "value": "Artemev A. A.",
           "data": [
@@ -149,6 +166,7 @@
           ]
         },
         {
+          "User_id": "135",
           "type": "folder",
           "value": "Titov A. S.",
           "data": [
@@ -161,10 +179,12 @@
       ]
     },
     {
+      "Project_id": "433",
       "value": "Cooking book",
       "type": "folder",
       "data": [
         {
+          "User_id": "111",
           "type": "folder",
           "value": "Maximov M. M.",
           "data": [
@@ -175,6 +195,7 @@
           ]
         },
         {
+          "User_id": "135",
           "type": "folder",
           "value": "Titov A. S.",
           "data": [
@@ -185,11 +206,13 @@
           ]
         },
         {
+          "User_id": "666",
           "type": "folder",
           "value": "Kudin V. V.",
           "data": []
         },
         {
+          "User_id": "123",
           "type": "folder",
           "value": "Artemev A. A.",
           "data": [
@@ -200,6 +223,7 @@
           ]
         },
         {
+          "User_id": "777",
           "type": "folder",
           "value": "Rusakov C. G.",
           "data": [
@@ -210,6 +234,7 @@
           ]
         },
         {
+          "User_id": "112",
           "type": "folder",
           "value": "Ivanov I. I.",
           "data": [

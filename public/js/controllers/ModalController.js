@@ -63,7 +63,7 @@ function ModalController(app) {
 
     this.AddUser = function(object){
         console.log('post => post_new_user');
-        object.User_rank = object.User_rank.toString();
+        //object.User_rank = object.User_rank.toString();
         let data = JSON.stringify(object);
         console.log(data);
         $.ajax({
