@@ -3,6 +3,13 @@ function ModalView(app) {
     this.app = app;
     console.log("@ => Modal View");
 
+    function parseDate(date) {
+        let day, month, result;
+        (date.getDay() < 10) ? day = "0" + date.getDay(): day = date.getDay();
+        (date.getMonth() < 10) ? month = "0" + date.getMonth(): month = date.getMonth();
+        result =  day + "." + month + "." + date.getFullYear();
+        return result
+    }
     function close_modal() {
         $$("modal_window").close();
     }
@@ -16,6 +23,7 @@ function ModalView(app) {
             elements:[
                 {view:"grouplist", id:"project_manager", scroll:"y", select:true},
                 {view: "text", id:"selected_doer", hidden:true},
+                {view:"text", id:"Project_title", hidden:true, name:"Project_title"},
                 {view:"text", id:"Task_title", label:"Название задачи", name:"title"},
                 {view:"text", id:"Task_title", label:"Описание задачи", name:"description"},
                 {view:"counter", id:"Task_hours", label:"Рабочие часы", step:1, value:5, name:"hours"},
@@ -29,15 +37,27 @@ function ModalView(app) {
         });
         $$("project_manager").attachEvent("onAfterSelect", function (id) {
             let user = $$("project_manager").getItem(id);
-            $$("add_task").setValues({selected_doer:user.value}, true);
+            $$("add_task").setValues({Task_doer:user.value}, true);
         });
 
+        $$("project_manager").attachEvent("onItemClick", function(id){
+            let item = this.getItem(id);
+            if(item.type === "folder"){
+                $$("add_task").setValues({Project_title:item.value}, true);
+            }
+            else{
+                $$("add_task").setValues({Task_doer:item.value}, true);
+            }
+        });
+        app.LoadData4AddTask();
         $$("submit_button").attachEvent("onItemClick", function(){
             let save = $$("add_task").getValues();
+            delete save.button;
             console.log(save);
-
+            save.Task_timestamp = parseDate(new Date());
+            app.AddTask(save);
+            close_modal();
         });
-        app.addtask()
     }
     function del_task() {
         console.log("DELETE TASK");
@@ -55,7 +75,7 @@ function ModalView(app) {
                 labelWidth:200
             }
         });
-        app.edittask();
+        app.LoadData4EditTask();
     }
     function edit_task() {
         console.log("EDIT TASK");
@@ -86,7 +106,7 @@ function ModalView(app) {
                     Task_description:item.Task_description,
                 }, true);
         });
-        app.edittask();
+        app.LoadData4EditTask();
     }
 
     function add_project() {
@@ -202,7 +222,7 @@ function ModalView(app) {
                 }, true);
         });
 
-        app.delproject();
+        app.LoadData4DelProject();
     }
     function edit_project() {
         webix.ui({
@@ -305,7 +325,7 @@ function ModalView(app) {
             $$("all_doers").add(item);
             this.remove(id);
         });
-        app.editproject();
+        app.LoadData4EditProject();
 
     }
 
@@ -373,12 +393,7 @@ function ModalView(app) {
         $$("submit_button").attachEvent("onItemClick", function(){
             let save = $$("add_user_form").getValues();
             delete save.button;
-            let today = new Date(),
-                day,month;
-            (today.getDay() < 10) ? day = "0" + today.getDay(): day = today.getDay();
-            (today.getMonth() < 10) ? month = "0" + today.getMonth(): month = today.getMonth();
-            let timestamp = day + "." + month + "." + today.getFullYear();
-            save.User_timestamp = timestamp;
+            save.User_timestamp = parseDate(new Date());
             app.AddUser(save);
             close_modal();
         });
@@ -457,7 +472,7 @@ function ModalView(app) {
             $$("del_user").enable();
         });
 
-        app.deluser(); //User List Deletion
+        app.LoadData4DelUser(); //User List Deletion
     }
     function edit_user() {
         webix.ui({
@@ -557,7 +572,7 @@ function ModalView(app) {
             $$("edit_user").enable();
         });
 
-        app.edituser();
+        app.LoadData4EditUser();
     }
 
 

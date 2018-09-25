@@ -61,6 +61,7 @@ func (t *UserModel) GetUsers() string {
 }
 func (t *UserModel) AddUser(data []byte) revel.Result {
 
+	/* DO NOT WASTE TIME. IT WILL BE SAVING IN DB SOON */
 	path := revel.AppPath
 	f, err := os.OpenFile(path+"/dummy/test.json", os.O_APPEND|os.O_WRONLY, 0600)
 	if err != nil {
@@ -70,5 +71,6 @@ func (t *UserModel) AddUser(data []byte) revel.Result {
 	if _, err = f.WriteString(string(data)); err != nil {
 		fmt.Print(err.Error())
 	}
+
 	return nil
 }
