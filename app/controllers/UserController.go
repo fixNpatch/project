@@ -3,6 +3,7 @@ package controllers
 import (
 	"fmt"
 	"github.com/revel/revel"
+	"log"
 	"testapp/app/providers"
 )
 
@@ -46,4 +47,30 @@ func (c *UserController) GetSubordinates() revel.Result {
 func (c *UserController) GetUsers() revel.Result {
 	data := c.model.GetUsers()
 	return c.RenderJSON(data)
+}
+
+//func (c *UserController) AddUser() revel.Result {
+//
+//	log.Println("json taken")
+//	body := c.Request.GetBody()
+//	//body := r.Body
+//	content, _ := ioutil.ReadAll(body)
+//	path := revel.AppPath
+//	file, _ := os.Create(path + "/dummy/test.json")
+//	defer file.Close()
+//	_, _ = file.WriteString(string(content))
+//
+//	log.Println(content)
+//	return c.RenderJSON(content)
+//}
+
+func (c *UserController) AddUser() revel.Result {
+
+	var jsonData map[string]interface{}
+	c.Params.BindJSON(&jsonData)
+
+	//c.model.AddUser()
+
+	log.Println(jsonData)
+	return c.RenderJSON(jsonData)
 }

@@ -52,5 +52,21 @@ function ModalController(app) {
                 return data.json();
             });
         });
+    };
+
+    this.AddUser = function(object){
+        console.log('post =>');
+        $.ajax({
+            type: "POST",
+            url: "/post_new_user",
+            // The key needs to match your method's input parameter (case-sensitive).
+            data: JSON.stringify(object, " ", 3),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(data){console.log(data);},
+            fail: function(errMsg) {
+                alert(errMsg);
+            }
+        });
     }
 }

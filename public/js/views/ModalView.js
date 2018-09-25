@@ -373,8 +373,13 @@ function ModalView(app) {
         $$("submit_button").attachEvent("onItemClick", function(){
             let save = $$("add_user_form").getValues();
             delete save.button;
-            save = JSON.stringify(save, "", 1);
-            console.log(save);
+            let today = new Date(),
+                day,month;
+            (today.getDay() < 10) ? day = "0" + today.getDay(): day = today.getDay();
+            (today.getMonth() < 10) ? month = "0" + today.getMonth(): month = today.getMonth();
+            let timestamp = day + "." + month + "." + today.getFullYear();
+            save.User_timestamp = timestamp;
+            app.AddUser(save);
             close_modal();
         });
     }

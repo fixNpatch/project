@@ -38,3 +38,4 @@ GET       /load_modal_tasklist_add                 TaskController.OpenModalAdd
 GET       /load_modal_tasklist_edit                TaskController.OpenModalEdit
 GET       /usersonproject/:id                      ProjectController.GetUsersOnProject
 GET       /usersoutproject/:id                     ProjectController.GetUsersOutProject
+POST       /post_new_user                           UserController.AddUser
