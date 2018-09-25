@@ -3,9 +3,8 @@ package controllers
 import (
 	"fmt"
 	"github.com/revel/revel"
-	"io/ioutil"
 	"log"
-	"os"
+	"net/http"
 	"testapp/app/providers"
 )
 
@@ -51,56 +50,9 @@ func (c *UserController) GetUsers() revel.Result {
 	return c.RenderJSON(data)
 }
 
-/*================================================*/
-/*                 MY VARIANT                     */
-
-func (c *UserController) AddUser() revel.Result {
-
-	body := c.Request.GetBody()
-
-	content, _ := ioutil.ReadAll(body)
-	path := revel.AppPath
-	file, _ := os.Create(path + "/dummy/test.json")
-	defer file.Close()
-	_, _ = file.WriteString(string(content))
-
-	log.Print(content)
-
-	return c.RenderJSON(content)
+func (c *UserController) AddUser(r *http.Request) revel.Result {
+	request := c.Params.JSON
+	data := string(request)
+	log.Print(data)
+	return c.RenderJSON(data)
 }
-
-/*================================================*/
-/*                 ULTRA KOSTYL                   */
-
-//
-//func (c *UserController) AddUser() revel.Result {
-//	data1 := c.Params.Get("data")
-//	var data *providers.User
-//	fmt.Printf("ggggggggggggggggggggggg %+v", data1)
-//	err := json.Unmarshal([]byte(data1), &data)
-//	if err != nil {
-//		return c.RenderJSON(err.Error())
-//	}
-//
-//
-//	return c.RenderJSON(1)
-//}
-
-/*================================================*/
-
-/*          2 variant         */
-
-//func (c *UserController) AddUser() revel.Result {
-//
-//	var jsonData map[string]interface{}
-//	c.Params.BindJSON(&jsonData)
-//
-//	//	file, _ := os.Create(path + "/dummy/test.json")
-//	//	defer file.Close()
-//	//	_, _ = file.WriteString(string(content))
-//
-//	//c.model.AddUser()
-//	content := string(jsonData)
-//	log.Println(jsonData)
-//	return c.RenderJSON(jsonData)
-//}

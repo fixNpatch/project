@@ -56,24 +56,37 @@ function ModalController(app) {
 
     this.AddUser = function(object){
         console.log('post =>');
-        console.log(object);
-        let dat = JSON.stringify(object);
-        console.log(dat);
+        object.User_rank = object.User_rank.toString();
+        let data = JSON.stringify(object);
+        console.log(data);
         $.ajax({
             type: "POST",
-            url: "/post_new_user?data="+JSON.stringify(object),
-            // The key needs to match your method's input parameter (case-sensitive).
+            url: "/post_new_user",
+            data:data,
             contentType: "application/json; charset=utf-8",
-            dataType: "json",
+            dataType: "JSON",
             success: function(data){console.log(data);},
             fail: function(errMsg) {
                 alert(errMsg);
             }
         });
 
+        /* ULTRA KOSTYL*/
+        // $.ajax({
+        //     type: "POST",
+        //     url: "/post_new_user?data="+JSON.stringify(object),
+        //     // The key needs to match your method's input parameter (case-sensitive).
+        //     contentType: "application/json; charset=utf-8",
+        //     dataType: "json",
+        //     success: function(data){console.log(data);},
+        //     fail: function(errMsg) {
+        //         alert(errMsg);
+        //     }
+        // });
+
         /*     2 variant         */
         // let dat = JSON.stringify(object);
-        // webix.ajax().post("/post_new_user", dat, function (data) {
+        // webix.ajax().post("/post_new_user", data, function (data) {
         //     console.log(data);
         // });
     }
