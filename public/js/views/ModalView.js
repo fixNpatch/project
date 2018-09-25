@@ -343,9 +343,9 @@ function ModalView(app) {
             view:"form",
             autoheight: true,
             elements:[
-                {view:"text", id:"User_second", label:"Фамилия", name:"User_second"},
-                {view:"text", id:"User_first", label:"Имя", name:"User_first"},
-                {view:"text", id:"User_middle", label:"Отчество", name:"User_middle"},
+                {view:"text", id:"User_secondname", label:"Фамилия", name:"User_secondname"},
+                {view:"text", id:"User_firstname", label:"Имя", name:"User_firstname"},
+                {view:"text", id:"User_middlename", label:"Отчество", name:"User_middlename"},
                 {view:"combo", id:"User_rank",  name:"User_rank",
                     value:1, // the initially selected one
                     label: 'Должность',
@@ -399,6 +399,7 @@ function ModalView(app) {
         $$("submit_button").attachEvent("onItemClick", function(){
             let save = $$("add_user_form").getValues();
             delete save.button;
+            //save.User_rank = $$("User_rank").getInputNode(save.User_rank).value;
             save.User_timestamp = parseDate(new Date());
             app.AddUser(save);
             close_modal();

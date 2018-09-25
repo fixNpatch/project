@@ -134,7 +134,7 @@ function UserView(app) {
                             columns:[
                                 {id: "User_rank", header: "Должность", type:"clean"},
                                 {id: "User_secondname", header: "Фамилия", fillspace:true}
-                            ],
+                            ]
                         }
                     ]
                 }
