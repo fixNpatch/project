@@ -2,7 +2,6 @@ package providers
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/revel/revel"
 	"io/ioutil"
 )
@@ -47,7 +46,6 @@ func (t *ProjectModel) GetUsersOnProject(id int) string {
 		i++
 	}
 	answer, _ := json.Marshal(users)
-	fmt.Println(answer)
 	return string(answer)
 }
 
@@ -87,6 +85,5 @@ func (t *ProjectModel) GetUsersOutProject(id int) string {
 	}
 
 	answer, _ := json.Marshal(users)
-	fmt.Println(answer)
 	return string(answer)
 }

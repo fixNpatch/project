@@ -126,8 +126,7 @@ function ModalView(app) {
                     columns:[
                         {id:"User_rank", header:"Должность"},
                         {id:"User_secondname", header:"Фамилия  (Не участвует)", fillspace:true}
-                    ],
-                    url:"assets/script/userbase.json"
+                    ]
                 },
                 {
                     view:"datatable",
@@ -157,6 +156,20 @@ function ModalView(app) {
             let item = this.getItem(id);
             $$("all_doers").add(item);
             this.remove(id);
+        });
+        app.LoadData4AddProject();
+        $$("submit_button").attachEvent("onItemClick", function(){
+            let save = $$("add_project").getValues();
+            save.Project_status = 1;
+            save.Project_timestamp = parseDate(new Date());
+            save.Userstack = [];
+            $$("project_doers").eachRow(function (row) {
+                save.Userstack.push(this.getItem(row));
+                console.log(this.getItem(row));
+            });
+            delete save.button;
+            app.AddProject(save);
+            close_modal();
         });
     }
     function del_project() {

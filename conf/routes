@@ -32,6 +32,7 @@ GET       /give_me_projects                        ProjectController.GetProjects
 GET       /give_me_tasks                           TaskController.GetTasks
 GET       /load_modal_userlist_edit                UserController.GetUsers
 GET       /load_modal_userlist_delete              UserController.GetUsers
+GET       /load_modal_projectlist_add              UserController.GetUsers
 GET       /load_modal_projectlist_edit             ProjectController.GetProjects
 GET       /load_modal_projectlist_delete           ProjectController.GetProjects
 GET       /load_modal_tasklist_add                 TaskController.OpenModalAdd
@@ -40,5 +41,6 @@ GET       /usersonproject/:id                      ProjectController.GetUsersOnP
 GET       /usersoutproject/:id                     ProjectController.GetUsersOutProject
 
 
-POST       /post_new_user                           UserController.AddUser
-POST       /post_new_task                           TaskController.AddTask
+POST       /post_new_user                          UserController.AddUser
+POST       /post_new_task                          TaskController.AddTask
+POST       /post_new_project                       ProjectController.AddProject

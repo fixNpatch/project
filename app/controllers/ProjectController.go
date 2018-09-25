@@ -2,6 +2,8 @@ package controllers
 
 import (
 	"github.com/revel/revel"
+	"log"
+	"net/http"
 	"testapp/app/providers"
 )
 
@@ -27,5 +29,12 @@ func (c *ProjectController) GetUsersOnProject(id int) revel.Result {
 
 func (c *ProjectController) GetUsersOutProject(id int) revel.Result {
 	data := c.model.GetUsersOutProject(id)
+	return c.RenderJSON(data)
+}
+
+func (c *ProjectController) AddProject(r *http.Request) revel.Result {
+	request := c.Params.JSON
+	data := string(request)
+	log.Print(data)
 	return c.RenderJSON(data)
 }
