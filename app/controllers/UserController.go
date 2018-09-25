@@ -52,6 +52,7 @@ func (c *UserController) GetUsers() revel.Result {
 
 func (c *UserController) AddUser(r *http.Request) revel.Result {
 	request := c.Params.JSON
+	c.model.AddUser(request)
 	data := string(request)
 	log.Print(data)
 	return c.RenderJSON(data)

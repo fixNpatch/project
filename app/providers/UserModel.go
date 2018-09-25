@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/revel/revel"
 	"io/ioutil"
+	"os"
 )
 
 type UserModel struct {
@@ -57,4 +58,17 @@ func (t *UserModel) GetUsers() string {
 	file, _ := ioutil.ReadFile(path + "/dummy/userlist.json")
 	url := string(file)
 	return url
+}
+func (t *UserModel) AddUser(data []byte) revel.Result {
+
+	path := revel.AppPath
+	f, err := os.OpenFile(path+"/dummy/test.json", os.O_APPEND|os.O_WRONLY, 0600)
+	if err != nil {
+		fmt.Print(err.Error())
+	}
+	defer f.Close()
+	if _, err = f.WriteString(string(data)); err != nil {
+		fmt.Print(err.Error())
+	}
+	return nil
 }
