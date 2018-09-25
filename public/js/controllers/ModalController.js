@@ -56,11 +56,12 @@ function ModalController(app) {
 
     this.AddUser = function(object){
         console.log('post =>');
+        console.log(object);
         $.ajax({
             type: "POST",
             url: "/post_new_user",
             // The key needs to match your method's input parameter (case-sensitive).
-            data: JSON.stringify(object, " ", 3),
+            data: JSON.stringify(object),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function(data){console.log(data);},
