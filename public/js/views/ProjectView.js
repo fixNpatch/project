@@ -36,15 +36,15 @@ function ProjectView(app) {
             container:"project_block",
             rows:[
                 {
-                    gravity:0.10,
-                    css:"red-head",
-                    id: "project_block_header",
-                    type:"clean",
                     borderless:true,
+                    gravity:0.08,
+                    id: "project_block_header",
+                    css:"red-head",
+                    type:"clean",
                     cols:[
                         {
                             gravity:3,
-                            css:"transparent h04v",
+                            css:"transparent",
                             id: "project_block_name",
                             template: "Ваши проекты",
                             type:"clean"
@@ -93,33 +93,8 @@ function ProjectView(app) {
                     ]
                 },
                 {
-                    gravity:10,
-                    id:"open_project",
-                    css:"beige",
-                    hidden:true,
-                    view:"layout",
-                    label:"PROJECT NAME",
-                    rows:[
-                        {cols:[
-                                { view:"text", label:"PROJECT TITLE", labelWidth:150},
-                                { view:"text", value:"PROJECT TIMESTAMP", labelWidth:150},
-                                { view:"text", value:"PROJECT STATUS", labelWidth:150},
-                            ]
-                        },
-                        { view:"text", label:"PROJECT DESCRIPTION", labelWidth:150},
-                        { view:"text", label:"TASK DOER", labelWidth:150},
-                        { view:"text", label:"TASK HOURS", labelWidth:150},
-                        { view:"button", label:"НАЗАД", click:function () {
-                                $$("open_project").hide();
-                                $$("project_block_nest").show();
-                            }
-                        }
-                    ]
-
-                },
-                {
-                    css:"beige",
                     borderless:true,
+                    css:"beige",
                     id: "project_block_nest",
                     view: "datatable",
                     scrollX:false,
@@ -131,17 +106,41 @@ function ProjectView(app) {
                         { id:"Project_timestamp",      header:"Создан",                fillspace:true},
                         { id:"Userstack",              header:"Исполнители",           fillspace:2},
                     ]
-                }
+                },
+                {
+                    id:"open_project",
+                    css:"beige",
+                    hidden:true,
+                    height:"auto",
+                    view:"fieldset",
+                    label:"PROJECT NAME",
+                    body:{
+                        rows:[
+                            {cols:[
+                                    { view:"text", label:"PROJECT TITLE", labelWidth:150},
+                                    { view:"text", value:"PROJECT TIMESTAMP", labelWidth:150},
+                                    { view:"text", value:"PROJECT STATUS", labelWidth:150},
+                                ]
+                            },
+                            { view:"text", label:"PROJECT DESCRIPTION", labelWidth:150},
+                            { view:"text", label:"TASK DOER", labelWidth:150},
+                            { view:"text", label:"TASK HOURS", labelWidth:150},
+                            { view:"button", label:"НАЗАД", click:function () {
+                                    $$("open_project").hide();
+                                    $$("project_block_nest").show();
+                                }
+                            }
+                        ]
+                    }
+                },
             ]
         });
         if(arg === "full") $$("project_block_control").show();
 
         $$("project_block_nest").attachEvent("onItemClick", function (id) {
             let item = this.getItem(id);
-            this.hide();
             $$("open_project").show();
-            $$("project_block_header").resize();
-            $$("open_project").resize();
+            this.hide();
 
         });
 

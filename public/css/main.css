@@ -49,13 +49,11 @@ body{
 }
 
 .left-area{
-    width: 20% !important;
     background-color: black;
     color: white;
 }
 
 .right-area{
-    width: 80% !important;
     background-color: #ffd093;
 }
 
