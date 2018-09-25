@@ -218,13 +218,6 @@ function ModalView(app) {
         $$("choose_project").attachEvent("onItemClick", function (id) {
             $$("project_doers").clearAll();
             let item = this.getItem(id);
-            let on = "/usersonproject/" + String(item.project_id);
-            $$("project_doers").load(function(){
-                console.log('project doers: ');
-                return webix.ajax(on).then(function(data){
-                    return data.json();
-                });
-            });
             $$("del_project_choose").collapse();
             $$("del_project_form").enable();
             $$("del_project").setValues(
@@ -232,6 +225,7 @@ function ModalView(app) {
                     Project_title:item.Project_title,
                     Project_description:item.Project_description,
                 }, true);
+            app.LoadUsersOnProject(item.Project_id);
         });
 
         app.LoadData4DelProject();

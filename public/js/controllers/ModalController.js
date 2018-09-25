@@ -109,6 +109,16 @@ function ModalController(app) {
                 alert(errMsg);
             }
         });
-    }
+    };
 
+    this.LoadUsersOnProject = function (id) {
+        let on = "/usersonproject/" + id.toString();
+        console.log(on);
+        $$("project_doers").load(function(){
+            console.log('project doers: ');
+            return webix.ajax(on).then(function(data){
+                return data.json();
+            });
+        });
+    }
 }
