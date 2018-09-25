@@ -22,11 +22,11 @@ function ModalView(app) {
             id:"add_task",
             elements:[
                 {view:"grouplist", id:"project_manager", scroll:"y", select:true},
-                {view: "text", id:"selected_doer", hidden:true},
+                {view: "text", id:"Task_doer", hidden:true},
                 {view:"text", id:"Project_title", hidden:true, name:"Project_title"},
-                {view:"text", id:"Task_title", label:"Название задачи", name:"title"},
-                {view:"text", id:"Task_title", label:"Описание задачи", name:"description"},
-                {view:"counter", id:"Task_hours", label:"Рабочие часы", step:1, value:5, name:"hours"},
+                {view:"text", id:"Task_title", label:"Название задачи", name:"Task_title"},
+                {view:"text", id:"Task_description", label:"Описание задачи", name:"Task_description"},
+                {view:"counter", id:"Task_hours", label:"Рабочие часы", step:1, value:5, name:"Task_hours"},
                 {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
                 {view:"button", id:"cancel_button", label:"Отмена", name:"button", click:close_modal}
 
@@ -53,7 +53,6 @@ function ModalView(app) {
         $$("submit_button").attachEvent("onItemClick", function(){
             let save = $$("add_task").getValues();
             delete save.button;
-            console.log(save);
             save.Task_timestamp = parseDate(new Date());
             app.AddTask(save);
             close_modal();

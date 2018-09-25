@@ -2,6 +2,8 @@ package controllers
 
 import (
 	"github.com/revel/revel"
+	"log"
+	"net/http"
 	"testapp/app/providers"
 )
 
@@ -32,5 +34,13 @@ func (c *TaskController) OpenModalAdd() revel.Result {
 
 func (c *TaskController) OpenModalEdit() revel.Result {
 	data := c.model.OpenModalEdit()
+	return c.RenderJSON(data)
+}
+
+func (c *TaskController) AddTask(r *http.Request) revel.Result {
+	request := c.Params.JSON
+	//c.model.AddTask(request)
+	data := string(request)
+	log.Print(data)
 	return c.RenderJSON(data)
 }
