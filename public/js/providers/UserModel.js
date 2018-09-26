@@ -23,8 +23,7 @@ function UserModel() {
     this.getEmployeeBlock = function () {
         $$("ela_nest").load(function(){
             return webix.ajax("/use_db").then(function(data){
-                console.log(data);
-                console.log(data.json());
+                //console.log(data.json());
                 return data.json();
             });
         });

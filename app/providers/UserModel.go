@@ -14,13 +14,7 @@ type UserModel struct {
 }
 
 func NewUserModel() *UserModel {
-	c := &UserModel{}
-	return c
-
-}
-func (c *UserModel) Init() *UserModel {
-
-	return nil
+	return &UserModel{}
 }
 
 /* Эталон */

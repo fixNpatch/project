@@ -15,11 +15,6 @@ type UserController struct {
 	model *providers.UserModel
 }
 
-// Что это такое???
-//func (c *UserController) Apply(req *revel.Request, resp *revel.Response) {
-//	panic("implement me")
-//}
-
 func (c *UserController) Init() *UserController {
 	c.model = providers.NewUserModel()
 	c.model.DB = dbmanager.InitConnection()

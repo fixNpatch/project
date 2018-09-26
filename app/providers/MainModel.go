@@ -24,10 +24,11 @@ type User struct {
 }
 
 type Project struct {
-	Project_id          int
-	Project_number      int
+	Project_id          string
+	Project_number      string
 	Project_title       string
 	Project_description string
+	Project_deadline    string
 	Project_status      string
 	Project_timestamp   string
 	Userstack           []User

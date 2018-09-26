@@ -1,9 +1,11 @@
 package controllers
 
 import (
+	"fmt"
 	"github.com/revel/revel"
 	"log"
 	"net/http"
+	"testapp/app/dbmanager"
 	"testapp/app/providers"
 )
 
@@ -19,6 +21,18 @@ type TaskController struct {
 /* Init - create "c" as model declared in structure ^^^   */
 func (c *TaskController) Init() *TaskController {
 	c.model = providers.NewTaskModel()
+	c.model.DB = dbmanager.InitConnection()
+	return nil
+}
+
+func (c *TaskController) CloseConnection() *TaskController {
+	var err error
+	err = c.model.DB.Close()
+	if err != nil {
+		fmt.Print("ERROR")
+		return nil
+	}
+	fmt.Print("All right")
 	return nil
 }
 
