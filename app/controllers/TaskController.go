@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/revel/revel"
 	"log"
@@ -36,9 +37,16 @@ func (c *TaskController) CloseConnection() *TaskController {
 	return nil
 }
 
+/*DUMMY*/
+//func (c *TaskController) GetTasks() revel.Result {
+//	data := c.model.GetTasks()
+//	return c.RenderJSON(data)
+//}
+
 func (c *TaskController) GetTasks() revel.Result {
-	data := c.model.GetTasks()
-	return c.RenderJSON(data)
+	data, _ := json.Marshal(c.model.GetTasks())
+	list := string(data)
+	return c.RenderJSON(list)
 }
 
 func (c *TaskController) OpenModalAdd() revel.Result {

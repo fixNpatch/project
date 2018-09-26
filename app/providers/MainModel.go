@@ -1,13 +1,16 @@
 package providers
 
 type Task struct {
-	Task_number    int
-	Project_title  string
-	Task_title     string
-	Task_hours     int
-	Task_timestamp string
-	Task_status    string
-	Task_doer      User
+	Task_id          string
+	Task_number      string
+	Task_title       string
+	Task_description string
+	Task_hours       int
+	Task_deadline    string
+	Task_timestamp   string
+	Task_status      string
+	Task_doer        User
+	Project_title    string
 }
 
 type User struct {
