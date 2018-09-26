@@ -1,18 +1,29 @@
 package controllers
 
 import (
+	"database/sql"
 	"encoding/json"
 	"fmt"
 	"github.com/revel/revel"
 	"log"
 	"net/http"
 	"testapp/app/providers"
+
+	_ "github.com/lib/pq"
 )
 
 type UserController struct {
 	*revel.Controller
 	model *providers.UserModel
 }
+
+const (
+	host     = "localhost"
+	port     = 5432
+	user     = "postgres"
+	password = "password"
+	dbname   = "test"
+)
 
 // Что это такое???
 //func (c *UserController) Apply(req *revel.Request, resp *revel.Response) {
@@ -21,6 +32,30 @@ type UserController struct {
 
 func (c *UserController) Init() *UserController {
 	c.model = providers.NewUserModel()
+
+	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
+	var err error
+	c.model.DB, err = sql.Open("postgres", psqlInfo)
+	if err != nil {
+		revel.INFO.Print("DB Error", err)
+	}
+	err = c.model.DB.Ping()
+	if err != nil {
+		fmt.Print()
+	}
+
+	fmt.Println("Successfully connected!")
+	return nil
+}
+
+func (c *UserController) CloseConnection() *UserController {
+	var err error
+	err = c.model.DB.Close()
+	if err != nil {
+		fmt.Print("ERROR")
+		return nil
+	}
+	fmt.Print("All right")
 	return nil
 }
 

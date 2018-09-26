@@ -17,7 +17,7 @@ type TaskController struct {
 /* This function is included in interceptor BEFORE */
 /* BEFORE each call to other functions Interceptor makes this function be called before */
 /* Init - create "c" as model declared in structure ^^^   */
-func (c TaskController) Init() revel.Result {
+func (c *TaskController) Init() *TaskController {
 	c.model = providers.NewTaskModel()
 	return nil
 }

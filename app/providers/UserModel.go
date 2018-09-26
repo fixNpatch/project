@@ -6,16 +6,6 @@ import (
 	"github.com/revel/revel"
 	"io/ioutil"
 	"os"
-
-	_ "github.com/lib/pq"
-)
-
-const (
-	host     = "localhost"
-	port     = 5432
-	user     = "postgres"
-	password = "password"
-	dbname   = "test"
 )
 
 type UserModel struct {
@@ -25,17 +15,6 @@ type UserModel struct {
 
 func NewUserModel() *UserModel {
 	c := &UserModel{}
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
-	var err error
-	c.DB, err = sql.Open("postgres", psqlInfo)
-	if err != nil {
-		revel.INFO.Print("DB Error", err)
-	}
-	err = c.DB.Ping()
-	if err != nil {
-		fmt.Print()
-	}
-	fmt.Println("Successfully connected!")
 	return c
 
 }
@@ -132,6 +111,5 @@ func (c *UserModel) GetFromDb() []User {
 			User_pic:        c_user_pic,
 		})
 	}
-	defer c.DB.Close()
 	return userlist
 }

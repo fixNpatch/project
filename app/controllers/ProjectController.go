@@ -12,7 +12,7 @@ type ProjectController struct {
 	model *providers.ProjectModel
 }
 
-func (c ProjectController) Init() revel.Result {
+func (c *ProjectController) Init() *ProjectController {
 	c.model = providers.NewProjectModel()
 	return nil
 }
