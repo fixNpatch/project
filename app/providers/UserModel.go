@@ -1,6 +1,7 @@
 package providers
 
 import (
+	"database/sql"
 	"fmt"
 	"github.com/revel/revel"
 	"io/ioutil"
@@ -9,6 +10,7 @@ import (
 
 type UserModel struct {
 	name string
+	db   *sql.DB
 }
 
 func NewUserModel() *UserModel {

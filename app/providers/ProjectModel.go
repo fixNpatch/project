@@ -1,6 +1,7 @@
 package providers
 
 import (
+	"database/sql"
 	"encoding/json"
 	"github.com/revel/revel"
 	"io/ioutil"
@@ -8,6 +9,7 @@ import (
 
 type ProjectModel struct {
 	name string
+	db   *sql.DB
 }
 
 func NewProjectModel() *ProjectModel {

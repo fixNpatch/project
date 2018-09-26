@@ -1,14 +1,13 @@
 package providers
 
 import (
+	"database/sql"
 	"github.com/revel/revel"
 	"io/ioutil"
 )
 
 type TaskModel struct {
-	//db *sql.DB
-	//поля не отображают сущность.
-	//поля нужны для работы с сущностями и не содержат их структуру
+	db *sql.DB
 }
 
 //чтобы использовать модель в контроллере необходимо проинициализировать её
