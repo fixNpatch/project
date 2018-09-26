@@ -10,7 +10,7 @@ import (
 
 type UserModel struct {
 	name string
-	db   *sql.DB
+	DB   *sql.DB
 }
 
 func NewUserModel() *UserModel {
@@ -72,6 +72,33 @@ func (t *UserModel) AddUser(data []byte) revel.Result {
 	defer f.Close()
 	if _, err = f.WriteString(string(data)); err != nil {
 		fmt.Print(err.Error())
+	}
+
+	return nil
+}
+
+func (c *UserModel) GetFormDb() revel.Result {
+
+	/* Нужно ли делать опен? */
+
+	//var err error
+	//c.DB, err = sql.Open("postgres", Source)
+	//if err != nil{
+	//	revel.INFO.Print("DB Error", err)
+	//}
+	//revel.INFO.Println("DB Connected")
+
+	sql := "SELECT * FROM t_Users"
+	rows, err := c.DB.Query(sql)
+	if err != nil {
+		revel.INFO.Print("DB Error", err)
+	}
+	defer rows.Close()
+	for rows.Next() {
+		err = rows.Scan()
+		if err != nil {
+		}
+
 	}
 
 	return nil
