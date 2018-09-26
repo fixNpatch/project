@@ -77,7 +77,7 @@ func (t *UserModel) AddUser(data []byte) revel.Result {
 	return nil
 }
 
-func (c *UserModel) GetFormDb() revel.Result {
+func (c *UserModel) GetFormDb() []User {
 
 	/* Нужно ли делать опен? */
 
@@ -88,6 +88,17 @@ func (c *UserModel) GetFormDb() revel.Result {
 	//}
 	//revel.INFO.Println("DB Connected")
 
+	var userlist []User
+	var (
+		c_user_id         sql.NullInt64
+		c_user_login      sql.NullString
+		c_user_password   sql.NullString
+		c_user_firstname  sql.NullString
+		c_user_secondname sql.NullString
+		c_user_middlename sql.NullString
+		c_user_rank       sql.NullInt64
+		c_user_pic        sql.NullString
+	)
 	sql := "SELECT * FROM t_Users"
 	rows, err := c.DB.Query(sql)
 	if err != nil {
@@ -95,11 +106,20 @@ func (c *UserModel) GetFormDb() revel.Result {
 	}
 	defer rows.Close()
 	for rows.Next() {
-		err = rows.Scan()
+		err = rows.Scan(&c_user_id, &c_user_login, &c_user_password, &c_user_firstname, &c_user_secondname, &c_user_middlename, &c_user_rank, &c_user_pic)
 		if err != nil {
 		}
-
+		userlist = append(userlist, User{
+			User_id:         c_user_id,
+			PASSWORD:        c_user_password,
+			LOGIN:           c_user_login,
+			User_firstname:  c_user_firstname,
+			User_secondname: c_user_secondname,
+			User_middlename: c_user_middlename,
+			User_rank:       c_user_rank,
+			User_pic:        c_user_pic,
+		})
 	}
 
-	return nil
+	return userlist
 }
