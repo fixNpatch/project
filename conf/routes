@@ -46,4 +46,7 @@ POST       /delete_user                            UserController.DelUser
 POST       /edit_user/:id                          UserController.EditUser
 
 POST       /post_new_task                          TaskController.AddTask
+POST       /delete_task                            TaskController.DelTask
+POST       /edit_task/:id                          TaskController.EditTask
+
 POST       /post_new_project                       ProjectController.AddProject

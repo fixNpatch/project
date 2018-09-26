@@ -63,7 +63,7 @@ function ModalView(app) {
         webix.ui({
             container:$$("modal_body").getNode(),
             view:"form",
-            id:"add_task",
+            id:"del_task",
             elements:[
                 {view:"grouplist", id:"task_choose", scroll:"y", select:true},
                 {view:"button", id:"submit_button", label:"Удалить", name:"button"},
@@ -74,7 +74,22 @@ function ModalView(app) {
                 labelWidth:200
             }
         });
+        $$("task_choose").attachEvent("onAfterSelect", function (id) {
+            let item = this.getItem(id);
+            $$("del_task").setValues({
+                    Task_id:item.Task_id,
+                    Task_title:item.Task_title,
+                    Task_description:item.Task_description,
+                }, true);
+        });
         app.LoadData4EditTask();
+        $$("submit_button").attachEvent("onItemClick", function(){
+            let save = $$("del_task").getValues();
+            let Task_id = save.Task_id;
+            app.DelTask(Task_id);
+            close_modal();
+        });
+
     }
     function edit_task() {
         console.log("EDIT TASK");
@@ -101,11 +116,35 @@ function ModalView(app) {
             console.log($$("edit_task").getValues());
             $$("edit_task").setValues(
                 {
+                    Task_id:item.Task_id,
                     Task_title:item.Task_title,
                     Task_description:item.Task_description,
                 }, true);
         });
+        $$("task_choose").attachEvent("onItemClick", function(id){
+            let item = this.getItem(id);
+            if(item.User_id == null){
+                console.log("ProjectID:");
+                console.log(item.Project_id);
+                console.log(item.Project_title);
+                $$("edit_task").setValues({Project_title:item.value, Project_id:item.Project_id}, true);
+            }
+            else{
+                console.log("UserID:");
+                console.log(item.User_id);
+                console.log(item.Task_doer);
+                $$("edit_task").setValues({Task_doer:item.value, User_id:item.User_id}, true);
+            }
+            console.log(item);
+        });
         app.LoadData4EditTask();
+        $$("submit_button").attachEvent("onItemClick", function(){
+            let save = $$("edit_task").getValues();
+            delete save.button;
+            let Task_id = save.Task_id;
+            app.EditTask(Task_id, save);
+            close_modal();
+        });
     }
 
     function add_project() {

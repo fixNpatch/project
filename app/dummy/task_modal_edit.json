@@ -11,6 +11,7 @@
           "value": "Titov A. S.",
           "data": [
             {
+              "Task_id": "1",
               "type": "file",
               "value": "Back-end / server setup"
             }
@@ -22,6 +23,7 @@
           "value": "Maximov M. M.",
           "data": [
             {
+              "Task_id": "2",
               "type": "file",
               "value": "Database"
             }
@@ -40,6 +42,7 @@
           "value": "Titov A. S.",
           "data": [
             {
+              "Task_id": "1",
               "type": "file",
               "value": "Back-end / server setup"
             }
@@ -51,6 +54,7 @@
           "value": "Maximov M. M.",
           "data": [
             {
+              "Task_id": "2",
               "type": "file",
               "value": "Database"
             }
@@ -62,6 +66,7 @@
           "value": "Ivanov I. I.",
           "data": [
             {
+              "Task_id": "3",
               "type": "file",
               "value": "Documentation"
             }

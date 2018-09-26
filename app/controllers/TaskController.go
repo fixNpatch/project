@@ -44,3 +44,18 @@ func (c *TaskController) AddTask(r *http.Request) revel.Result {
 	log.Print(data)
 	return c.RenderJSON(data)
 }
+
+func (c *TaskController) DelTask() revel.Result {
+	request := c.Params.JSON
+	//c.model.DelTask(request)
+	data := string(request)
+	log.Print(data)
+	return c.RenderJSON(data)
+}
+
+func (c *TaskController) EditTask(id int) revel.Result {
+	request := c.Params.JSON
+	data := string(request)
+	log.Print(data)
+	return c.RenderJSON(data)
+}

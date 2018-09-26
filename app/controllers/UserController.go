@@ -60,7 +60,7 @@ func (c *UserController) AddUser(r *http.Request) revel.Result {
 
 func (c *UserController) DelUser() revel.Result {
 	request := c.Params.JSON
-	c.model.AddUser(request)
+	//c.model.AddUser(request)
 	data := string(request)
 	log.Print(data)
 	return c.RenderJSON(data)

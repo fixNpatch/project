@@ -62,6 +62,8 @@ function ModalController(app) {
     };
 
 
+    /*=============================================================*/
+    /*------------------------- TASK ------------------------------*/
 
     this.AddTask = function(object){
         console.log('post => post_new_task');
@@ -78,6 +80,46 @@ function ModalController(app) {
             }
         });
     };
+
+    this.DelTask = function(Task_id){
+        let data = {id:Task_id};
+        console.log('post => delete_user');
+        console.log(data);
+        $.ajax({
+            type: "POST",
+            url: "/delete_task",
+            data:JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "JSON",
+            success: function(data){console.log(data);},
+            fail: function(errMsg) {
+                alert(errMsg);
+            }
+        });
+    };
+
+    this.EditTask = function(Task_id, object){
+        let url = /edit_task/ + Task_id;
+        console.log(url);
+        console.log('post => delete_user');
+        let data = JSON.stringify(object);
+        console.log(data);
+        $.ajax({
+            type: "POST",
+            url: url,
+            data:data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "JSON",
+            success: function(data){console.log(data);},
+            fail: function(errMsg) {
+                alert(errMsg);
+            }
+        });
+    };
+
+
+    /*=============================================================*/
+    /*----------------------- PROJECT -----------------------------*/
 
     this.AddProject = function(object){
         console.log('post => post_new_project');
@@ -106,6 +148,8 @@ function ModalController(app) {
         });
     };
 
+    /*=============================================================*/
+    /*------------------------- USER ------------------------------*/
 
     this.AddUser = function(object){
         console.log('post => post_new_user');
