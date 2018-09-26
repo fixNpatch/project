@@ -24,17 +24,13 @@ type UserModel struct {
 }
 
 func NewUserModel() *UserModel {
-	c := &UserModel{
-		//скобки {} означают пустой новый экземпляр, &ссылка на него
-		//возвращаем новый экземпляр модели (опционально: с инициализированными полями)
-	}
+	c := &UserModel{}
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
 	var err error
 	c.DB, err = sql.Open("postgres", psqlInfo)
 	if err != nil {
 		revel.INFO.Print("DB Error", err)
 	}
-	/* пинг обязателен? */
 	err = c.DB.Ping()
 	if err != nil {
 		fmt.Print()
@@ -136,7 +132,6 @@ func (c *UserModel) GetFromDb() []User {
 			User_pic:        c_user_pic,
 		})
 	}
-
 	defer c.DB.Close()
 	return userlist
 }

@@ -21,7 +21,6 @@ type UserController struct {
 
 func (c *UserController) Init() *UserController {
 	c.model = providers.NewUserModel()
-	//c.model.Init()
 	return nil
 }
 
