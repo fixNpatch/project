@@ -11,10 +11,6 @@ function UserController(app) {
         UView.render(currentUser);
     };
 
-    // this.getUser = function(number){
-    //     return provider.pullUser(number);
-    // };
-
     this.getProfilePicture = function () {
         provider.getProfilePicture();
     };

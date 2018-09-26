@@ -81,14 +81,15 @@ func (c *UserModel) GetFromDb() []User {
 	var userlist []User
 	/*зачем МНЕ использовать sql.NullString? */
 	var (
-		c_user_id         string
-		c_user_login      string
-		c_user_password   string
-		c_user_firstname  string
-		c_user_secondname string
-		c_user_middlename string
-		c_user_rank       string
-		c_user_pic        string
+		c_user_id           string
+		c_user_login        string
+		c_user_password     string
+		c_user_firstname    string
+		c_user_secondname   string
+		c_user_middlename   string
+		c_user_rank         string
+		c_user_registration string
+		c_user_pic          string
 	)
 	sqlstatement := `SELECT * FROM t_Users`
 	rows, err := c.DB.Query(sqlstatement)
@@ -97,7 +98,7 @@ func (c *UserModel) GetFromDb() []User {
 	}
 	defer rows.Close()
 	for rows.Next() {
-		err = rows.Scan(&c_user_id, &c_user_login, &c_user_password, &c_user_firstname, &c_user_secondname, &c_user_middlename, &c_user_rank, &c_user_pic)
+		err = rows.Scan(&c_user_id, &c_user_login, &c_user_password, &c_user_firstname, &c_user_secondname, &c_user_middlename, &c_user_rank, &c_user_registration, &c_user_pic)
 		if err != nil {
 		}
 		userlist = append(userlist, User{
@@ -107,6 +108,7 @@ func (c *UserModel) GetFromDb() []User {
 			User_firstname:  c_user_firstname,
 			User_secondname: c_user_secondname,
 			User_middlename: c_user_middlename,
+			User_timestamp:  c_user_registration,
 			User_rank:       c_user_rank,
 			User_pic:        c_user_pic,
 		})
