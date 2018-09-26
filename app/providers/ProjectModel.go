@@ -27,16 +27,7 @@ func NewProjectModel() *ProjectModel {
 /* TEST WITH DBase*/
 func (c *ProjectModel) GetProjects() []Project {
 	var projectlist []Project
-	/*зачем МНЕ использовать sql.NullString? */
-	var (
-		c_project_id          string
-		c_project_number      string
-		c_project_title       string
-		c_project_description string
-		c_project_deadline    string
-		c_project_status      string
-		c_project_timestamp   string
-	)
+	var project Project
 	sqlstatement := `SELECT * FROM public.t_Projects`
 	rows, err := c.DB.Query(sqlstatement)
 	if err != nil {
@@ -44,18 +35,11 @@ func (c *ProjectModel) GetProjects() []Project {
 	}
 	defer rows.Close()
 	for rows.Next() {
-		err = rows.Scan(&c_project_id, &c_project_number, &c_project_title, &c_project_description, &c_project_deadline, &c_project_status, &c_project_timestamp)
+		err = rows.Scan(&project.Project_id, &project.Project_number, &project.Project_title,
+			&project.Project_description, &project.Project_deadline, &project.Project_status, &project.Project_timestamp)
 		if err != nil {
 		}
-		projectlist = append(projectlist, Project{
-			Project_id:          c_project_id,
-			Project_number:      c_project_number,
-			Project_title:       c_project_title,
-			Project_description: c_project_description,
-			Project_deadline:    c_project_deadline,
-			Project_status:      c_project_status,
-			Project_timestamp:   c_project_timestamp,
-		})
+		projectlist = append(projectlist, project)
 	}
 	return projectlist
 }

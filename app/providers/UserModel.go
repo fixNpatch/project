@@ -85,7 +85,7 @@ func (c *UserModel) GetFromDb() []User {
 		c_user_registration string
 		c_user_pic          string
 	)
-	sqlstatement := `SELECT * FROM t_Users`
+	sqlstatement := `SELECT * FROM public.t_Users`
 	rows, err := c.DB.Query(sqlstatement)
 	if err != nil {
 		revel.INFO.Print("DB Error", err)
