@@ -6,6 +6,16 @@ import (
 	"github.com/revel/revel"
 	"io/ioutil"
 	"os"
+
+	_ "github.com/lib/pq"
+)
+
+const (
+	host     = "localhost"
+	port     = 5432
+	user     = "postgres"
+	password = "password"
+	dbname   = "test"
 )
 
 type UserModel struct {
@@ -14,15 +24,32 @@ type UserModel struct {
 }
 
 func NewUserModel() *UserModel {
-	return &UserModel{
+	c := &UserModel{
 		//скобки {} означают пустой новый экземпляр, &ссылка на него
 		//возвращаем новый экземпляр модели (опционально: с инициализированными полями)
 	}
+	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
+	var err error
+	c.DB, err = sql.Open("postgres", psqlInfo)
+	if err != nil {
+		revel.INFO.Print("DB Error", err)
+	}
+	/* пинг обязателен? */
+	err = c.DB.Ping()
+	if err != nil {
+		fmt.Print()
+	}
+	fmt.Println("Successfully connected!")
+	return c
 
+}
+func (c *UserModel) Init() *UserModel {
+
+	return nil
 }
 
 /* Эталон */
-func (t *UserModel) GetPic() (user *User, err error) {
+func (c *UserModel) GetPic() (user *User, err error) {
 
 	path := revel.AppPath
 	file, _ := ioutil.ReadFile(path + "/providers/picture.json")
@@ -38,15 +65,14 @@ func (t *UserModel) GetPic() (user *User, err error) {
 }
 
 /* CHANGES */
-func (t *UserModel) GetPicture() string {
-
+func (c *UserModel) GetPicture() string {
 	path := revel.AppPath
 	file, _ := ioutil.ReadFile(path + "/dummy/picture.json")
 	url := string(file)
 	return url
 }
 
-func (t *UserModel) GetSubordinates() string {
+func (c *UserModel) GetSubordinates() string {
 
 	path := revel.AppPath
 	file, _ := ioutil.ReadFile(path + "/dummy/ela_list.json")
@@ -54,15 +80,14 @@ func (t *UserModel) GetSubordinates() string {
 	return url
 }
 
-func (t *UserModel) GetUsers() string {
+func (c *UserModel) GetUsers() string {
 
 	path := revel.AppPath
 	file, _ := ioutil.ReadFile(path + "/dummy/userlist.json")
 	url := string(file)
 	return url
 }
-func (t *UserModel) AddUser(data []byte) revel.Result {
-
+func (c *UserModel) AddUser(data []byte) revel.Result {
 	/* DO NOT WASTE TIME. IT WILL BE SAVING IN DB SOON */
 	path := revel.AppPath
 	f, err := os.OpenFile(path+"/dummy/test.json", os.O_APPEND|os.O_WRONLY, 0600)
@@ -77,30 +102,21 @@ func (t *UserModel) AddUser(data []byte) revel.Result {
 	return nil
 }
 
-func (c *UserModel) GetFormDb() []User {
-
-	/* Нужно ли делать опен? */
-
-	//var err error
-	//c.DB, err = sql.Open("postgres", Source)
-	//if err != nil{
-	//	revel.INFO.Print("DB Error", err)
-	//}
-	//revel.INFO.Println("DB Connected")
-
+func (c *UserModel) GetFromDb() []User {
 	var userlist []User
+	/*зачем МНЕ использовать sql.NullString? */
 	var (
-		c_user_id         sql.NullInt64
-		c_user_login      sql.NullString
-		c_user_password   sql.NullString
-		c_user_firstname  sql.NullString
-		c_user_secondname sql.NullString
-		c_user_middlename sql.NullString
-		c_user_rank       sql.NullInt64
-		c_user_pic        sql.NullString
+		c_user_id         string
+		c_user_login      string
+		c_user_password   string
+		c_user_firstname  string
+		c_user_secondname string
+		c_user_middlename string
+		c_user_rank       string
+		c_user_pic        string
 	)
-	sql := "SELECT * FROM t_Users"
-	rows, err := c.DB.Query(sql)
+	sqlstatement := `SELECT * FROM t_Users`
+	rows, err := c.DB.Query(sqlstatement)
 	if err != nil {
 		revel.INFO.Print("DB Error", err)
 	}
@@ -121,5 +137,6 @@ func (c *UserModel) GetFormDb() []User {
 		})
 	}
 
+	defer c.DB.Close()
 	return userlist
 }

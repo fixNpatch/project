@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/revel/revel"
 	"log"
@@ -18,8 +19,9 @@ type UserController struct {
 //	panic("implement me")
 //}
 
-func (c UserController) Init() *UserController {
+func (c *UserController) Init() *UserController {
 	c.model = providers.NewUserModel()
+	//c.model.Init()
 	return nil
 }
 
@@ -71,4 +73,10 @@ func (c *UserController) EditUser(id int) revel.Result {
 	data := string(request)
 	log.Print(data)
 	return c.RenderJSON(data)
+}
+
+func (c *UserController) GetFromDb() revel.Result {
+	data, _ := json.Marshal(c.model.GetFromDb())
+	list := string(data)
+	return c.RenderJSON(list)
 }
