@@ -51,3 +51,5 @@ POST       /delete_task                            TaskController.DelTask
 POST       /edit_task/:id                          TaskController.EditTask
 
 POST       /post_new_project                       ProjectController.AddProject
+POST       /delete_project                         ProjectController.DelProject
+POST       /edit_project/:id                       ProjectController.AddProject

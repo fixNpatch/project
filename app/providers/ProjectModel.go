@@ -130,3 +130,19 @@ func (c *ProjectModel) AddProject(body []byte) string {
 	fmt.Println("Successful add task")
 	return string(body)
 }
+
+func (c *ProjectModel) DelProject(body []byte) string {
+	var project Project
+	json.Unmarshal(body, &project)
+	sqlstatement := `DELETE FROM t_projects WHERE t_projects.project_id = $1`
+	_, err := c.DB.Query(sqlstatement, &project.Project_id)
+	if err != nil {
+		fmt.Println(err.Error())
+		return ""
+	}
+
+	/* ALSO REQUIRE TO DELETE ALL ROWS IN TOC_PROJECT_USERS*/
+
+	fmt.Println("Successful del task")
+	return string(body)
+}
