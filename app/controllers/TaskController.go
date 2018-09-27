@@ -12,8 +12,6 @@ import (
 
 type TaskController struct {
 	*revel.Controller
-
-	/* declare model as field */
 	model *providers.TaskModel
 }
 
@@ -25,7 +23,6 @@ func (c *TaskController) Init() *TaskController {
 	c.model.DB = dbmanager.InitConnection()
 	return nil
 }
-
 func (c *TaskController) CloseConnection() *TaskController {
 	var err error
 	err = c.model.DB.Close()
@@ -49,9 +46,16 @@ func (c *TaskController) GetTasks() revel.Result {
 	return c.RenderJSON(list)
 }
 
+/*DUMMY*/
+//func (c *TaskController) OpenModalAdd() revel.Result {
+//	data := c.model.OpenModalAdd()
+//	return c.RenderJSON(data)
+//}
+
 func (c *TaskController) OpenModalAdd() revel.Result {
-	data := c.model.OpenModalAdd()
-	return c.RenderJSON(data)
+	data, _ := json.Marshal(c.model.OpenModalAdd())
+	list := string(data)
+	return c.RenderJSON(list)
 }
 
 func (c *TaskController) OpenModalEdit() revel.Result {

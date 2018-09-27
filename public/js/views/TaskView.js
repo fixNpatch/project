@@ -103,7 +103,7 @@ function TaskView(app) {
                         { id:"Task_title",          header:"Название задачи", fillspace:3},
                         { id:"Task_doer",           header:"Исполнитель", fillspace:2},
                         { id:"Task_status",         header:"Статус"},
-                        { id:"Task_hours",          header:"Рабочие часы"},
+                        { id:"Task_hours",          header:"Р/Часы"},
                         { id:"Task_timestamp",      header:"Поставлена"}
                     ],
                     hover:"hoverrow"

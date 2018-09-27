@@ -37,9 +37,10 @@ func (c *TaskModel) GetTasks() []Task {
 	var tasklist []Task
 	var task Task
 	var doer User
-	sqlstatement := `SELECT task_id, c_task_number, c_task_title, c_task_description, c_task_hours, c_task_status, c_task_timestamp, c_user_secondname  
-FROM public.t_Tasks, public.t_Users
-WHERE t_Tasks.fk_user_id = t_Users.user_id;`
+	var project Project
+	sqlstatement := `SELECT task_id, c_task_number, c_task_title, c_task_description, c_task_hours, c_task_status, c_task_timestamp, c_user_secondname, c_project_title  
+FROM public.t_Tasks, public.t_Users, public.t_Projects
+WHERE t_Tasks.fk_user_id = t_Users.user_id AND t_Tasks.fk_project_id = t_Projects.project_id;`
 	rows, err := c.DB.Query(sqlstatement)
 	if err != nil {
 		revel.INFO.Print("DB Error", err)
@@ -47,9 +48,10 @@ WHERE t_Tasks.fk_user_id = t_Users.user_id;`
 	defer rows.Close()
 	for rows.Next() {
 		err = rows.Scan(&task.Task_id, &task.Task_number, &task.Task_title,
-			&task.Task_description, &task.Task_hours, &task.Task_status, &task.Task_timestamp, &doer.User_secondname)
+			&task.Task_description, &task.Task_hours, &task.Task_status, &task.Task_timestamp, &doer.User_secondname, &project.Project_title)
 		if err != nil {
 		}
+		task.Project_title = project.Project_title
 		task.Task_doer = doer
 		fmt.Println(task)
 		tasklist = append(tasklist, task)
@@ -57,11 +59,47 @@ WHERE t_Tasks.fk_user_id = t_Users.user_id;`
 	return tasklist
 }
 
-func (c *TaskModel) OpenModalAdd() string {
-	path := revel.AppPath
-	file, _ := ioutil.ReadFile(path + "/dummy/task_modal_add.json")
-	url := string(file)
-	return url
+/*DUMMY*/
+//func (c *TaskModel) OpenModalAdd() string {
+//	path := revel.AppPath
+//	file, _ := ioutil.ReadFile(path + "/dummy/task_modal_add.json")
+//	url := string(file)
+//	return url
+//}
+
+func (c *TaskModel) OpenModalAdd() []Folder {
+
+	type ProjectFolder struct {
+		Project_id string
+		*Folder
+	}
+	type UserFile struct {
+		User_id string
+		*File
+	}
+	var projects []ProjectFolder
+	var users []UserFile
+	var project ProjectFolder
+	var user UserFile
+
+	sqlstatement := `SELECT project_id, c_project_title FROM public.t_Projects`
+
+	rows, err := c.DB.Query(sqlstatement)
+	if err != nil {
+		revel.INFO.Print("DB Error", err)
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		err = rows.Scan(&project.Project_id, &project.Value)
+		if err != nil {
+			fmt.Println("Cannot read a row")
+			return nil
+		}
+		project.Type = "folder"
+	}
+
+	return list
 }
 
 func (c *TaskModel) OpenModalEdit() string {

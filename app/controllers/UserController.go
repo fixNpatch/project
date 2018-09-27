@@ -20,7 +20,6 @@ func (c *UserController) Init() *UserController {
 	c.model.DB = dbmanager.InitConnection()
 	return nil
 }
-
 func (c *UserController) CloseConnection() *UserController {
 	var err error
 	err = c.model.DB.Close()
