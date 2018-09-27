@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/revel/revel"
-	"io/ioutil"
 	"math/rand"
 	"time"
 )
@@ -120,6 +119,7 @@ WHERE toc_Projects_Users.fk_project_id = $1 AND t_Users.user_id = toc_Projects_U
 			fmt.Println(user)
 			projects[i].Data = append(projects[i].Data, user)
 		}
+		rows.Close()
 
 	}
 	for i := 0; i < len(projects); i++ {
@@ -136,11 +136,101 @@ WHERE toc_Projects_Users.fk_project_id = $1 AND t_Users.user_id = toc_Projects_U
 	return bytes
 }
 
-func (c *TaskModel) OpenModalEdit() string {
-	path := revel.AppPath
-	file, _ := ioutil.ReadFile(path + "/dummy/task_modal_edit.json")
-	url := string(file)
-	return url
+func (c *TaskModel) OpenModalEdit() []byte {
+	type File struct {
+		Task_id string
+		Value   string `json:"value"`
+		Type    string `json:"type"`
+	}
+	type Subfolder struct {
+		User_id string
+		Value   string `json:"value"`
+		Type    string `json:"type"`
+		Data    []File `json:"data"`
+	}
+	type Folder struct {
+		Project_id string      `json:"Project_id"`
+		Value      string      `json:"value"`
+		Type       string      `json:"type"`
+		Data       []Subfolder `json:"data"`
+	}
+
+	var list []Folder
+	var projects []Folder
+	var project Folder
+	var users []Subfolder
+	var user Subfolder
+	var task File
+
+	/* SELECT ALL PROJECTS */
+
+	sqlstatement := `SELECT project_id, c_project_title FROM public.t_Projects;`
+	rows, err := c.DB.Query(sqlstatement)
+	if err != nil {
+		revel.INFO.Print("DB Error", err)
+	}
+	for rows.Next() {
+		err = rows.Scan(&project.Project_id, &project.Value)
+		if err != nil {
+			fmt.Println("Cannot read a row")
+			return nil
+		}
+		project.Type = "folder"
+		fmt.Println(project)
+		projects = append(projects, project)
+	}
+	rows.Close()
+
+	/* SELECT PROJECTS' USERS*/
+
+	for i := 0; i < len(projects); i++ {
+		var secondname, firstname string
+		substatement := `SELECT user_id, c_user_secondname, c_user_firstname FROM public.t_Users, public.toc_Projects_Users
+WHERE toc_Projects_Users.fk_project_id = $1 AND t_Users.user_id = toc_Projects_Users.fk_user_id`
+
+		rows, err := c.DB.Query(substatement, i)
+		if err != nil {
+			revel.INFO.Print("DB Error", err)
+		}
+		for rows.Next() {
+			err = rows.Scan(&user.User_id, &secondname, &firstname)
+			if err != nil {
+				fmt.Println("Cannot read a row")
+				return nil
+			}
+			user.Value = secondname + " " + firstname
+			project.Type = "file"
+			fmt.Println(user)
+			projects[i].Data = append(projects[i].Data, user)
+		}
+
+	}
+
+	/* SELECT USERS' TASKS */
+
+	for i := 0; i < len(projects); i++ {
+		for j := 0; j < len(projects[i].Data); j++ {
+			var task_title string
+			subsubstatement := `SELECT task_id, c_task_title FROM public.t_Users, public.t_Projects, public.t_Tasks
+WHERE t_Tasks.fk_project_id = $1 AND t_Tasks.user_id = toc_Projects_Users.fk_user_id`
+		}
+	}
+
+	for i := 0; i < len(projects); i++ {
+		if len(projects[i].Data) > 0 {
+			for j := 0; j < len(projects[i].Data[j].Data); j++ {
+
+			}
+			list = append(list, projects[i])
+		}
+	}
+
+	bytes, err := json.Marshal(list)
+	if err != nil {
+		fmt.Println("cannot marshal", err.Error())
+		return nil
+	}
+	return bytes
 }
 
 func (c *TaskModel) AddTask(body []byte) string {

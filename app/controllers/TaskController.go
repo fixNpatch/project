@@ -54,7 +54,8 @@ func (c *TaskController) OpenModalAdd() revel.Result {
 
 func (c *TaskController) OpenModalEdit() revel.Result {
 	data := c.model.OpenModalEdit()
-	return c.RenderJSON(data)
+	list := string(data)
+	return c.RenderJSON(list)
 }
 
 func (c *TaskController) AddTask(r *http.Request) revel.Result {
