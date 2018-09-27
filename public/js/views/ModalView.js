@@ -59,7 +59,6 @@ function ModalView(app) {
         });
     }
     function del_task() {
-        console.log("DELETE TASK");
         webix.ui({
             container:$$("modal_body").getNode(),
             view:"form",
@@ -92,7 +91,6 @@ function ModalView(app) {
 
     }
     function edit_task() {
-        console.log("EDIT TASK");
         webix.ui({
             container:$$("modal_body").getNode(),
             view:"form",

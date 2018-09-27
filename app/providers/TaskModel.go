@@ -155,12 +155,11 @@ func (c *TaskModel) OpenModalEdit() []byte {
 		Data       []Subfolder `json:"data"`
 	}
 
-	var list []Folder
+	//var list []Folder
 	var projects []Folder
 	var project Folder
-	var users []Subfolder
 	var user Subfolder
-	var task File
+	//var task File
 
 	/* SELECT ALL PROJECTS */
 
@@ -199,7 +198,7 @@ WHERE toc_Projects_Users.fk_project_id = $1 AND t_Users.user_id = toc_Projects_U
 				return nil
 			}
 			user.Value = secondname + " " + firstname
-			project.Type = "file"
+			user.Type = "folder"
 			fmt.Println(user)
 			projects[i].Data = append(projects[i].Data, user)
 		}
@@ -208,24 +207,41 @@ WHERE toc_Projects_Users.fk_project_id = $1 AND t_Users.user_id = toc_Projects_U
 
 	/* SELECT USERS' TASKS */
 
-	for i := 0; i < len(projects); i++ {
-		for j := 0; j < len(projects[i].Data); j++ {
-			var task_title string
-			subsubstatement := `SELECT task_id, c_task_title FROM public.t_Users, public.t_Projects, public.t_Tasks
-WHERE t_Tasks.fk_project_id = $1 AND t_Tasks.user_id = toc_Projects_Users.fk_user_id`
-		}
-	}
+	//for i := 0; i < len(projects); i++ {
+	//	for j := 0; j < len(projects[i].Data); j++ {
+	//		subsubstatement := `SELECT task_id, c_task_title FROM public.t_Tasks WHERE t_Tasks.fk_project_id = $1 AND t_Tasks.fk_user_id = $2`
+	//		rows, err := c.DB.Query(subsubstatement, projects[i].Project_id, projects[i].Data[j].User_id)
+	//		if err != nil {
+	//			revel.INFO.Print("DB Error", err)
+	//		}
+	//		for rows.Next() {
+	//			err = rows.Scan(&task.Task_id, &task.Value)
+	//			if err != nil {
+	//				fmt.Println("Cannot read a row")
+	//				return nil
+	//			}
+	//			task.Type = "file"
+	//			projects[i].Data[j].Data = append(projects[i].Data[j].Data, task)
+	//		}
+	//	}
+	//}
 
 	for i := 0; i < len(projects); i++ {
-		if len(projects[i].Data) > 0 {
-			for j := 0; j < len(projects[i].Data[j].Data); j++ {
-
-			}
-			list = append(list, projects[i])
-		}
+		//if len(projects[i].Data) > 0 {
+		//	flag := true
+		//	for j := 0; j < len(projects[i].Data); j++ {
+		//		if len(projects[i].Data[j].Data) < 1 {
+		//			flag = false
+		//		}
+		//	}
+		//	if flag {
+		//		list = append(list, projects[i])
+		//	}
+		//}
+		fmt.Println(projects[i])
 	}
 
-	bytes, err := json.Marshal(list)
+	bytes, err := json.Marshal(projects)
 	if err != nil {
 		fmt.Println("cannot marshal", err.Error())
 		return nil

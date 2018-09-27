@@ -53,7 +53,6 @@ function ModalController(app) {
     /*------------------------- TASK ------------------------------*/
 
     this.LoadData4AddTask = function(){
-        console.log("Load data")
         $$("project_manager").load(function(){
             return webix.ajax("/load_modal_tasklist_add").then(function(data){
                 console.log(data.json());
@@ -64,6 +63,7 @@ function ModalController(app) {
     this.LoadData4EditTask = function(){
         $$("task_choose").load(function(){
             return webix.ajax("/load_modal_tasklist_edit").then(function(data){
+                console.log(data.json());
                 return data.json();
             });
         });
