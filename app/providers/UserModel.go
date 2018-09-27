@@ -33,15 +33,7 @@ func (c *UserModel) GetSubordinates() string {
 	return url
 }
 
-//func (c *UserModel) GetUsers() string {
-//
-//	path := revel.AppPath
-//	file, _ := ioutil.ReadFile(path + "/dummy/userlist.json")
-//	url := string(file)
-//	return url
-//}
 func (c *UserModel) AddUser(data []byte) revel.Result {
-	/* DO NOT WASTE TIME. IT WILL BE SAVING IN DB SOON */
 	path := revel.AppPath
 	f, err := os.OpenFile(path+"/dummy/test.json", os.O_APPEND|os.O_WRONLY, 0600)
 	if err != nil {
@@ -51,7 +43,6 @@ func (c *UserModel) AddUser(data []byte) revel.Result {
 	if _, err = f.WriteString(string(data)); err != nil {
 		fmt.Print(err.Error())
 	}
-
 	return nil
 }
 

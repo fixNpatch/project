@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"github.com/revel/revel"
 	"log"
-	"net/http"
 	"testapp/app/dbmanager"
 	"testapp/app/providers"
 )
@@ -52,16 +51,13 @@ func (c *TaskController) OpenModalEdit() revel.Result {
 	return c.RenderJSON(list)
 }
 
-func (c *TaskController) AddTask(r *http.Request) revel.Result {
+func (c *TaskController) AddTask() revel.Result {
 	request := c.Params.JSON
 	data := c.model.AddTask(request)
 	return c.RenderJSON(data)
 }
 
 func (c *TaskController) DelTask() revel.Result {
-
-	fmt.Println("IM HERE")
-
 	request := c.Params.JSON
 	data := c.model.DelTask(request)
 	log.Print(data)

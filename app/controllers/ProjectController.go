@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/revel/revel"
-	"log"
 	"net/http"
 	"testapp/app/dbmanager"
 	"testapp/app/providers"
@@ -53,9 +52,15 @@ func (c *ProjectController) GetUsersOutProject(id int) revel.Result {
 	return c.RenderJSON(data)
 }
 
+//func (c *ProjectController) AddProject() revel.Result {
+//	request := c.Params.JSON
+//	data := string(request)
+//	log.Print(data)
+//	return c.RenderJSON(data)
+//}
+
 func (c *ProjectController) AddProject(r *http.Request) revel.Result {
 	request := c.Params.JSON
-	data := string(request)
-	log.Print(data)
+	data := c.model.AddProject(request)
 	return c.RenderJSON(data)
 }

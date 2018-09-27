@@ -3,8 +3,11 @@ package providers
 import (
 	"database/sql"
 	"encoding/json"
+	"fmt"
 	"github.com/revel/revel"
 	"io/ioutil"
+	"math/rand"
+	"time"
 )
 
 type ProjectModel struct {
@@ -96,4 +99,34 @@ func (c *ProjectModel) GetUsersOutProject(id int) string {
 
 	answer, _ := json.Marshal(users)
 	return string(answer)
+}
+
+func (c *ProjectModel) AddProject(body []byte) string {
+	var project Project
+	json.Unmarshal(body, &project)
+	sqlstatement := `INSERT INTO t_projects(c_project_number, c_project_title, c_project_description, c_project_status, c_project_timestamp) 
+	VALUES ($1, $2, $3, $4, $5);`
+	_, err := c.DB.Query(sqlstatement, rand.Intn(1000), &project.Project_title, &project.Project_description, 1, time.Now())
+	cnt := 0
+	if err != nil { /*IF NOT WORKING REMOVE CNT STATEMENT */
+		if cnt < 3 {
+			c.DB.Query(sqlstatement, rand.Intn(1000), &project.Project_title, &project.Project_description, 1, time.Now())
+		} else {
+			fmt.Println(err.Error())
+			return ""
+		}
+		cnt++
+	}
+	sqltocinsert := `INSERT INTO toc_projects_users_projects(fk_project_id, fk_user_id) VALUES ($1, $2);`
+	for i := 0; i < len(project.Userstack); i++ {
+
+		_, err := c.DB.Query(sqltocinsert, &project.Project_id, &project.Userstack[i].User_id)
+		if err != nil {
+			fmt.Println(err.Error())
+			return ""
+		}
+	}
+
+	fmt.Println("Successful add task")
+	return string(body)
 }
