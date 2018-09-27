@@ -2,6 +2,7 @@ package providers
 
 import (
 	"database/sql"
+	"encoding/json"
 	"fmt"
 	"github.com/revel/revel"
 	"io/ioutil"
@@ -67,29 +68,29 @@ WHERE t_Tasks.fk_user_id = t_Users.user_id AND t_Tasks.fk_project_id = t_Project
 //	return url
 //}
 
-func (c *TaskModel) OpenModalAdd() []Folder {
-
-	type ProjectFolder struct {
-		Project_id string
-		*Folder
-	}
-	type UserFile struct {
+func (c *TaskModel) OpenModalAdd() []byte {
+	type File struct {
 		User_id string
-		*File
+		Value   string
+		Type    string
 	}
-	var projects []ProjectFolder
-	var users []UserFile
-	var project ProjectFolder
-	var user UserFile
+	type Folder struct {
+		Project_id string
+		Value      string
+		Type       string
+		Data       []File
+	}
 
-	sqlstatement := `SELECT project_id, c_project_title FROM public.t_Projects`
+	var projects []Folder
+	var project Folder
+	var user File
+
+	sqlstatement := `SELECT project_id, c_project_title FROM public.t_Projects;`
 
 	rows, err := c.DB.Query(sqlstatement)
 	if err != nil {
 		revel.INFO.Print("DB Error", err)
 	}
-	defer rows.Close()
-
 	for rows.Next() {
 		err = rows.Scan(&project.Project_id, &project.Value)
 		if err != nil {
@@ -97,9 +98,35 @@ func (c *TaskModel) OpenModalAdd() []Folder {
 			return nil
 		}
 		project.Type = "folder"
+		fmt.Println(project)
+		projects = append(projects, project)
+	}
+	rows.Close()
+	for i := 0; i < len(projects); i++ {
+		substatement := `SELECT user_id, c_user_secondname FROM public.t_Users, public.toc_Projects_Users
+WHERE toc_Projects_Users.fk_project_id = 1 AND t_Users.user_id = toc_Projects_Users.fk_user_id`
+		rows, err := c.DB.Query(substatement)
+		if err != nil {
+			revel.INFO.Print("DB Error", err)
+		}
+		for rows.Next() {
+			err = rows.Scan(&user.User_id, &user.Value)
+			if err != nil {
+				fmt.Println("Cannot read a row")
+				return nil
+			}
+			project.Type = "file"
+			fmt.Println(user)
+			projects[i].Data = append(projects[i].Data, user)
+		}
 	}
 
-	return list
+	bytes, err := json.Marshal(projects)
+	if err != nil {
+		fmt.Println("cannot marshal", err.Error())
+		return nil
+	}
+	return bytes
 }
 
 func (c *TaskModel) OpenModalEdit() string {

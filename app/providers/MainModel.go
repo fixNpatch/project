@@ -1,15 +1,5 @@
 package providers
 
-type File struct {
-	Type  string
-	Value string
-}
-type Folder struct {
-	Type  string
-	Value string
-	Data  []File
-}
-
 type Task struct {
 	Task_id          string
 	Task_number      string

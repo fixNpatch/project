@@ -12,7 +12,7 @@ function TaskModel() {
     this.loadTaskBlock = function () {
         $$("task_block_nest").load(function(){
             return webix.ajax("/give_me_tasks").then(function(data){
-                console.log(data.json());
+                //console.log(data.json());
                 return data.json();
             });
         });

@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"github.com/revel/revel"
@@ -53,7 +54,7 @@ func (c *TaskController) GetTasks() revel.Result {
 //}
 
 func (c *TaskController) OpenModalAdd() revel.Result {
-	data, _ := json.Marshal(c.model.OpenModalAdd())
+	data := bytes.ToLower(c.model.OpenModalAdd())
 	list := string(data)
 	return c.RenderJSON(list)
 }
