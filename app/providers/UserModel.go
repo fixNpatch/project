@@ -33,13 +33,13 @@ func (c *UserModel) GetSubordinates() string {
 	return url
 }
 
-func (c *UserModel) GetUsers() string {
-
-	path := revel.AppPath
-	file, _ := ioutil.ReadFile(path + "/dummy/userlist.json")
-	url := string(file)
-	return url
-}
+//func (c *UserModel) GetUsers() string {
+//
+//	path := revel.AppPath
+//	file, _ := ioutil.ReadFile(path + "/dummy/userlist.json")
+//	url := string(file)
+//	return url
+//}
 func (c *UserModel) AddUser(data []byte) revel.Result {
 	/* DO NOT WASTE TIME. IT WILL BE SAVING IN DB SOON */
 	path := revel.AppPath
@@ -55,7 +55,7 @@ func (c *UserModel) AddUser(data []byte) revel.Result {
 	return nil
 }
 
-func (c *UserModel) GetFromDb() []User {
+func (c *UserModel) GetUsers() []User {
 	var userlist []User
 	/*зачем МНЕ использовать sql.NullString? */
 	var (

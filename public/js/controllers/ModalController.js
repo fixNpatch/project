@@ -175,7 +175,7 @@ function ModalController(app) {
     };
 
     this.DelUser = function(User_id){
-        let data = {id:User_id};
+        let data = {User_id:User_id};
         console.log('post => delete_user');
         console.log(data);
         $.ajax({

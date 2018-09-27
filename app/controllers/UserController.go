@@ -43,10 +43,10 @@ func (c *UserController) GetSubordinates() revel.Result {
 	return c.RenderJSON(data)
 }
 
-func (c *UserController) GetUsers() revel.Result {
-	data := c.model.GetUsers()
-	return c.RenderJSON(data)
-}
+//func (c *UserController) GetUsers() revel.Result {
+//	data := c.model.GetUsers()
+//	return c.RenderJSON(data)
+//}
 
 func (c *UserController) AddUser(r *http.Request) revel.Result {
 	request := c.Params.JSON
@@ -71,8 +71,8 @@ func (c *UserController) EditUser(id int) revel.Result {
 	return c.RenderJSON(data)
 }
 
-func (c *UserController) GetFromDb() revel.Result {
-	data, _ := json.Marshal(c.model.GetFromDb())
+func (c *UserController) GetUsers() revel.Result {
+	data, _ := json.Marshal(c.model.GetUsers())
 	list := string(data)
 	return c.RenderJSON(list)
 }
