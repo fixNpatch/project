@@ -31,16 +31,6 @@ func (c *UserController) CloseConnection() *UserController {
 	return nil
 }
 
-/* Эталон */
-func (c *UserController) GetPic() revel.Result {
-	data, err := c.model.GetPic()
-	if err != nil {
-		return c.RenderJSON(err.Error())
-	}
-	fmt.Println(data)
-	return c.RenderJSON(data)
-}
-
 /* CHANGES*/
 func (c *UserController) GetPicture() revel.Result {
 	data := c.model.GetPicture()

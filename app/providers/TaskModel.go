@@ -47,7 +47,6 @@ WHERE t_Tasks.fk_user_id = t_Users.user_id AND t_Tasks.fk_project_id = t_Project
 		}
 		task.Project_title = project.Project_title
 		task.Task_doer = doer
-		fmt.Println(task)
 		tasklist = append(tasklist, task)
 	}
 	return tasklist
@@ -176,7 +175,6 @@ func (c *TaskModel) OpenModalEdit() []byte {
 			return nil
 		}
 		project.Type = "folder"
-		fmt.Println(project)
 		projects = append(projects, project)
 	}
 	rows.Close()
@@ -200,7 +198,6 @@ WHERE toc_Projects_Users.fk_project_id = $1 AND t_Users.user_id = toc_Projects_U
 			}
 			user.Value = secondname + " " + firstname
 			user.Type = "folder"
-			fmt.Println(user)
 			projects[i].Data = append(projects[i].Data, user)
 		}
 		rows.Close()
@@ -253,8 +250,6 @@ WHERE toc_Projects_Users.fk_project_id = $1 AND t_Users.user_id = toc_Projects_U
 func (c *TaskModel) AddTask(body []byte) string {
 	var task Task
 	json.Unmarshal(body, &task)
-	fmt.Println(task)
-	//currentTime := time.Now()
 	sqlstatement := `INSERT INTO t_Tasks (c_task_number, c_task_title, c_task_description, c_task_hours, c_task_status, c_task_timestamp, fk_user_id, fk_project_id) 
 	VALUES ($1, $2, $3, $4, $5, $6, $7, $8);`
 	_, err := c.DB.Query(sqlstatement, rand.Intn(1000), &task.Task_title, &task.Task_description, &task.Task_hours, 1, time.Now(), &task.User_id, &task.Project_id)
@@ -263,5 +258,19 @@ func (c *TaskModel) AddTask(body []byte) string {
 		return ""
 	}
 	fmt.Println("Successful add task")
+	return string(body)
+}
+
+func (c *TaskModel) DelTask(body []byte) string {
+	var task Task
+	json.Unmarshal(body, &task)
+	fmt.Println(task)
+	sqlstatement := `DELETE FROM t_Tasks WHERE t_tasks.task_id = $1`
+	_, err := c.DB.Query(sqlstatement, &task.Task_id)
+	if err != nil {
+		fmt.Println(err.Error())
+		return ""
+	}
+	fmt.Println("Successful del task")
 	return string(body)
 }

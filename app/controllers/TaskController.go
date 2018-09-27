@@ -34,12 +34,6 @@ func (c *TaskController) CloseConnection() *TaskController {
 	return nil
 }
 
-/*DUMMY*/
-//func (c *TaskController) GetTasks() revel.Result {
-//	data := c.model.GetTasks()
-//	return c.RenderJSON(data)
-//}
-
 func (c *TaskController) GetTasks() revel.Result {
 	data, _ := json.Marshal(c.model.GetTasks())
 	list := string(data)
@@ -61,14 +55,15 @@ func (c *TaskController) OpenModalEdit() revel.Result {
 func (c *TaskController) AddTask(r *http.Request) revel.Result {
 	request := c.Params.JSON
 	data := c.model.AddTask(request)
-	log.Print(data)
 	return c.RenderJSON(data)
 }
 
 func (c *TaskController) DelTask() revel.Result {
+
+	fmt.Println("IM HERE")
+
 	request := c.Params.JSON
-	//c.model.DelTask(request)
-	data := string(request)
+	data := c.model.DelTask(request)
 	log.Print(data)
 	return c.RenderJSON(data)
 }

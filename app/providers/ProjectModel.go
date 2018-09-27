@@ -3,7 +3,6 @@ package providers
 import (
 	"database/sql"
 	"encoding/json"
-	"fmt"
 	"github.com/revel/revel"
 	"io/ioutil"
 )
@@ -17,15 +16,6 @@ func NewProjectModel() *ProjectModel {
 	return &ProjectModel{}
 }
 
-/*DUMMY*/
-/*func (t *ProjectModel) GetProjects() string {
-	path := revel.AppPath
-	file, _ := ioutil.ReadFile(path + "/dummy/projectWithUsers.json")
-	url := string(file)
-	return url
-}*/
-
-/* TEST WITH DBase*/
 func (c *ProjectModel) GetProjects() []Project {
 	var projectlist []Project
 	var project Project
@@ -40,7 +30,6 @@ func (c *ProjectModel) GetProjects() []Project {
 			&project.Project_description, &project.Project_deadline, &project.Project_status, &project.Project_timestamp)
 		if err != nil {
 		}
-		fmt.Println(project)
 		projectlist = append(projectlist, project)
 	}
 	return projectlist

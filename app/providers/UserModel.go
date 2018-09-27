@@ -17,22 +17,6 @@ func NewUserModel() *UserModel {
 	return &UserModel{}
 }
 
-/* Эталон */
-func (c *UserModel) GetPic() (user *User, err error) {
-
-	path := revel.AppPath
-	file, _ := ioutil.ReadFile(path + "/providers/picture.json")
-
-	url := string(file)
-	fmt.Println("HELLO IT'S ME :: " + url)
-
-	/* create obj under template User*/
-	user = &User{
-		User_pic: url,
-	}
-	return
-}
-
 /* CHANGES */
 func (c *UserModel) GetPicture() string {
 	path := revel.AppPath

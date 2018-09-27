@@ -87,7 +87,7 @@ function ModalController(app) {
     };
 
     this.DelTask = function(Task_id){
-        let data = {id:Task_id};
+        let data = {Task_id:Task_id};
         console.log('post => delete_user');
         console.log(data);
         $.ajax({
