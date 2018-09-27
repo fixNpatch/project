@@ -108,9 +108,9 @@ func (c *TaskModel) OpenModalAdd() []byte {
 
 		/* HOW TO CHANGE fk_project_id = i not 1*/
 		substatement := `SELECT user_id, c_user_secondname, c_user_firstname FROM public.t_Users, public.toc_Projects_Users
-WHERE toc_Projects_Users.fk_project_id = 1 AND t_Users.user_id = toc_Projects_Users.fk_user_id`
+WHERE toc_Projects_Users.fk_project_id = $1 AND t_Users.user_id = toc_Projects_Users.fk_user_id`
 
-		rows, err := c.DB.Query(substatement)
+		rows, err := c.DB.Query(substatement, i)
 		if err != nil {
 			revel.INFO.Print("DB Error", err)
 		}
