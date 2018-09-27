@@ -3,6 +3,7 @@ package providers
 import (
 	"database/sql"
 	"encoding/json"
+	"fmt"
 	"github.com/revel/revel"
 	"io/ioutil"
 )
@@ -39,6 +40,7 @@ func (c *ProjectModel) GetProjects() []Project {
 			&project.Project_description, &project.Project_deadline, &project.Project_status, &project.Project_timestamp)
 		if err != nil {
 		}
+		fmt.Println(project)
 		projectlist = append(projectlist, project)
 	}
 	return projectlist

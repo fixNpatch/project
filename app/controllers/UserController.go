@@ -25,10 +25,10 @@ func (c *UserController) CloseConnection() *UserController {
 	var err error
 	err = c.model.DB.Close()
 	if err != nil {
-		fmt.Print("ERROR")
+		fmt.Println("ERROR. Perhaps connection doesn't exist")
 		return nil
 	}
-	fmt.Print("All right")
+	fmt.Println("Connection closed")
 	return nil
 }
 
