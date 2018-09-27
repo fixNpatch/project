@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"github.com/revel/revel"
 	"io/ioutil"
+	"math/rand"
+	"time"
 )
 
 type TaskModel struct {
@@ -25,14 +27,6 @@ func NewTaskModel() *TaskModel {
 	}
 
 }
-
-/*DUMMY*/
-//func (t *TaskModel) GetTasks() string {
-//	path := revel.AppPath
-//	file, _ := ioutil.ReadFile(path + "/dummy/taskWithUsers.json")
-//	url := string(file)
-//	return url
-//}
 
 func (c *TaskModel) GetTasks() []Task {
 	var tasklist []Task
@@ -81,6 +75,7 @@ func (c *TaskModel) OpenModalAdd() []byte {
 		Data       []File `json:"data"`
 	}
 
+	var list []Folder
 	var projects []Folder
 	var project Folder
 	var user File
@@ -102,8 +97,8 @@ func (c *TaskModel) OpenModalAdd() []byte {
 		projects = append(projects, project)
 	}
 	rows.Close()
-	i := 0
-	for i < len(projects) {
+
+	for i := 0; i < len(projects); i++ {
 		var secondname, firstname string
 
 		/* HOW TO CHANGE fk_project_id = i not 1*/
@@ -125,10 +120,15 @@ WHERE toc_Projects_Users.fk_project_id = $1 AND t_Users.user_id = toc_Projects_U
 			fmt.Println(user)
 			projects[i].Data = append(projects[i].Data, user)
 		}
-		i++
+
+	}
+	for i := 0; i < len(projects); i++ {
+		if len(projects[i].Data) > 0 {
+			list = append(list, projects[i])
+		}
 	}
 
-	bytes, err := json.Marshal(projects)
+	bytes, err := json.Marshal(list)
 	if err != nil {
 		fmt.Println("cannot marshal", err.Error())
 		return nil
@@ -141,4 +141,20 @@ func (c *TaskModel) OpenModalEdit() string {
 	file, _ := ioutil.ReadFile(path + "/dummy/task_modal_edit.json")
 	url := string(file)
 	return url
+}
+
+func (c *TaskModel) AddTask(body []byte) string {
+	var task Task
+	json.Unmarshal(body, &task)
+	fmt.Println(task)
+	//currentTime := time.Now()
+	sqlstatement := `INSERT INTO t_Tasks (c_task_number, c_task_title, c_task_description, c_task_hours, c_task_status, c_task_timestamp, fk_user_id, fk_project_id) 
+	VALUES ($1, $2, $3, $4, $5, $6, $7, $8);`
+	_, err := c.DB.Query(sqlstatement, rand.Intn(1000), &task.Task_title, &task.Task_description, &task.Task_hours, 1, time.Now(), &task.User_id, &task.Project_id)
+	if err != nil {
+		fmt.Println(err.Error())
+		return ""
+	}
+	fmt.Println("Successful add task")
+	return string(body)
 }

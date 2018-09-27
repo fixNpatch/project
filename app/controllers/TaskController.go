@@ -59,8 +59,7 @@ func (c *TaskController) OpenModalEdit() revel.Result {
 
 func (c *TaskController) AddTask(r *http.Request) revel.Result {
 	request := c.Params.JSON
-	//c.model.AddTask(request)
-	data := string(request)
+	data := c.model.AddTask(request)
 	log.Print(data)
 	return c.RenderJSON(data)
 }

@@ -13,6 +13,8 @@ type Task struct {
 	Task_status      string
 	Task_doer        User
 	Project_title    string
+	User_id          string
+	Project_id       string
 }
 
 type User struct {
