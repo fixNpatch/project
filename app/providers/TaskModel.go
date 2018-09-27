@@ -71,14 +71,14 @@ WHERE t_Tasks.fk_user_id = t_Users.user_id AND t_Tasks.fk_project_id = t_Project
 func (c *TaskModel) OpenModalAdd() []byte {
 	type File struct {
 		User_id string
-		Value   string
-		Type    string
+		Value   string `json:"value"`
+		Type    string `json:"type"`
 	}
 	type Folder struct {
-		Project_id string
-		Value      string
-		Type       string
-		Data       []File
+		Project_id string `json:"Project_id"`
+		Value      string `json:"value"`
+		Type       string `json:"type"`
+		Data       []File `json:"data"`
 	}
 
 	var projects []Folder
@@ -102,23 +102,30 @@ func (c *TaskModel) OpenModalAdd() []byte {
 		projects = append(projects, project)
 	}
 	rows.Close()
-	for i := 0; i < len(projects); i++ {
-		substatement := `SELECT user_id, c_user_secondname FROM public.t_Users, public.toc_Projects_Users
+	i := 0
+	for i < len(projects) {
+		var secondname, firstname string
+
+		/* HOW TO CHANGE fk_project_id = i not 1*/
+		substatement := `SELECT user_id, c_user_secondname, c_user_firstname FROM public.t_Users, public.toc_Projects_Users
 WHERE toc_Projects_Users.fk_project_id = 1 AND t_Users.user_id = toc_Projects_Users.fk_user_id`
+
 		rows, err := c.DB.Query(substatement)
 		if err != nil {
 			revel.INFO.Print("DB Error", err)
 		}
 		for rows.Next() {
-			err = rows.Scan(&user.User_id, &user.Value)
+			err = rows.Scan(&user.User_id, &secondname, &firstname)
 			if err != nil {
 				fmt.Println("Cannot read a row")
 				return nil
 			}
+			user.Value = secondname + " " + firstname
 			project.Type = "file"
 			fmt.Println(user)
 			projects[i].Data = append(projects[i].Data, user)
 		}
+		i++
 	}
 
 	bytes, err := json.Marshal(projects)

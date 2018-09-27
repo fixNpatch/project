@@ -1,5 +1,7 @@
 package providers
 
+import "time"
+
 type Task struct {
 	Task_id          string
 	Task_number      string
@@ -33,7 +35,7 @@ type Project struct {
 	Project_description string
 	Project_deadline    string
 	Project_status      string
-	Project_timestamp   string
+	Project_timestamp   time.Time
 	Userstack           []User
 	Taskstack           []Task
 }
