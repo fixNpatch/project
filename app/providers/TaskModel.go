@@ -155,11 +155,12 @@ func (c *TaskModel) OpenModalEdit() []byte {
 		Data       []Subfolder `json:"data"`
 	}
 
-	//var list []Folder
+	var list []Folder
+	var sublist []Subfolder
 	var projects []Folder
 	var project Folder
 	var user Subfolder
-	//var task File
+	var task File
 
 	/* SELECT ALL PROJECTS */
 
@@ -187,7 +188,7 @@ func (c *TaskModel) OpenModalEdit() []byte {
 		substatement := `SELECT user_id, c_user_secondname, c_user_firstname FROM public.t_Users, public.toc_Projects_Users
 WHERE toc_Projects_Users.fk_project_id = $1 AND t_Users.user_id = toc_Projects_Users.fk_user_id`
 
-		rows, err := c.DB.Query(substatement, i)
+		rows, err := c.DB.Query(substatement, projects[i].Project_id)
 		if err != nil {
 			revel.INFO.Print("DB Error", err)
 		}
@@ -202,46 +203,46 @@ WHERE toc_Projects_Users.fk_project_id = $1 AND t_Users.user_id = toc_Projects_U
 			fmt.Println(user)
 			projects[i].Data = append(projects[i].Data, user)
 		}
-
+		rows.Close()
 	}
 
-	/* SELECT USERS' TASKS */
-
-	//for i := 0; i < len(projects); i++ {
-	//	for j := 0; j < len(projects[i].Data); j++ {
-	//		subsubstatement := `SELECT task_id, c_task_title FROM public.t_Tasks WHERE t_Tasks.fk_project_id = $1 AND t_Tasks.fk_user_id = $2`
-	//		rows, err := c.DB.Query(subsubstatement, projects[i].Project_id, projects[i].Data[j].User_id)
-	//		if err != nil {
-	//			revel.INFO.Print("DB Error", err)
-	//		}
-	//		for rows.Next() {
-	//			err = rows.Scan(&task.Task_id, &task.Value)
-	//			if err != nil {
-	//				fmt.Println("Cannot read a row")
-	//				return nil
-	//			}
-	//			task.Type = "file"
-	//			projects[i].Data[j].Data = append(projects[i].Data[j].Data, task)
-	//		}
-	//	}
-	//}
+	/* SELECT USERS' TASKS*/
 
 	for i := 0; i < len(projects); i++ {
-		//if len(projects[i].Data) > 0 {
-		//	flag := true
-		//	for j := 0; j < len(projects[i].Data); j++ {
-		//		if len(projects[i].Data[j].Data) < 1 {
-		//			flag = false
-		//		}
-		//	}
-		//	if flag {
-		//		list = append(list, projects[i])
-		//	}
-		//}
-		fmt.Println(projects[i])
+		for j := 0; j < len(projects[i].Data); j++ {
+			subsubstatement := `SELECT task_id, c_task_title FROM public.t_Tasks WHERE t_Tasks.fk_project_id = $1 AND t_Tasks.fk_user_id = $2`
+			rows, err := c.DB.Query(subsubstatement, projects[i].Project_id, projects[i].Data[j].User_id)
+			if err != nil {
+				revel.INFO.Print("DB Error", err)
+			}
+			for rows.Next() {
+				err = rows.Scan(&task.Task_id, &task.Value)
+				if err != nil {
+					fmt.Println("Cannot read a row")
+					return nil
+				}
+				task.Type = "folder"
+				projects[i].Data[j].Data = append(projects[i].Data[j].Data, task)
+			}
+			rows.Close()
+		}
+
+	}
+	/* CHECK VALID */
+	for i := 0; i < len(projects); i++ { // бежим по проектам
+		sublist = nil                                //обнуляем подлист
+		for j := 0; j < len(projects[i].Data); j++ { // берем проект, бежим по его юзерам
+			if len(projects[i].Data[j].Data) > 0 { // берем юзера, если у него есть задачи
+				sublist = append(sublist, projects[i].Data[j]) //добавляем этого юзера в подлист
+			}
+		}
+		projects[i].Data = sublist     // перезаписываем массив юзеров у проекта на валидные нам
+		if len(projects[i].Data) > 0 { //если после этого массив юзеров больше нуля
+			list = append(list, projects[i]) //то записываем этот проект в окончательный Response
+		}
 	}
 
-	bytes, err := json.Marshal(projects)
+	bytes, err := json.Marshal(list)
 	if err != nil {
 		fmt.Println("cannot marshal", err.Error())
 		return nil
