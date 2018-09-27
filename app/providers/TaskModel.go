@@ -2,6 +2,7 @@ package providers
 
 import (
 	"database/sql"
+	"fmt"
 	"github.com/revel/revel"
 	"io/ioutil"
 )
@@ -35,7 +36,9 @@ func NewTaskModel() *TaskModel {
 func (c *TaskModel) GetTasks() []Task {
 	var tasklist []Task
 	var task Task
-	sqlstatement := `SELECT * FROM public.t_Tasks`
+	sqlstatement := `SELECT task_id, c_task_number, c_task_title, c_task_title, c_task_description, c_task_hours, c_task_status, c_task_timestamp, c_user_secondname  
+FROM public.t_Tasks, public.t_Users
+WHERE t_Tasks.fk_user_id = t_Users.user_id;`
 	rows, err := c.DB.Query(sqlstatement)
 	if err != nil {
 		revel.INFO.Print("DB Error", err)
@@ -46,6 +49,7 @@ func (c *TaskModel) GetTasks() []Task {
 			&task.Task_description, &task.Task_hours, &task.Task_status, &task.Task_deadline, &task.Task_timestamp)
 		if err != nil {
 		}
+		fmt.Println(task)
 		tasklist = append(tasklist, task)
 	}
 	return tasklist
