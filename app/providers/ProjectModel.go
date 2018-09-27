@@ -117,14 +117,17 @@ func (c *ProjectModel) AddProject(body []byte) string {
 		}
 		cnt++
 	}
+
+	fmt.Print("==================== USERSTACK LEN ============================")
+	fmt.Println(&project.Userstack)
+
 	sqltocinsert := `INSERT INTO toc_projects_users_projects(fk_project_id, fk_user_id) VALUES ($1, $2);`
 	for i := 0; i < len(project.Userstack); i++ {
-
 		_, err := c.DB.Query(sqltocinsert, &project.Project_id, &project.Userstack[i].User_id)
 		if err != nil {
 			fmt.Println(err.Error())
-			return ""
 		}
+		fmt.Println("############## ADD NEW LINE IN TOC ################")
 	}
 
 	fmt.Println("Successful add task")
@@ -142,6 +145,21 @@ func (c *ProjectModel) DelProject(body []byte) string {
 	}
 
 	/* ALSO REQUIRE TO DELETE ALL ROWS IN TOC_PROJECT_USERS*/
+
+	fmt.Print("==================== USERSTACK LEN ============================")
+	fmt.Println(len(project.Userstack))
+
+	sqlcostatement := `DELETE FROM toc_projects_users WHERE toc_projects_users.project_id = $1`
+	for i := 0; i < len(project.Userstack); i++ {
+		_, err := c.DB.Query(sqlcostatement, &project.Project_id)
+		if err != nil {
+			fmt.Println(err.Error())
+			return ""
+		}
+		fmt.Println("REMOVE ONE LINE IN TOC")
+	}
+
+	/* ALSO REQUIRE TO DELETE ALL TASK INCLUDED IN PROJECT*/
 
 	fmt.Println("Successful del task")
 	return string(body)
