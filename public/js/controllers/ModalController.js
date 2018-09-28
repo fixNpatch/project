@@ -90,8 +90,6 @@ function ModalController(app) {
 
     this.DelTask = function(Task_id){
         let data = {Task_id:Task_id};
-        console.log('post => delete_user');
-        console.log(data);
         $.ajax({
             type: "POST",
             url: "/delete_task",
@@ -107,10 +105,7 @@ function ModalController(app) {
 
     this.EditTask = function(Task_id, object){
         let url = /edit_task/ + Task_id;
-        console.log(url);
-        console.log('post => delete_user');
         let data = JSON.stringify(object);
-        console.log(data);
         $.ajax({
             type: "POST",
             url: url,
@@ -152,6 +147,23 @@ function ModalController(app) {
             type: "POST",
             url: "/delete_project",
             data:JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "JSON",
+            success: function(data){console.log(data);},
+            fail: function(errMsg) {
+                alert(errMsg);
+            }
+        });
+    };
+
+    this.EditProject = function(Project_id, object){
+        let url = /edit_project/ + Project_id;
+        let data = JSON.stringify(object);
+        console.log(data);
+        $.ajax({
+            type: "POST",
+            url: url,
+            data:data,
             contentType: "application/json; charset=utf-8",
             dataType: "JSON",
             success: function(data){console.log(data);},

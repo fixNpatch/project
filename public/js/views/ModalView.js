@@ -340,6 +340,8 @@ function ModalView(app) {
                 {
                     Project_title:item.Project_title,
                     Project_description:item.Project_description,
+                    Project_status:item.Project_status,
+                    Project_id:item.Project_id,
                 }, true);
 
             app.LoadUsersOnProject(item.Project_id);
@@ -357,6 +359,14 @@ function ModalView(app) {
             this.remove(id);
         });
         app.LoadData4EditProject();
+
+        $$("submit_button").attachEvent("onItemClick", function(){
+            let save = $$("edit_project").getValues();
+            delete save.button;
+            let Project_id = save.Project_id.toString();
+            app.EditProject(Project_id, save);
+            close_modal();
+        });
 
     }
 

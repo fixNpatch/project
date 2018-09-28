@@ -165,6 +165,18 @@ func (c *ProjectModel) DelProject(body []byte) string {
 	return string(body)
 }
 
-func (c *ProjectModel) EditProject(body []byte) string {
+func (c *ProjectModel) EditProject(body []byte, id int) string {
+	var project Project
+	err := json.Unmarshal(body, &project)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	sqlstatement := `UPDATE t_projects SET (c_project_title, c_project_description, c_project_status) = ($1, $2, $3) WHERE t_projects.project_id = $4;`
+	_, err = c.DB.Query(sqlstatement, &project.Project_title, &project.Project_description, &project.Project_status, id)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	fmt.Println(&project.Userstack)
+
 	return string(body)
 }
