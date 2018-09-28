@@ -102,7 +102,12 @@ function ProjectView(app) {
                         { id:"Project_number",         header:"№",                    fillspace:0.4},
                         { id:"Project_title",          header:"Название проекта",      fillspace:2},
                         { id:"Project_description",    header:"Описание",              fillspace:3},
-                        { id:"Project_status",         header:"Статус проекта",        fillspace:1},
+                        { id:"Project_status",         header:"Статус проекта",        fillspace:1 ,view:"combo",  readonly:true, icon:null,   options:[
+                                { "id":1, "value":"Создан"},
+                                { "id":2, "value":"В разработке"},
+                                { "id":3, "value":"На проверке"},
+                                { "id":4, "value":"Сдан"}
+                            ]},
                         { id:"Project_timestamp",      header:"Создан",                fillspace:true},
                         { id:"Userstack",              header:"Исполнители",           fillspace:2},
                     ],

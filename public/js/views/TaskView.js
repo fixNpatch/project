@@ -98,12 +98,17 @@ function TaskView(app) {
                     view: "datatable",
                     scrollX: false,
                     columns:[
-                        { id:"Task_number",         header:"№", fillspace:0.4},
-                        { id:"Project_title",       header:"Название проекта", fillspace:2},
-                        { id:"Task_title",          header:"Название задачи", fillspace:3},
-                        { id:"Task_doer",           header:"Исполнитель", fillspace:2},
-                        { id:"Task_status",         header:"Статус"},
-                        { id:"Task_hours",          header:"Р/Часы"},
+                        { id:"Task_number",         header:"№",                 fillspace:0.4},
+                        { id:"Project_title",       header:"Название проекта",   fillspace:2},
+                        { id:"Task_title",          header:"Название задачи",    fillspace:3},
+                        { id:"Task_doer",           header:"Исполнитель",        fillspace:2},
+                        { id:"Task_status",         header:"Статус" ,            view:"combo",  readonly:true, icon:null,   options:[
+                            { "id":1, "value":"Поставлена"},
+                            { "id":2, "value":"В разработке"},
+                            { "id":3, "value":"На проверке"},
+                            { "id":4, "value":"Выполнена"}
+                        ]},
+                        { id:"Task_hours",          header:"Р/Часы" },
                         { id:"Task_timestamp",      header:"Поставлена"}
                     ],
                     hover:"hoverrow"

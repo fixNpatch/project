@@ -45,6 +45,7 @@ WHERE t_Tasks.fk_user_id = t_Users.user_id AND t_Tasks.fk_project_id = t_Project
 			&task.Task_description, &task.Task_hours, &task.Task_status, &task.Task_timestamp, &doer.User_secondname, &project.Project_title)
 		if err != nil {
 		}
+		task.Task_timestamp.Format("02012006")
 		task.Project_title = project.Project_title
 		task.Task_doer = doer
 		tasklist = append(tasklist, task)

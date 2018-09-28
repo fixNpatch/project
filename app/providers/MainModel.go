@@ -9,7 +9,7 @@ type Task struct {
 	Task_description string
 	Task_hours       int
 	Task_deadline    string
-	Task_timestamp   string
+	Task_timestamp   time.Time
 	Task_status      string
 	Task_doer        User
 	Project_title    string
