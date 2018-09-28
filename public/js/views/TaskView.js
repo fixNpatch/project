@@ -120,14 +120,19 @@ function TaskView(app) {
                         height:"auto",
                         rows:[
                             {cols:[
-                                    { view:"text", label:"TASK TITLE", labelWidth:150},
-                                    { view:"text", value:"TASK TIMESTAMP", labelWidth:150},
-                                    { view:"text", value:"TASK STATUS", labelWidth:150},
+                                    { view:"text", id:"Task_title", label:"TASK TITLE", labelWidth:150, gravity:4, readonly: true},
+                                    { view:"text", id:"Task_timestamp", value:"TASK TIMESTAMP", labelWidth:150, readonly: true},
+                                    { view:"text", id:"Task_hours", value:"TASK HOURS", labelWidth:150, readonly: true},
+                                    { view:"combo", id:"Task_status", value:"TASK STATUS", labelWidth:150, readonly: true, icon:null, options:[
+                                            { "id":1, "value":"Поставлена"},
+                                            { "id":2, "value":"В разработке"},
+                                            { "id":3, "value":"На проверке"},
+                                            { "id":4, "value":"Выполнена"}
+                                        ]},
                                 ]
                             },
-                            { view:"text", label:"TASK DESCRIPTION", labelWidth:150},
-                            { view:"text", label:"TASK DOER", labelWidth:150},
-                            { view:"text", label:"TASK HOURS", labelWidth:150},
+                            { view:"text", id:"Task_description", label:"TASK DESCRIPTION", labelWidth:150, height:150, readonly: true},
+                            { view:"text", id:"Task_doer", label:"TASK DOER", labelWidth:150, readonly: true},
                             { view:"button", label:"НАЗАД", click:function () {
                                     $$("open_task").hide();
                                     $$("task_block_nest").show();
@@ -144,6 +149,12 @@ function TaskView(app) {
 
         $$("task_block_nest").attachEvent("onItemClick", function (id) {
             let item = this.getItem(id);
+            $$("Task_title").setValue(item.Task_title);
+            $$("Task_timestamp").setValue(item.Task_timestamp);
+            $$("Task_status").setValue(item.Task_status);
+            $$("Task_description").setValue(item.Task_description);
+            $$("Task_doer").setValue(item.Task_doer);
+            $$("Task_hours").setValue(item.Task_hours + " рабочих часов");
             $$("open_task").show();
             this.hide();
         });
