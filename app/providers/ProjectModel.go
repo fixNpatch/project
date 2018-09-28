@@ -42,14 +42,14 @@ func (c *ProjectModel) GetUsersOnProject(id int) string {
 	var users []User
 	var user User
 
-	sqlstatement := `SELECT t_users.c_user_secondname, t_users.c_user_rank FROM t_users, toc_projects_users WHERE toc_projects_users.fk_project_id = $1 AND t_users.user_id = toc_projects_users.fk_user_id`
+	sqlstatement := `SELECT t_users.c_user_secondname, t_users.c_user_rank, t_users.user_id FROM t_users, toc_projects_users WHERE toc_projects_users.fk_project_id = $1 AND t_users.user_id = toc_projects_users.fk_user_id`
 	rows, err := c.DB.Query(sqlstatement, id)
 	if err != nil { /*IF NOT WORKING REMOVE CNT STATEMENT */
 		fmt.Println(err.Error())
 		return "Cannot get userlist"
 	}
 	for rows.Next() {
-		err = rows.Scan(&user.User_secondname, &user.User_rank)
+		err = rows.Scan(&user.User_secondname, &user.User_rank, &user.User_id)
 		if err != nil {
 		}
 		users = append(users, user)
@@ -65,15 +65,15 @@ func (c *ProjectModel) GetUsersOnProject(id int) string {
 func (c *ProjectModel) GetUsersOutProject(id int) string {
 	var users []User
 	var user User
-	sqlstatement := `SELECT t_users.c_user_secondname, t_users.c_user_rank FROM t_users EXCEPT
-SELECT t_users.c_user_secondname, t_users.c_user_rank FROM t_users, toc_projects_users WHERE toc_projects_users.fk_project_id = $1 AND t_users.user_id = toc_projects_users.fk_user_id`
+	sqlstatement := `SELECT t_users.c_user_secondname, t_users.c_user_rank, t_users.user_id FROM t_users EXCEPT
+SELECT t_users.c_user_secondname, t_users.c_user_rank, t_users.user_id FROM t_users, toc_projects_users WHERE toc_projects_users.fk_project_id = $1 AND t_users.user_id = toc_projects_users.fk_user_id`
 	rows, err := c.DB.Query(sqlstatement, id)
 	if err != nil {
 		fmt.Println(err.Error())
 		return "Cannot get userlist"
 	}
 	for rows.Next() {
-		err = rows.Scan(&user.User_secondname, &user.User_rank)
+		err = rows.Scan(&user.User_secondname, &user.User_rank, &user.User_id)
 		if err != nil {
 		}
 		users = append(users, user)
@@ -178,28 +178,25 @@ func (c *ProjectModel) EditProject(body []byte, id int) string {
 	}
 
 	/* REMOVE ALL USERS' CONNECTIONS TO PROJECT */
-	//sqlcostatement := `DELETE FROM toc_projects_users WHERE toc_projects_users.fk_project_id = $1`
-	//_, err = c.DB.Query(sqlcostatement, id)
-	//if err != nil {
-	//	fmt.Println(err.Error())
-	//	return ""
-	//}
+
+	sqlcostatement := `DELETE FROM toc_projects_users WHERE toc_projects_users.fk_project_id = $1`
+	_, err = c.DB.Query(sqlcostatement, id)
+	if err != nil {
+		fmt.Println(err.Error())
+		return ""
+	}
 
 	/* RESTORE ALL USERS' CONNECTIONS TO PROJECT  */
 
 	sqltocinsert := `INSERT INTO toc_projects_users(fk_project_id, fk_user_id) VALUES ($1, $2);`
 	for i := 0; i < len(project.Userstack); i++ {
 		uid := project.Userstack[i].User_id
-		fmt.Print(project.Userstack)
-		fmt.Print(" ==================== >")
 		fmt.Println(project.Userstack[i].User_id)
-		_, err := c.DB.Query(sqltocinsert, string(id), uid)
+		_, err := c.DB.Query(sqltocinsert, id, uid)
 		if err != nil {
 			fmt.Println(err.Error())
 		}
 	}
-
-	fmt.Println(project.Userstack)
 
 	return string(body)
 }

@@ -369,6 +369,7 @@ function ModalView(app) {
                 console.log(this.getItem(row));
             });
             delete save.button;
+            console.log(save);
             app.EditProject(Project_id, save);
             close_modal();
         });
