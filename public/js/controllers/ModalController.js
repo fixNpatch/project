@@ -12,14 +12,14 @@ function ModalController(app) {
 
     this.LoadData4AddProject = function(){
         $$("all_doers").load(function(){
-            return webix.ajax("/load_modal_projectlist_add").then(function(data){
+            return webix.ajax("/get_userlist").then(function(data){
                 return data.json();
             });
         });
     };
     this.LoadData4EditProject = function(){
         $$("choose_project").load(function(){
-            return webix.ajax("/load_modal_projectlist_edit").then(function(data){
+            return webix.ajax("/get_projects").then(function(data){
                 console.log(data.json());
                 return data.json();
             });
@@ -27,7 +27,7 @@ function ModalController(app) {
     };
     this.LoadData4DelProject = function(){
         $$("choose_project").load(function(){
-            return webix.ajax("/load_modal_projectlist_delete").then(function(data){
+            return webix.ajax("/get_projects").then(function(data){
                 console.log(data.json());
                 return data.json();
             });
@@ -35,14 +35,14 @@ function ModalController(app) {
     };
     this.LoadData4EditUser = function(){
         $$("choose_user").load(function(){
-            return webix.ajax("/load_modal_userlist_edit").then(function(data){
+            return webix.ajax("/get_userlist").then(function(data){
                 return data.json();
             });
         });
     };
     this.LoadData4DelUser = function(){
         $$("choose_user").load(function(){
-            return webix.ajax("/load_modal_userlist_delete").then(function(data){
+            return webix.ajax("/get_userlist").then(function(data){
                 return data.json();
             });
         });

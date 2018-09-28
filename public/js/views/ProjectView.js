@@ -109,7 +109,7 @@ function ProjectView(app) {
                                 { "id":4, "value":"Сдан"}
                             ]},
                         { id:"Project_timestamp",      header:"Создан",                fillspace:true},
-                        { id:"Userstack",              header:"Исполнители",           fillspace:2},
+                        { id:"Userstack",              header:"Исполнители",           fillspace:2, hidden:true},
                     ],
                     hover:"hoverrow"
                 },

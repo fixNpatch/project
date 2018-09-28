@@ -5,7 +5,7 @@ function ManagementModel() {
 
     this.loadUserBlock = function () {
         $$("management_block_nest").load(function(){
-            return webix.ajax("/use_db").then(function(data){
+            return webix.ajax("/get_userlist").then(function(data){
                 return data.json();
             });
         });

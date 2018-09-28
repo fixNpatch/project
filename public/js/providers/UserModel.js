@@ -7,6 +7,7 @@ function UserModel() {
 
     this.getProfilePicture = function () {
 
+        /*THIS FUNCTION IS USELESS BUT I HAVE NO TIME TO REMOVE IT */
         webix.ajax("/give_me_pic", function (data) {
             /* KOSTYL WTF */
             /* JSON IN JSON IN JSON ????????*/
@@ -18,7 +19,7 @@ function UserModel() {
 
     this.getEmployeeBlock = function () {
         $$("ela_nest").load(function(){
-            return webix.ajax("/use_db").then(function(data){
+            return webix.ajax("/get_userlist").then(function(data){
                 //console.log(data.json());
                 return data.json();
             });
