@@ -52,14 +52,6 @@ WHERE t_Tasks.fk_user_id = t_Users.user_id AND t_Tasks.fk_project_id = t_Project
 	return tasklist
 }
 
-/*DUMMY*/
-//func (c *TaskModel) OpenModalAdd() string {
-//	path := revel.AppPath
-//	file, _ := ioutil.ReadFile(path + "/dummy/task_modal_add.json")
-//	url := string(file)
-//	return url
-//}
-
 func (c *TaskModel) OpenModalAdd() []byte {
 	type File struct {
 		User_id string
@@ -98,12 +90,10 @@ func (c *TaskModel) OpenModalAdd() []byte {
 
 	for i := 0; i < len(projects); i++ {
 		var secondname, firstname string
-
-		/* HOW TO CHANGE fk_project_id = i not 1*/
 		substatement := `SELECT user_id, c_user_secondname, c_user_firstname FROM public.t_Users, public.toc_Projects_Users
 WHERE toc_Projects_Users.fk_project_id = $1 AND t_Users.user_id = toc_Projects_Users.fk_user_id`
 
-		rows, err := c.DB.Query(substatement, i)
+		rows, err := c.DB.Query(substatement, projects[i].Project_id)
 		if err != nil {
 			revel.INFO.Print("DB Error", err)
 		}
@@ -121,6 +111,8 @@ WHERE toc_Projects_Users.fk_project_id = $1 AND t_Users.user_id = toc_Projects_U
 		rows.Close()
 
 	}
+
+	/* CHECK FOR PROJECTS WITHOUT USERS */
 	for i := 0; i < len(projects); i++ {
 		if len(projects[i].Data) > 0 {
 			list = append(list, projects[i])
@@ -137,9 +129,11 @@ WHERE toc_Projects_Users.fk_project_id = $1 AND t_Users.user_id = toc_Projects_U
 
 func (c *TaskModel) OpenModalEdit() []byte {
 	type File struct {
-		Task_id string
-		Value   string `json:"value"`
-		Type    string `json:"type"`
+		Task_id          string
+		Value            string `json:"value"`
+		Type             string `json:"type"`
+		Task_description string
+		Task_hours       int
 	}
 	type Subfolder struct {
 		User_id string
@@ -207,13 +201,13 @@ WHERE toc_Projects_Users.fk_project_id = $1 AND t_Users.user_id = toc_Projects_U
 
 	for i := 0; i < len(projects); i++ {
 		for j := 0; j < len(projects[i].Data); j++ {
-			subsubstatement := `SELECT task_id, c_task_title FROM public.t_Tasks WHERE t_Tasks.fk_project_id = $1 AND t_Tasks.fk_user_id = $2`
+			subsubstatement := `SELECT task_id, c_task_title, c_task_description, c_task_hours FROM public.t_Tasks WHERE t_Tasks.fk_project_id = $1 AND t_Tasks.fk_user_id = $2`
 			rows, err := c.DB.Query(subsubstatement, projects[i].Project_id, projects[i].Data[j].User_id)
 			if err != nil {
 				revel.INFO.Print("DB Error", err)
 			}
 			for rows.Next() {
-				err = rows.Scan(&task.Task_id, &task.Value)
+				err = rows.Scan(&task.Task_id, &task.Value, &task.Task_description, &task.Task_hours)
 				if err != nil {
 					fmt.Println("Cannot read a row")
 					return nil
@@ -275,11 +269,11 @@ func (c *TaskModel) DelTask(body []byte) string {
 	return string(body)
 }
 
-func (c *TaskModel) EditTask(body []byte) string {
+func (c *TaskModel) EditTask(body []byte, id int) string {
 	var task Task
 	json.Unmarshal(body, &task)
 	sqlstatement := `UPDATE t_tasks SET (c_task_title, c_task_description, c_task_hours, c_task_status) = ($1, $2, $3, $4) WHERE t_Tasks.task_id = $5;`
-	_, err := c.DB.Query(sqlstatement, &task.Task_title, &task.Task_description, &task.Task_hours, 1, &task.Task_id)
+	_, err := c.DB.Query(sqlstatement, &task.Task_title, &task.Task_description, &task.Task_hours, 1, id)
 	if err != nil {
 		fmt.Println(err.Error())
 		return ""

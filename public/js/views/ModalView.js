@@ -99,7 +99,7 @@ function ModalView(app) {
                 {view:"grouplist", id:"task_choose", scroll:"y", select:true},
                 {view:"text", id:"Task_title", label:"Название задачи", name:"Task_title"},
                 {view:"text", id:"Task_description", label:"Описание задачи", name:"Task_description"},
-                {view:"counter", id:"Task_hours", label:"Рабочие часы", step:1, value:5, name:"hours"},
+                {view:"counter", id:"Task_hours", label:"Рабочие часы", step:1, value:5, name:"Task_hours"},
                 {view:"button", id:"submit_button", label:"Подтвердить", name:"button"},
                 {view:"button", id:"cancel_button", label:"Отмена", name:"button", click:close_modal}
             ],
@@ -115,8 +115,9 @@ function ModalView(app) {
             $$("edit_task").setValues(
                 {
                     Task_id:item.Task_id,
-                    Task_title:item.Task_title,
+                    Task_title:item.value,
                     Task_description:item.Task_description,
+                    Task_hours:item.Task_hours,
                 }, true);
         });
         $$("task_choose").attachEvent("onItemClick", function(id){
@@ -140,7 +141,8 @@ function ModalView(app) {
             let save = $$("edit_task").getValues();
             delete save.button;
             let Task_id = save.Task_id;
-            app.EditTask(Task_id, save);
+            console.log(save);
+            //app.EditTask(Task_id, save);
             close_modal();
         });
     }
@@ -435,7 +437,7 @@ function ModalView(app) {
         $$("submit_button").attachEvent("onItemClick", function(){
             let save = $$("add_user_form").getValues();
             delete save.button;
-            save.User_rank = save.User_rank.toString()
+            save.User_rank = save.User_rank.toString();
             //save.User_rank = $$("User_rank").getInputNode(save.User_rank).value;
             save.User_timestamp = parseDate(new Date());
             app.AddUser(save);

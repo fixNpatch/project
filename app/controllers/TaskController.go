@@ -14,9 +14,6 @@ type TaskController struct {
 	model *providers.TaskModel
 }
 
-/* This function is included in interceptor BEFORE */
-/* BEFORE each call to other functions Interceptor makes this function be called before */
-/* Init - create "c" as model declared in structure ^^^   */
 func (c *TaskController) Init() *TaskController {
 	c.model = providers.NewTaskModel()
 	c.model.DB = dbmanager.InitConnection()
@@ -66,7 +63,7 @@ func (c *TaskController) DelTask() revel.Result {
 
 func (c *TaskController) EditTask(id int) revel.Result {
 	request := c.Params.JSON
-	data := string(request)
+	data := c.model.EditTask(request, id)
 	log.Print(data)
 	return c.RenderJSON(data)
 }
