@@ -138,14 +138,14 @@ func (c *ProjectModel) DelProject(body []byte) string {
 	var project Project
 	json.Unmarshal(body, &project)
 
-	/* REMOVE ALL TASKS CONNECTED TO PROJECT */
+	/* REMOVE ALL USERS' CONNECTIONS TO PROJECT */
 	sqlcostatement := `DELETE FROM toc_projects_users WHERE toc_projects_users.fk_project_id = $1`
 	_, err := c.DB.Query(sqlcostatement, &project.Project_id)
 	if err != nil {
 		fmt.Println(err.Error())
 		return ""
 	}
-	/* REMOVE ALL USERS' CONNECTIONS TO PROJECT */
+	/* REMOVE ALL TASKS CONNECTED TO PROJECT */
 	sqlcostatement2 := `DELETE FROM t_Tasks WHERE t_tasks.fk_project_id = $1`
 	_, err = c.DB.Query(sqlcostatement2, &project.Project_id)
 	if err != nil {
@@ -176,7 +176,30 @@ func (c *ProjectModel) EditProject(body []byte, id int) string {
 	if err != nil {
 		fmt.Println(err.Error())
 	}
-	fmt.Println(&project.Userstack)
+
+	/* REMOVE ALL USERS' CONNECTIONS TO PROJECT */
+	//sqlcostatement := `DELETE FROM toc_projects_users WHERE toc_projects_users.fk_project_id = $1`
+	//_, err = c.DB.Query(sqlcostatement, id)
+	//if err != nil {
+	//	fmt.Println(err.Error())
+	//	return ""
+	//}
+
+	/* RESTORE ALL USERS' CONNECTIONS TO PROJECT  */
+
+	sqltocinsert := `INSERT INTO toc_projects_users(fk_project_id, fk_user_id) VALUES ($1, $2);`
+	for i := 0; i < len(project.Userstack); i++ {
+		uid := project.Userstack[i].User_id
+		fmt.Print(project.Userstack)
+		fmt.Print(" ==================== >")
+		fmt.Println(project.Userstack[i].User_id)
+		_, err := c.DB.Query(sqltocinsert, string(id), uid)
+		if err != nil {
+			fmt.Println(err.Error())
+		}
+	}
+
+	fmt.Println(project.Userstack)
 
 	return string(body)
 }

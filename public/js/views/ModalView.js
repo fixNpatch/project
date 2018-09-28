@@ -362,8 +362,13 @@ function ModalView(app) {
 
         $$("submit_button").attachEvent("onItemClick", function(){
             let save = $$("edit_project").getValues();
-            delete save.button;
             let Project_id = save.Project_id.toString();
+            save.Userstack = [];
+            $$("project_doers").eachRow(function (row) {
+                save.Userstack.push(this.getItem(row));
+                console.log(this.getItem(row));
+            });
+            delete save.button;
             app.EditProject(Project_id, save);
             close_modal();
         });
