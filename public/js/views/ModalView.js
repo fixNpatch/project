@@ -630,6 +630,7 @@ function ModalView(app) {
         $$("submit_button").attachEvent("onItemClick", function(){
             let save = $$("edit_user_form").getValues();
             delete save.button;
+            save.User_rank = save.User_rank.toString();
             let User_id = save.User_id;
             app.EditUser(User_id, save);
             close_modal();

@@ -34,36 +34,6 @@ func (c *UserModel) GetSubordinates() string {
 	url := string(file)
 	return url
 }
-
-//func (c *UserModel) AddUser(data []byte) revel.Result {
-//	path := revel.AppPath
-//	f, err := os.OpenFile(path+"/dummy/test.json", os.O_APPEND|os.O_WRONLY, 0600)
-//	if err != nil {
-//		fmt.Print(err.Error())
-//	}
-//	defer f.Close()
-//	if _, err = f.WriteString(string(data)); err != nil {
-//		fmt.Print(err.Error())
-//	}
-//	return nil
-//}
-
-func (c *UserModel) AddUser(body []byte) string {
-	var user User
-	rand.Seed(time.Now().UnixNano())
-	random := rand.Int()
-	json.Unmarshal(body, &user)
-	sqlstatement := `INSERT INTO t_Users (c_user_login, c_user_password, c_user_firstname, c_user_secondname, c_user_middlename,c_user_rank, c_user_registration,  c_user_pic) 
-VALUES ($1, $2, $3, $4, $5, $6, $7, $8);`
-	_, err := c.DB.Query(sqlstatement, "login"+string(random), "password", &user.User_firstname, &user.User_secondname, &user.User_middlename, &user.User_rank, time.Now(), "/public/img/avatar.jpg")
-	if err != nil {
-		fmt.Println(err.Error())
-		return ""
-	}
-	fmt.Println("Successful add user")
-	return string(body)
-}
-
 func (c *UserModel) GetUsers() []User {
 	var userlist []User
 	/*зачем МНЕ использовать sql.NullString? */
@@ -101,4 +71,44 @@ func (c *UserModel) GetUsers() []User {
 		})
 	}
 	return userlist
+}
+
+func (c *UserModel) AddUser(body []byte) string {
+	var user User
+	rand.Seed(time.Now().UnixNano())
+	random := rand.Int()
+	json.Unmarshal(body, &user)
+	sqlstatement := `INSERT INTO t_Users (c_user_login, c_user_password, c_user_firstname, c_user_secondname, c_user_middlename,c_user_rank, c_user_registration,  c_user_pic) 
+VALUES ($1, $2, $3, $4, $5, $6, $7, $8);`
+	_, err := c.DB.Query(sqlstatement, "login"+string(random), "password", &user.User_firstname, &user.User_secondname, &user.User_middlename, &user.User_rank, time.Now(), "/public/img/avatar.jpg")
+	if err != nil {
+		fmt.Println(err.Error())
+		return ""
+	}
+	fmt.Println("Successful add user")
+	return string(body)
+}
+func (c *UserModel) DelUser(body []byte) string {
+	var user User
+	json.Unmarshal(body, &user)
+	sqlstatement := `DELETE FROM t_Users WHERE t_users.user_id = $1`
+	_, err := c.DB.Query(sqlstatement, &user.User_id)
+	if err != nil {
+		fmt.Println(err.Error())
+		return ""
+	}
+	fmt.Println("Successful del user")
+	return string(body)
+}
+func (c *UserModel) EditUser(body []byte, id int) string {
+	var user User
+	json.Unmarshal(body, &user)
+	sqlstatement := `UPDATE t_Users SET (c_user_firstname, c_user_secondname, c_user_middlename, c_user_rank) = ($1, $2, $3, $4) WHERE t_Users.user_id = $5;`
+	_, err := c.DB.Query(sqlstatement, &user.User_firstname, &user.User_secondname, &user.User_middlename, &user.User_rank, id)
+	if err != nil {
+		fmt.Println(err.Error())
+		return ""
+	}
+	fmt.Println("Successful edit user")
+	return string(body)
 }

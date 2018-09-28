@@ -274,3 +274,16 @@ func (c *TaskModel) DelTask(body []byte) string {
 	fmt.Println("Successful del task")
 	return string(body)
 }
+
+func (c *TaskModel) EditTask(body []byte) string {
+	var task Task
+	json.Unmarshal(body, &task)
+	sqlstatement := `UPDATE t_tasks SET (c_task_title, c_task_description, c_task_hours, c_task_status) = ($1, $2, $3, $4) WHERE t_Tasks.task_id = $5;`
+	_, err := c.DB.Query(sqlstatement, &task.Task_title, &task.Task_description, &task.Task_hours, 1, &task.Task_id)
+	if err != nil {
+		fmt.Println(err.Error())
+		return ""
+	}
+	fmt.Println("Successful add task")
+	return string(body)
+}

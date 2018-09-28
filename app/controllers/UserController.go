@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/revel/revel"
-	"log"
 	"testapp/app/dbmanager"
 	"testapp/app/providers"
 )
@@ -55,16 +54,13 @@ func (c *UserController) AddUser() revel.Result {
 
 func (c *UserController) DelUser() revel.Result {
 	request := c.Params.JSON
-	//c.model.AddUser(request)
-	data := string(request)
-	log.Print(data)
+	data := c.model.DelUser(request)
 	return c.RenderJSON(data)
 }
 
 func (c *UserController) EditUser(id int) revel.Result {
 	request := c.Params.JSON
-	data := string(request)
-	log.Print(data)
+	data := c.model.EditUser(request, id)
 	return c.RenderJSON(data)
 }
 
