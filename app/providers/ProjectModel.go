@@ -103,17 +103,18 @@ func (c *ProjectModel) GetUsersOutProject(id int) string {
 
 func (c *ProjectModel) AddProject(body []byte) string {
 	var project Project
+	now := time.Now()
 	err := json.Unmarshal(body, &project)
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 	sqlstatement := `INSERT INTO t_projects(c_project_number, c_project_title, c_project_description, c_project_status, c_project_timestamp) 
 	VALUES ($1, $2, $3, $4, $5);`
-	_, err = c.DB.Query(sqlstatement, rand.Intn(1000), &project.Project_title, &project.Project_description, 1, time.Now())
+	_, err = c.DB.Query(sqlstatement, rand.Intn(1000), &project.Project_title, &project.Project_description, 1, now)
 	cnt := 0
 	if err != nil { /*IF NOT WORKING REMOVE CNT STATEMENT */
 		if cnt < 3 {
-			c.DB.Query(sqlstatement, rand.Intn(1000), &project.Project_title, &project.Project_description, 1, time.Now())
+			c.DB.Query(sqlstatement, rand.Intn(1000), &project.Project_title, &project.Project_description, 1, now)
 		} else {
 			fmt.Println(err.Error())
 			return "Cannot add project"
@@ -121,9 +122,21 @@ func (c *ProjectModel) AddProject(body []byte) string {
 		cnt++
 	}
 
+	sqlgetpid := `SELECT project_id FROM t_projects where c_project_timestamp = $1`
+	row, err := c.DB.Query(sqlgetpid, now)
+	if err != nil {
+	}
+	for row.Next() {
+		err = row.Scan(&project.Project_id)
+		if err != nil {
+		}
+	}
+
 	sqltocinsert := `INSERT INTO toc_projects_users(fk_project_id, fk_user_id) VALUES ($1, $2);`
 	for i := 0; i < len(project.Userstack); i++ {
-		_, err := c.DB.Query(sqltocinsert, &project.Project_id, &project.Userstack[i].User_id)
+		pid := project.Project_id
+		uid := project.Userstack[i].User_id
+		_, err := c.DB.Query(sqltocinsert, pid, uid)
 		if err != nil {
 			fmt.Println(err.Error())
 		}
