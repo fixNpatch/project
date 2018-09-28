@@ -90,6 +90,8 @@ SELECT t_users.c_user_secondname, t_users.c_user_rank, t_users.user_id FROM t_us
 
 func (c *ProjectModel) AddProject(body []byte) string {
 	var project Project
+	rand.Seed(time.Now().UnixNano())
+	random := rand.Int()
 	now := time.Now()
 	err := json.Unmarshal(body, &project)
 	if err != nil {
@@ -97,7 +99,7 @@ func (c *ProjectModel) AddProject(body []byte) string {
 	}
 	sqlstatement := `INSERT INTO t_projects(c_project_number, c_project_title, c_project_description, c_project_status, c_project_timestamp) 
 	VALUES ($1, $2, $3, $4, $5);`
-	_, err = c.DB.Query(sqlstatement, rand.Intn(1000), &project.Project_title, &project.Project_description, 1, now)
+	_, err = c.DB.Query(sqlstatement, random, &project.Project_title, &project.Project_description, 1, now)
 	cnt := 0
 	if err != nil { /*IF NOT WORKING REMOVE CNT STATEMENT */
 		if cnt < 3 {
