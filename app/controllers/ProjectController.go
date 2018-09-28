@@ -65,3 +65,10 @@ func (c *ProjectController) DelProject() revel.Result {
 	log.Print(data)
 	return c.RenderJSON(data)
 }
+
+func (c *ProjectController) EditProject(id int) revel.Result {
+	request := c.Params.JSON
+	data := c.model.EditProject(request)
+	log.Print(data)
+	return c.RenderJSON(data)
+}

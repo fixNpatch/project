@@ -144,6 +144,23 @@ function ModalController(app) {
         });
     };
 
+    this.DelProject = function(Project_id){
+        let data = {Project_id:Project_id};
+        console.log('post => delete_user');
+        console.log(data);
+        $.ajax({
+            type: "POST",
+            url: "/delete_project",
+            data:JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "JSON",
+            success: function(data){console.log(data);},
+            fail: function(errMsg) {
+                alert(errMsg);
+            }
+        });
+    };
+
     this.LoadUsersOnProject = function (id) {
         let on = "/usersonproject/" + id.toString();
         $$("project_doers").load(function(){

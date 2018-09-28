@@ -137,41 +137,34 @@ func (c *ProjectModel) AddProject(body []byte) string {
 func (c *ProjectModel) DelProject(body []byte) string {
 	var project Project
 	json.Unmarshal(body, &project)
-	sqlstatement := `DELETE FROM t_projects WHERE t_projects.project_id = $1`
-	_, err := c.DB.Query(sqlstatement, &project.Project_id)
+
+	/* REMOVE ALL TASKS CONNECTED TO PROJECT */
+	sqlcostatement := `DELETE FROM toc_projects_users WHERE toc_projects_users.fk_project_id = $1`
+	_, err := c.DB.Query(sqlcostatement, &project.Project_id)
 	if err != nil {
 		fmt.Println(err.Error())
 		return ""
 	}
-
-	/* ALSO REQUIRE TO DELETE ALL ROWS IN TOC_PROJECT_USERS*/
-
-	fmt.Print("==================== USERSTACK LEN ============================")
-	fmt.Println(len(project.Userstack))
-
-	sqlcostatement := `DELETE FROM toc_projects_users WHERE toc_projects_users.project_id = $1`
-	for i := 0; i < len(project.Userstack); i++ {
-		_, err := c.DB.Query(sqlcostatement, &project.Project_id)
-		if err != nil {
-			fmt.Println(err.Error())
-			return ""
-		}
-		fmt.Println("REMOVE ONE LINE IN TOC")
-	}
-
-	/* ALSO REQUIRE TO DELETE ALL TASK INCLUDED IN PROJECT*/
-
+	/* REMOVE ALL USERS' CONNECTIONS TO PROJECT */
 	sqlcostatement2 := `DELETE FROM t_Tasks WHERE t_tasks.fk_project_id = $1`
-	for i := 0; i < len(project.Userstack); i++ {
-		_, err := c.DB.Query(sqlcostatement2, &project.Project_id)
-		if err != nil {
-			fmt.Println(err.Error())
-			fmt.Println("cannot delete task")
-			return "Cannot delete task"
-		}
-		fmt.Println("REMOVE ONE LINE IN TOC")
+	_, err = c.DB.Query(sqlcostatement2, &project.Project_id)
+	if err != nil {
+		fmt.Println(err.Error())
+		fmt.Println("cannot delete task")
+		return ""
 	}
 
+	/* REMOVE PROJECT */
+	sqlstatement := `DELETE FROM t_projects WHERE t_projects.project_id = $1`
+	_, err = c.DB.Query(sqlstatement, &project.Project_id)
+	if err != nil {
+		fmt.Println(err.Error())
+		return ""
+	}
 	fmt.Println("Successful del task")
+	return string(body)
+}
+
+func (c *ProjectModel) EditProject(body []byte) string {
 	return string(body)
 }

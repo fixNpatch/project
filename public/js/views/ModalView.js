@@ -141,8 +141,7 @@ function ModalView(app) {
             let save = $$("edit_task").getValues();
             delete save.button;
             let Task_id = save.Task_id;
-            console.log(save);
-            //app.EditTask(Task_id, save);
+            app.EditTask(Task_id, save);
             close_modal();
         });
     }
@@ -262,10 +261,16 @@ function ModalView(app) {
                 {
                     Project_title:item.Project_title,
                     Project_description:item.Project_description,
+                    Project_id:item.Project_id,
                 }, true);
             app.LoadUsersOnProject(item.Project_id);
         });
-
+        $$("submit_button").attachEvent("onItemClick", function(){
+            let save = $$("del_project").getValues();
+            let Project_id = save.Project_id;
+            app.DelProject(Project_id);
+            close_modal();
+        });
         app.LoadData4DelProject();
     }
     function edit_project() {
