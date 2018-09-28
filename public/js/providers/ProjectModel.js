@@ -7,5 +7,14 @@ function ProjectModel() {
                 return data.json();
             });
         });
+    };
+
+    this.LoadUsersOnProject = function (id) {
+        let on = "/usersonproject/" + id.toString();
+        $$("project_doers").load(function(){
+            return webix.ajax(on).then(function(data){
+                return data.json();
+            });
+        });
     }
 }

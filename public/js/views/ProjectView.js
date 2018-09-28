@@ -123,14 +123,44 @@ function ProjectView(app) {
                     body:{
                         rows:[
                             {cols:[
-                                    { view:"text", label:"PROJECT TITLE", labelWidth:150},
-                                    { view:"text", value:"PROJECT TIMESTAMP", labelWidth:150},
-                                    { view:"text", value:"PROJECT STATUS", labelWidth:150},
+                                    { view:"text", id:"Project_title", label:"PROJECT TITLE", labelWidth:200},
+                                    { view:"text", id:"Project_timestamp", value:"PROJECT TIMESTAMP"},
+                                    { view:"combo", id:"Project_status",value:"PROJECT STATUS",  readonly:true, icon:null,   options:[
+                                        { "id":1, "value":"Создан"},
+                                        { "id":2, "value":"В разработке"},
+                                        { "id":3, "value":"На проверке"},
+                                        { "id":4, "value":"Сдан"}
+                                    ]},
                                 ]
                             },
-                            { view:"text", label:"PROJECT DESCRIPTION", labelWidth:150},
-                            { view:"text", label:"TASK DOER", labelWidth:150},
-                            { view:"text", label:"TASK HOURS", labelWidth:150},
+                            {
+                                gravity:0.01
+                            },
+                            {cols:[
+                                    {
+                                        view:"text", id:"Project_description",label:"PROJECT DESCRIPTION", labelWidth:200
+                                    },
+                                    {
+                                        gravity:0.01
+                                    },
+                                    {
+                                        css:"rounded_border",
+                                        view:"datatable",
+                                        id:"project_doers",
+                                        label:"На этом проекте",
+                                        name:"doers",
+                                        scrollX: false,
+                                        height:300,
+                                        columns:[
+                                            {id:"User_rank", header:"Должность"},
+                                            {id:"User_secondname", header:"Фамилия (Участвует в проекте)", fillspace:true}
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                gravity:0.1
+                            },
                             { view:"button", label:"НАЗАД", click:function () {
                                     $$("open_project").hide();
                                     $$("project_block_nest").show();
@@ -145,6 +175,14 @@ function ProjectView(app) {
 
         $$("project_block_nest").attachEvent("onItemClick", function (id) {
             let item = this.getItem(id);
+            $$("project_doers").clearAll();
+            $$("Project_title").setValue(item.Project_title);
+            $$("Project_timestamp").setValue(item.Project_timestamp);
+            $$("Project_status").setValue(item.Project_status);
+            $$("Project_description").setValue(item.Project_description);
+
+            app.LoadUsersOnProject(item.Project_id);
+
             $$("open_project").show();
             this.hide();
 

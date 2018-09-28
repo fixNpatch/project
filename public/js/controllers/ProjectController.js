@@ -16,5 +16,12 @@ function ProjectController(app) {
 
     this.loadProjectBlock = function(){
         provider.loadProjectBlock();
-    }
+    };
+
+    this.LoadUsersOnProject = function (id) {
+
+        provider.LoadUsersOnProject(id);
+
+    };
+
 }

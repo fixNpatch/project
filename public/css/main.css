@@ -69,7 +69,9 @@ body{
     background: rgba(60, 135, 255, 0.3);
 }
 
-
+.rounded_border{
+    border-radius: 5px;
+}
 
 .red-head{
     background: radial-gradient(#bb0000, #6e0000);
