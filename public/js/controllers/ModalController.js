@@ -20,6 +20,7 @@ function ModalController(app) {
     this.LoadData4EditProject = function(){
         $$("choose_project").load(function(){
             return webix.ajax("/load_modal_projectlist_edit").then(function(data){
+                console.log(data.json());
                 return data.json();
             });
         });
@@ -27,6 +28,7 @@ function ModalController(app) {
     this.LoadData4DelProject = function(){
         $$("choose_project").load(function(){
             return webix.ajax("/load_modal_projectlist_delete").then(function(data){
+                console.log(data.json());
                 return data.json();
             });
         });
@@ -144,10 +146,16 @@ function ModalController(app) {
 
     this.LoadUsersOnProject = function (id) {
         let on = "/usersonproject/" + id.toString();
-        console.log(on);
         $$("project_doers").load(function(){
-            console.log('project doers: ');
             return webix.ajax(on).then(function(data){
+                return data.json();
+            });
+        });
+    };
+    this.LoadUsersOutProject = function (id) {
+        let out = "/usersoutproject/" + id.toString();
+        $$("all_doers").load(function(){
+            return webix.ajax(out).then(function(data){
                 return data.json();
             });
         });

@@ -337,25 +337,8 @@ function ModalView(app) {
                     Project_description:item.Project_description,
                 }, true);
 
-
-
-            let on = "/usersonproject/" + String(item.project_id);
-            let out = "/usersoutproject/" + String(item.project_id);
-            $$("project_doers").load(function(){
-                console.log('project doers: ');
-                return webix.ajax(on).then(function(data){
-                    return data.json();
-                });
-            });
-            $$("all_doers").load(function(){
-                console.log("all doers; ");
-                return webix.ajax(out).then(function(data){
-
-                    console.log(data.json());
-                    return data.json();
-                });
-            });
-
+            app.LoadUsersOnProject(item.Project_id);
+            app.LoadUsersOutProject(item.Project_id);
         });
 
         $$("all_doers").attachEvent("onItemClick", function (id) {
@@ -363,7 +346,6 @@ function ModalView(app) {
             $$("project_doers").add(item);
             this.remove(id);
         });
-
         $$("project_doers").attachEvent("onItemClick", function (id) {
             let item = this.getItem(id);
             $$("all_doers").add(item);
