@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"github.com/revel/revel"
 	"log"
-	"net/http"
 	"testapp/app/dbmanager"
 	"testapp/app/providers"
 )
@@ -48,11 +47,9 @@ func (c *UserController) GetSubordinates() revel.Result {
 //	return c.RenderJSON(data)
 //}
 
-func (c *UserController) AddUser(r *http.Request) revel.Result {
+func (c *UserController) AddUser() revel.Result {
 	request := c.Params.JSON
-	c.model.AddUser(request)
-	data := string(request)
-	log.Print(data)
+	data := c.model.AddUser(request)
 	return c.RenderJSON(data)
 }
 

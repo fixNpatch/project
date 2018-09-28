@@ -179,7 +179,8 @@ func (c *ProjectModel) DelProject(body []byte) string {
 		_, err := c.DB.Query(sqlcostatement2, &project.Project_id)
 		if err != nil {
 			fmt.Println(err.Error())
-			return ""
+			fmt.Println("cannot delete task")
+			return "Cannot delete task"
 		}
 		fmt.Println("REMOVE ONE LINE IN TOC")
 	}

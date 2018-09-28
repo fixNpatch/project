@@ -2,10 +2,12 @@ package providers
 
 import (
 	"database/sql"
+	"encoding/json"
 	"fmt"
 	"github.com/revel/revel"
 	"io/ioutil"
-	"os"
+	"math/rand"
+	"time"
 )
 
 type UserModel struct {
@@ -33,17 +35,33 @@ func (c *UserModel) GetSubordinates() string {
 	return url
 }
 
-func (c *UserModel) AddUser(data []byte) revel.Result {
-	path := revel.AppPath
-	f, err := os.OpenFile(path+"/dummy/test.json", os.O_APPEND|os.O_WRONLY, 0600)
+//func (c *UserModel) AddUser(data []byte) revel.Result {
+//	path := revel.AppPath
+//	f, err := os.OpenFile(path+"/dummy/test.json", os.O_APPEND|os.O_WRONLY, 0600)
+//	if err != nil {
+//		fmt.Print(err.Error())
+//	}
+//	defer f.Close()
+//	if _, err = f.WriteString(string(data)); err != nil {
+//		fmt.Print(err.Error())
+//	}
+//	return nil
+//}
+
+func (c *UserModel) AddUser(body []byte) string {
+	var user User
+	rand.Seed(time.Now().UnixNano())
+	random := rand.Int()
+	json.Unmarshal(body, &user)
+	sqlstatement := `INSERT INTO t_Users (c_user_login, c_user_password, c_user_firstname, c_user_secondname, c_user_middlename,c_user_rank, c_user_registration,  c_user_pic) 
+VALUES ($1, $2, $3, $4, $5, $6, $7, $8);`
+	_, err := c.DB.Query(sqlstatement, "login"+string(random), "password", &user.User_firstname, &user.User_secondname, &user.User_middlename, &user.User_rank, time.Now(), "/public/img/avatar.jpg")
 	if err != nil {
-		fmt.Print(err.Error())
+		fmt.Println(err.Error())
+		return ""
 	}
-	defer f.Close()
-	if _, err = f.WriteString(string(data)); err != nil {
-		fmt.Print(err.Error())
-	}
-	return nil
+	fmt.Println("Successful add user")
+	return string(body)
 }
 
 func (c *UserModel) GetUsers() []User {

@@ -435,6 +435,7 @@ function ModalView(app) {
         $$("submit_button").attachEvent("onItemClick", function(){
             let save = $$("add_user_form").getValues();
             delete save.button;
+            save.User_rank = save.User_rank.toString()
             //save.User_rank = $$("User_rank").getInputNode(save.User_rank).value;
             save.User_timestamp = parseDate(new Date());
             app.AddUser(save);
