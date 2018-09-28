@@ -103,25 +103,25 @@ func (c *ProjectModel) GetUsersOutProject(id int) string {
 
 func (c *ProjectModel) AddProject(body []byte) string {
 	var project Project
-	json.Unmarshal(body, &project)
+	err := json.Unmarshal(body, &project)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 	sqlstatement := `INSERT INTO t_projects(c_project_number, c_project_title, c_project_description, c_project_status, c_project_timestamp) 
 	VALUES ($1, $2, $3, $4, $5);`
-	_, err := c.DB.Query(sqlstatement, rand.Intn(1000), &project.Project_title, &project.Project_description, 1, time.Now())
+	_, err = c.DB.Query(sqlstatement, rand.Intn(1000), &project.Project_title, &project.Project_description, 1, time.Now())
 	cnt := 0
 	if err != nil { /*IF NOT WORKING REMOVE CNT STATEMENT */
 		if cnt < 3 {
 			c.DB.Query(sqlstatement, rand.Intn(1000), &project.Project_title, &project.Project_description, 1, time.Now())
 		} else {
 			fmt.Println(err.Error())
-			return ""
+			return "Cannot add project"
 		}
 		cnt++
 	}
 
-	fmt.Print("==================== USERSTACK LEN ============================")
-	fmt.Println(&project.Userstack)
-
-	sqltocinsert := `INSERT INTO toc_projects_users_projects(fk_project_id, fk_user_id) VALUES ($1, $2);`
+	sqltocinsert := `INSERT INTO toc_projects_users(fk_project_id, fk_user_id) VALUES ($1, $2);`
 	for i := 0; i < len(project.Userstack); i++ {
 		_, err := c.DB.Query(sqltocinsert, &project.Project_id, &project.Userstack[i].User_id)
 		if err != nil {
@@ -130,7 +130,7 @@ func (c *ProjectModel) AddProject(body []byte) string {
 		fmt.Println("############## ADD NEW LINE IN TOC ################")
 	}
 
-	fmt.Println("Successful add task")
+	fmt.Println("Successful add project")
 	return string(body)
 }
 
@@ -160,6 +160,16 @@ func (c *ProjectModel) DelProject(body []byte) string {
 	}
 
 	/* ALSO REQUIRE TO DELETE ALL TASK INCLUDED IN PROJECT*/
+
+	sqlcostatement2 := `DELETE FROM t_Tasks WHERE t_tasks.fk_project_id = $1`
+	for i := 0; i < len(project.Userstack); i++ {
+		_, err := c.DB.Query(sqlcostatement2, &project.Project_id)
+		if err != nil {
+			fmt.Println(err.Error())
+			return ""
+		}
+		fmt.Println("REMOVE ONE LINE IN TOC")
+	}
 
 	fmt.Println("Successful del task")
 	return string(body)

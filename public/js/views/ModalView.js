@@ -197,8 +197,7 @@ function ModalView(app) {
         app.LoadData4AddProject();
         $$("submit_button").attachEvent("onItemClick", function(){
             let save = $$("add_project").getValues();
-            save.Project_status = 1;
-            save.Project_timestamp = parseDate(new Date());
+            save.Project_status = "1";
             save.Userstack = [];
             $$("project_doers").eachRow(function (row) {
                 save.Userstack.push(this.getItem(row));
